@@ -139,19 +139,70 @@ cxl-vaadin-accordion {
    * Theme "cxl-jobs-listing".
    */
   &[theme~="cxl-jobs-listing"] {
+    p {
+      font-family: inherit;
+    }
+
     .entry-header {
-      .entry-title {
-        margin: 0;
-        font-size: var(--lumo-font-size-m);
+      display: grid;
+      grid-column-gap: var(--lumo-space-m);
+      grid-template-columns: auto 1fr;
+      margin-right: var(--lumo-space-m);
 
-        > span {
-          margin-left: var(--lumo-space-m);
-          font-weight: 400;
+      .entry-excerpt {
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        @media #{mq.$small} {
+          grid-column-start: 2;
         }
 
-        a {
-          color: var(--lumo-body-text-color);
+        p {
+          margin-bottom: 0; // match .entry-title margin-top 0
         }
+      }
+
+      // Image, maybe linked.
+      > :first-child {
+        grid-row-start: 1;
+        grid-row-end: 2;
+
+        @media #{mq.$small} {
+          grid-row-end: 3;
+        }
+      }
+    }
+
+    .entry-summary {
+      @media #{mq.$small} {
+        // @todo Eliminate magic number.
+        margin-left: calc(var(--lumo-space-m) * 5.5);
+      }
+    }
+
+    .thumbnail {
+      --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 1.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--lumo-contrast-70pct);
+    }
+
+    .entry-title {
+      display: flex;
+      align-items: center;
+      grid-row-start: 1;
+      grid-row-end: 3;
+      margin: 0;
+      font-size: var(--lumo-font-size-m);
+
+      > span {
+        margin-left: var(--lumo-space-m);
+        font-weight: 400;
+      }
+
+      a {
+        color: var(--lumo-body-text-color);
       }
     }
   }
