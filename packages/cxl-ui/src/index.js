@@ -2,6 +2,7 @@ import * as Headroom from 'headroom.js';
 
 export { CXLInstituteLayout } from './components/cxl-institute-layout.js';
 export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
+export { CXLJobsFeaturedBannerElement } from './components/cxl-jobs-featured-banner.js';
 
 // Order matters.
 export { CXLVaadinAccordion } from './components/cxl-vaadin-accordion.js';
