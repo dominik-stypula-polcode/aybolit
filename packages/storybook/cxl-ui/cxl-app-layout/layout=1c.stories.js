@@ -7,9 +7,9 @@ export default {
   title: 'CXL UI | cxl-app-layout'
 };
 
-export const CxlAppLayoutTheme2CL = () => {
+export const CxlAppLayout = () => {
   return html`
-    <cxl-app-layout id="container" theme="2c-l">
+    <cxl-app-layout id="container">
       ${CxlMarketingNav()}
 
       <div slot="sidebar">
@@ -28,6 +28,6 @@ export const CxlAppLayoutTheme2CL = () => {
   `;
 };
 
-CxlAppLayoutTheme2CL.story = {
-  name: '[theme=2c-l]'
+CxlAppLayout.story = {
+  name: '[layout=1c] (default)'
 };

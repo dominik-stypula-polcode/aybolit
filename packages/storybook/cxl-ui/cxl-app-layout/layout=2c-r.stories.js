@@ -7,9 +7,9 @@ export default {
   title: 'CXL UI | cxl-app-layout'
 };
 
-export const CxlAppLayoutThemeCxlInstitute = () => {
+export const CxlAppLayout2cr = () => {
   return html`
-    <cxl-app-layout id="container" theme="cxl-institute">
+    <cxl-app-layout id="container" layout="2c-r">
       ${CxlMarketingNav()}
 
       <section id="sensei_course_progress-2" class="widget-odd widget-last widget-first widget-1 widget widget_sensei_course_progress" slot="sidebar">
@@ -158,6 +158,6 @@ export const CxlAppLayoutThemeCxlInstitute = () => {
 `;
 };
 
-CxlAppLayoutThemeCxlInstitute.story = {
-  name: '[theme=cxl-institute]'
+CxlAppLayout2cr.story = {
+  name: '[layout=2c-r]'
 };
