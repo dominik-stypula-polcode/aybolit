@@ -1,15 +1,21 @@
 import { html } from 'lit-html';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import { CxlMarketingNav } from '../cxl-marketing-nav.stories';
 
 export default {
+  decorators: [withKnobs],
   title: 'CXL UI | cxl-app-layout'
 };
 
 export const CxlAppLayout2cr = () => {
+  const hasPanelsScroll = boolean('Has panels scroll?', true);
+
   return html`
-    <cxl-app-layout id="container" layout="2c-r">
+    <cxl-app-layout id="container" layout="2c-r" scroll="${
+      hasPanelsScroll ? 'panels' : 'document'
+    }">
       ${CxlMarketingNav()}
 
       <section id="sensei_course_progress-2" class="widget-odd widget-last widget-first widget-1 widget widget_sensei_course_progress" slot="sidebar">
