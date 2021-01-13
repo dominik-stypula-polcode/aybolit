@@ -3,38 +3,10 @@ import '@conversionxl/cxl-lumo-styles';
 import { ContextMenuElement } from '@vaadin/vaadin-context-menu/src/vaadin-context-menu.js';
 
 @customElement('cxl-inline-comment-context-menu')
-export class CXLInlineCommentContextMenu extends ContextMenuElement {
+export class CxlInlineCommentContextMenu extends ContextMenuElement {
   ready() {
     super.ready();
     this.appendContextMenuScript();
-  }
-
-  static get is() {
-    return 'cxl-inline-comment-context-menu';
-  }
-
-  static get properties() {
-    return {
-      ...super.properties,
-      textareaPlaceholder: {
-        type: String,
-        value: 'Put your comment here',
-        notify: true,
-        reflectToAttribute: true
-      },
-      buttonText: {
-        type: String,
-        value: 'Save comment',
-        notify: true,
-        reflectToAttribute: true
-      },
-      buttonTextSavingComment: {
-        type: String,
-        value: 'Saving...',
-        notify: true,
-        reflectToAttribute: true
-      }
-    };
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -53,23 +25,25 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
         root.appendChild(listBox);
       }
       const txt = doc.createElement('textarea');
-      txt.placeholder = this.textareaPlaceholder;
+      txt.placeholder = 'Put your comment here';
       listBox.appendChild(txt);
       const but = doc.createElement('button');
-      but.textContent = this.buttonText;
+      but.textContent = 'Save comment';
       but.onclick = () => {
         but.disabled = true;
-        but.textContent = this.buttonTextSavingComment;
-        const evt = new CustomEvent('cxl-save-inline-comment', {
-          bubbles: true,
-          composed: true,
-          detail: {
-            comment: txt.value,
-            context: contextMenu.innerHTML,
-            elementId: this.getAttribute('id')
-          }
-        });
-        contextMenu.dispatchEvent(evt);
+        but.textContent = 'Saving...';
+        setTimeout(() => {
+          const evt = new CustomEvent('save-inline-comment', {
+            bubbles: true,
+            composed: true,
+            detail: {
+              comment: txt.value,
+              context: contextMenu.innerHTML
+            }
+          });
+          contextMenu.dispatchEvent(evt);
+          doc.body.click();
+        }, 2000);
       };
       listBox.appendChild(but);
     };
