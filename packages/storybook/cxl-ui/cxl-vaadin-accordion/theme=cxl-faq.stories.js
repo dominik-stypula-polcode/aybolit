@@ -2,6 +2,7 @@ import { html } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import faqData from './theme=cxl-faq.data.json';
+import { appendContextMenuScript } from './theme=cxl-faq.vaadin-context-menu-example';
 
 export default {
   title: 'CXL UI|cxl-vaadin-accordion'
@@ -15,13 +16,14 @@ export const CxlVaadinAccordionThemeFaq = () => {
       }
     </style>
     <h3>Frequently Asked Questions</h3>
+
     <cxl-vaadin-accordion
       id="cxl-vaadin-accordion-26107"
       class="archive archive-faq plural"
       theme="cxl-faq"
     >
       ${faqData.map(
-        el => html`
+        (el, index) => html`
           <vaadin-accordion-panel
             id="${el.cxl_hybrid_attr_post['@attributes'].id}"
             class="${el.cxl_hybrid_attr_post['@attributes'].class}"
@@ -29,11 +31,23 @@ export const CxlVaadinAccordionThemeFaq = () => {
           >
             <header class="entry-header" slot="summary">
               <h5 class="entry-title" itemprop="headline">
-                <a>${unsafeHTML(el.title.rendered)}</a>
+                <vaadin-context-menu
+                  id="customContextMenu_${index}_title"
+                  @save-inline-comment=${evt => console.log(evt)}
+                >
+                  <a>${unsafeHTML(el.title.rendered)}</a>
+                </vaadin-context-menu>
+                ${appendContextMenuScript(`${index}_title`)}
               </h5>
             </header>
             <div class="entry-summary" itemprop="description">
-              ${unsafeHTML(el.content.rendered)}
+              <vaadin-context-menu
+                id="customContextMenu_${index}_content"
+                @save-inline-comment=${evt => console.log(evt)}
+              >
+                <span>${unsafeHTML(el.content.rendered)}</span>
+              </vaadin-context-menu>
+              ${appendContextMenuScript(`${index}_content`)}
             </div>
           </vaadin-accordion-panel>
         `
