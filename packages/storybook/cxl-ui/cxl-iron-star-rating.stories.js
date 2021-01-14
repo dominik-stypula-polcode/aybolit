@@ -3,6 +3,12 @@ import '@conversionxl/cxl-ui/src/components/cxl-institute-layout.js';
 import '@cwmr/iron-star-rating';
 import { withKnobs, boolean, number } from '@storybook/addon-knobs';
 
+/**
+ * --> for future selves, machine elves
+ * all about knobs in storybook with examples
+ * https://github.com/storybookjs/storybook/tree/master/addons/knobs
+ */
+
 export default {
   title: 'CXL UI',
   decorators: [withKnobs]
