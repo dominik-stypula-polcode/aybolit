@@ -3,10 +3,7 @@ import '@conversionxl/cxl-lumo-styles';
 import { ContextMenuElement } from '@vaadin/vaadin-context-menu/src/vaadin-context-menu.js';
 
 @customElement('cxl-inline-comment-context-menu')
-export class CxlInlineCommentContextMenu extends ContextMenuElement {
-  // @property({ type: String, reflect:true })
-  // textareaPlaceholder = 'Put your comment here';
-
+export class CXLInlineCommentContextMenu extends ContextMenuElement {
   ready() {
     super.ready();
     this.appendContextMenuScript();
