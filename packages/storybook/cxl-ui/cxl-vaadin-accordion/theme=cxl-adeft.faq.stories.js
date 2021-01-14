@@ -16,7 +16,7 @@ const saveInlineCommentHandler = evt => {
 };
 
 const Template = () => {
-  const isDisabled = boolean('Disabled', false);
+  const opened = boolean('Opened', false);
   return html`
     <style>
       .plural .entry-title {
@@ -40,7 +40,7 @@ const Template = () => {
             <header class="entry-header" slot="summary">
               <h5 class="entry-title" itemprop="headline">
                 <cxl-inline-comment-context-menu
-                  disabled="${isDisabled}"
+                  opened="${opened}"
                   id="${el.cxl_hybrid_attr_post['@attributes'].id}_title"
                   @cxl-save-inline-comment=${saveInlineCommentHandler}
                 >
@@ -50,7 +50,7 @@ const Template = () => {
             </header>
             <div class="entry-summary" itemprop="description">
               <cxl-inline-comment-context-menu
-                disabled="${isDisabled}"
+                ?opened="${opened}"
                 id="${el.cxl_hybrid_attr_post['@attributes'].id}_content"
                 @cxl-save-inline-comment=${saveInlineCommentHandler}
               >
