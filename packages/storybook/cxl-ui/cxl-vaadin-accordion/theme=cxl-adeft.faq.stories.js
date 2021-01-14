@@ -1,61 +1,66 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-institute-layout.js';
-import { withKnobs, number } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import faqData from './theme=cxl-faq.data.json';
 
 export default {
-  title: 'CXL UI|cxl-adeft-accordion',
+  title: 'CXL UI|cxl-vaadin-accordion',
   decorators: [withKnobs]
 };
 
+const saveInlineCommentHandler = evt => {
+  // eslint-disable-next-line no-console
+  console.log(evt);
+  setTimeout(() => document.body.click(), 1000);
+};
+
 const Template = () => {
-  const width = number('Comments Width', 200);
-  const height = number('Comments Height', 60);
+  const isDisabled = boolean('Disabled', false);
   return html`
     <style>
       .plural .entry-title {
         margin: 0;
       }
-      textarea {
-        width: ${width}px;
-        height: ${height}px;
-      }
-      cxl-adeft-accordion {
-        padding: 10px;
-      }
     </style>
     <h3>Frequently Asked Questions</h3>
 
-    <cxl-adeft-accordion id="cxl-vaadin-accordion-26107" theme="reverse">
+    <cxl-vaadin-accordion
+      id="cxl-vaadin-accordion-26107"
+      class="archive archive-faq plural"
+      theme="cxl-faq"
+    >
       ${faqData.map(
         el => html`
           <vaadin-accordion-panel
             id="${el.cxl_hybrid_attr_post['@attributes'].id}"
             class="${el.cxl_hybrid_attr_post['@attributes'].class}"
-            theme="reverse"
+            theme="cxl-faq"
           >
-            <div class="accordionSummary" slot="summary">
-              <div class="left">
-                <vaadin-checkbox value="Option" theme="custom"></vaadin-checkbox>
-              </div>
-              <div class="right">
-                <div class="summaryTop">
-                  ${unsafeHTML(el.title.rendered)}
-                </div>
-              </div>
+            <header class="entry-header" slot="summary">
+              <h5 class="entry-title" itemprop="headline">
+                <cxl-inline-comment-context-menu
+                  disabled="${isDisabled}"
+                  id="${el.cxl_hybrid_attr_post['@attributes'].id}_title"
+                  @cxl-save-inline-comment=${saveInlineCommentHandler}
+                >
+                  <a>${unsafeHTML(el.title.rendered)}</a>
+                </cxl-inline-comment-context-menu>
+              </h5>
+            </header>
+            <div class="entry-summary" itemprop="description">
+              <cxl-inline-comment-context-menu
+                disabled="${isDisabled}"
+                id="${el.cxl_hybrid_attr_post['@attributes'].id}_content"
+                @cxl-save-inline-comment=${saveInlineCommentHandler}
+              >
+                <span>${unsafeHTML(el.content.rendered)}</span>
+              </cxl-inline-comment-context-menu>
             </div>
-            <vaadin-vertical-layout>
-              <div class="itemContent">
-                <div class="checked">
-                  ${unsafeHTML(el.content.rendered)}
-                </div>
-              </div>
-            </vaadin-vertical-layout>
           </vaadin-accordion-panel>
         `
       )}
-    </cxl-adeft-accordion>
+    </cxl-vaadin-accordion>
   `;
 };
 
