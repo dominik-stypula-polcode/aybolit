@@ -66,7 +66,7 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
           detail: {
             comment: txt.value,
             context: contextMenu.innerHTML,
-            elementId: this.id
+            elementId: this.getAttribute('id')
           }
         });
         contextMenu.dispatchEvent(evt);
