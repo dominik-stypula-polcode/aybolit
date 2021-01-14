@@ -8,6 +8,11 @@ export default {
   title: 'CXL UI|cxl-vaadin-accordion'
 };
 
+const saveInlineCommentHandler = evt => {
+  console.log(evt);
+  setTimeout(() => document.body.click(), 1000);
+};
+
 export const CxlVaadinAccordionThemeFaq = () => {
   return html`
     <style>
@@ -31,13 +36,21 @@ export const CxlVaadinAccordionThemeFaq = () => {
           >
             <header class="entry-header" slot="summary">
               <h5 class="entry-title" itemprop="headline">
-                <cxl-inline-comment-context-menu @save-inline-comment=${evt => console.log(evt)}>
+                <cxl-inline-comment-context-menu
+                  id="${el.cxl_hybrid_attr_post['@attributes'].id}_title"
+                  textarea-placeholder="Comment on title"
+                  @cxl-save-inline-comment=${saveInlineCommentHandler}
+                >
                   <a>${unsafeHTML(el.title.rendered)}</a>
                 </cxl-inline-comment-context-menu>
               </h5>
             </header>
             <div class="entry-summary" itemprop="description">
-              <cxl-inline-comment-context-menu @save-inline-comment=${evt => console.log(evt)}>
+              <cxl-inline-comment-context-menu
+                id="${el.cxl_hybrid_attr_post['@attributes'].id}_content"
+                textarea-placeholder="Comment on content"
+                @cxl-save-inline-comment=${saveInlineCommentHandler}
+              >
                 <span>${unsafeHTML(el.content.rendered)}</span>
               </cxl-inline-comment-context-menu>
             </div>
