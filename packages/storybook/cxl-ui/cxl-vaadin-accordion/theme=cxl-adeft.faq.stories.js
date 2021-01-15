@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-institute-layout.js';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, number } from '@storybook/addon-knobs';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import faqData from './theme=cxl-faq.data.json';
 
@@ -16,11 +16,17 @@ const saveInlineCommentHandler = evt => {
 };
 
 const Template = () => {
-  const opened = boolean('Opened', false);
+  const disabled = boolean('Comments Disabled', false);
+  const width = number('Comments Width', 200);
+  const height = number('Comments Height', 60);
   return html`
     <style>
       .plural .entry-title {
         margin: 0;
+      }
+      textarea {
+        width: ${width}px;
+        height: ${height}px;
       }
     </style>
     <h3>Frequently Asked Questions</h3>
@@ -39,23 +45,33 @@ const Template = () => {
           >
             <header class="entry-header" slot="summary">
               <h5 class="entry-title" itemprop="headline">
-                <cxl-inline-comment-context-menu
-                  opened="${opened}"
-                  id="${el.cxl_hybrid_attr_post['@attributes'].id}_title"
-                  @cxl-save-inline-comment=${saveInlineCommentHandler}
-                >
-                  <a>${unsafeHTML(el.title.rendered)}</a>
-                </cxl-inline-comment-context-menu>
+                ${disabled
+                  ? html`
+                      <a>${unsafeHTML(el.title.rendered)}</a>
+                    `
+                  : html`
+                      <cxl-inline-comment-context-menu
+                        id="${el.cxl_hybrid_attr_post['@attributes'].id}_title"
+                        @cxl-save-inline-comment=${saveInlineCommentHandler}
+                      >
+                        <a>${unsafeHTML(el.title.rendered)}</a>
+                      </cxl-inline-comment-context-menu>
+                    `}
               </h5>
             </header>
             <div class="entry-summary" itemprop="description">
-              <cxl-inline-comment-context-menu
-                ?opened="${opened}"
-                id="${el.cxl_hybrid_attr_post['@attributes'].id}_content"
-                @cxl-save-inline-comment=${saveInlineCommentHandler}
-              >
-                <span>${unsafeHTML(el.content.rendered)}</span>
-              </cxl-inline-comment-context-menu>
+              ${disabled
+                ? html`
+                    <span>${unsafeHTML(el.content.rendered)}</span>
+                  `
+                : html`
+                    <cxl-inline-comment-context-menu
+                      id="${el.cxl_hybrid_attr_post['@attributes'].id}_content"
+                      @cxl-save-inline-comment=${saveInlineCommentHandler}
+                    >
+                      <span>${unsafeHTML(el.content.rendered)}</span>
+                    </cxl-inline-comment-context-menu>
+                  `}
             </div>
           </vaadin-accordion-panel>
         `
