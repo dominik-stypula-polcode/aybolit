@@ -19,7 +19,6 @@
     "@storybook/polymer": "^5.3.13",
     "@storybook/storybook-deployer": "^2.8.1",
     "@vaadin/vaadin-button": "^2.1.5",
-    "@vaadin/vaadin-context-menu": "^4.5.0",
     "lit-html": "^1.0.0"
   },
   "scripts": {
