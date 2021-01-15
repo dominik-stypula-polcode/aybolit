@@ -39,39 +39,38 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
 
   // eslint-disable-next-line class-methods-use-this
   appendContextMenuScript() {
-    // eslint-disable-next-line func-names
     const doc = window.document;
     const contextMenu = this;
     contextMenu.closeOn = 'blur';
     contextMenu.renderer = root => {
       let listBox = root.firstElementChild;
-      // Check if there is a list-box generated with the previous renderer call to update its content instead of recreation
+      // // Check if there is a list-box generated with the previous renderer call to update its content instead of recreation
       if (listBox) {
         listBox.innerHTML = '';
       } else {
         listBox = doc.createElement('vaadin-list-box');
         root.appendChild(listBox);
       }
-      const txt = doc.createElement('textarea');
-      txt.placeholder = this.textareaPlaceholder;
-      listBox.appendChild(txt);
-      const but = doc.createElement('button');
-      but.textContent = this.buttonText;
-      but.onclick = () => {
-        but.disabled = true;
-        but.textContent = this.buttonTextSavingComment;
+      listBox.innerHTML = `
+          <textarea id="commentArea" placeholder="${this.textareaPlaceholder}"></textarea>
+          <button id="sendButton">${this.buttonText}</button>
+        `;
+      const button = root.querySelector('#sendButton');
+      const textarea = root.querySelector('#commentArea');
+      button.onclick = () => {
+        button.disabled = true;
+        button.textContent = this.buttonTextSavingComment;
         const evt = new CustomEvent('cxl-save-inline-comment', {
           bubbles: true,
           composed: true,
           detail: {
-            comment: txt.value,
+            comment: textarea.value,
             context: contextMenu.innerHTML,
             elementId: this.getAttribute('id')
           }
         });
         contextMenu.dispatchEvent(evt);
       };
-      listBox.appendChild(but);
     };
   }
 }
