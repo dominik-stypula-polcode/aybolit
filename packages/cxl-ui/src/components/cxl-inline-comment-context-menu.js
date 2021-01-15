@@ -1,11 +1,27 @@
 import { customElement } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import { ContextMenuElement } from '@vaadin/vaadin-context-menu/src/vaadin-context-menu.js';
+import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
+import cxlInlineCommentContextMenuGlobalStyles from '../styles/global/cxl-inline-comment-context-menu-css.js';
 
 @customElement('cxl-inline-comment-context-menu')
 export class CXLInlineCommentContextMenu extends ContextMenuElement {
   ready() {
     super.ready();
+    const overlayCss = `[part="content"] {
+      width: 500px;
+      height: 500px;
+      background: none;
+      box-shadow: none;
+      color: transparent;
+    }`;
+    const style = document.createElement('style');
+    style.textContent = overlayCss;
+    this.$.overlay.shadowRoot.appendChild(style);
+    registerGlobalStyles(cxlInlineCommentContextMenuGlobalStyles, {
+      moduleId: 'cxl-inline-comment-context-menu'
+    });
+
     this.appendContextMenuScript();
   }
 
@@ -24,7 +40,7 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
       },
       buttonText: {
         type: String,
-        value: 'Save comment',
+        value: 'Comment',
         notify: true,
         reflectToAttribute: true
       },
@@ -54,6 +70,7 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
       listBox.innerHTML = `
           <textarea id="commentArea" placeholder="${this.textareaPlaceholder}"></textarea>
           <button id="sendButton">${this.buttonText}</button>
+          <button id="cancelButton">Cancel</button>
         `;
       const button = root.querySelector('#sendButton');
       const textarea = root.querySelector('#commentArea');
