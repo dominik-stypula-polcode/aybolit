@@ -1,24 +1,59 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+$brand-color: #002bf1;
+$brand-color-hover: #f0f4ff;
 
 :host {
   display: inline-block;
 }
 
 .cxl-icon-with-text {
-  &.theme-default {
+  a {
+    display: inline-block;
+    text-decoration: none;
+    img {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .the-text {
+      display: inline-block;
+      text-decoration: underline;
+      vertical-align: middle;
+      transition: color 0.07s linear;
+    }
+  }
+
+  /**
+   * Just to have some switches for the demo (Storybook)
+   * The "brand theme" is the one that displays in blue
+   */
+  &.theme-brand {
+    a {
+      color: $brand-color;
+      &:visited {
+        color: $brand-color;
+      }
+      &:hover {
+        color: $brand-color-hover;
+      }
+    }
+  }
+  &.theme-primary {
     a {
       color: var(--lumo-primary-color);
       &:visited {
         color: var(--lumo-primary-color);
       }
-      text-decoration: none;
     }
   }
-  &.theme-black {
+
+  &.theme-shade {
     a {
-      color: var(--lumo-base-color);
+      color: var(--lumo-shade);
+      &:visited {
+        color: var(--lumo-shade);
+      }
       &:hover {
-        color: var(--lumo-base-color);
+        color: var(--lumo-shade);
       }
     }
   }

@@ -27,7 +27,7 @@ const Template = () => {
   const defaultUrl = text('Url', 'https://google.com');
   const defaultUrlTarget = text('Url Target', '_blank');
   const defaultIcon = text('Icon', sampleIcon.src);
-  const defaultTheme = select('Theme', ['primary', 'black'], 'primary');
+  const defaultTheme = select('Theme', ['brand', 'primary', 'shade'], 'brand');
 
   return html`
     <cxl-institute-layout id="container" theme="2c-l">
