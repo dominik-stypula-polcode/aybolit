@@ -1,0 +1,25 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+
+:host {
+  display: inline-block;
+}
+
+.cxl-icon-with-text {
+  &.theme-default {
+    a {
+      color: var(--lumo-primary-color);
+      &:visited {
+        color: var(--lumo-primary-color);
+      }
+      text-decoration: none;
+    }
+  }
+  &.theme-black {
+    a {
+      color: var(--lumo-base-color);
+      &:hover {
+        color: var(--lumo-base-color);
+      }
+    }
+  }
+}
