@@ -1,12 +1,41 @@
 import { customElement } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import { ContextMenuElement } from '@vaadin/vaadin-context-menu/src/vaadin-context-menu.js';
+import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
+import cxlInlineCommentContextMenuGlobalStyles from '../styles/global/cxl-inline-comment-context-menu-css.js';
 
 @customElement('cxl-inline-comment-context-menu')
 export class CXLInlineCommentContextMenu extends ContextMenuElement {
   ready() {
     super.ready();
+    this._appendOverlayCss();
+    registerGlobalStyles(cxlInlineCommentContextMenuGlobalStyles, {
+      moduleId: 'cxl-inline-comment-context-menu'
+    });
+
     this.appendContextMenuScript();
+  }
+
+  _appendOverlayCss() {
+    const overlayCss = `
+    [part="overlay"] {
+            border-radius: 20px;
+    }
+    [part="content"] {
+      width: 300px;
+      height: 80px;
+      color: transparent;
+      background: none;
+      box-shadow: none;
+
+      filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+      overflow: hidden;
+    }
+
+    `;
+    const style = document.createElement('style');
+    style.textContent = overlayCss;
+    this.$.overlay.shadowRoot.appendChild(style);
   }
 
   static get is() {
@@ -24,7 +53,7 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
       },
       buttonText: {
         type: String,
-        value: 'Save comment',
+        value: 'Comment',
         notify: true,
         reflectToAttribute: true
       },
@@ -52,8 +81,15 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
         root.appendChild(listBox);
       }
       listBox.innerHTML = `
-          <textarea id="commentArea" placeholder="${this.textareaPlaceholder}"></textarea>
-          <button id="sendButton">${this.buttonText}</button>
+          <div class="listBoxContainer">
+            <div class="areaContainer">
+                <textarea id="commentArea" placeholder="${this.textareaPlaceholder}"></textarea>
+            </div>
+            <div class="buttons">
+              <button id="sendButton">${this.buttonText}</button>
+              <button id="cancelButton">Cancel</button>
+            </div>
+          </div>
         `;
       const button = root.querySelector('#sendButton');
       const textarea = root.querySelector('#commentArea');
