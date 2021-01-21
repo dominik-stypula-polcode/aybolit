@@ -48,7 +48,7 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
         /** QUIRK WARNING: You can't set up correct icon here,
         because some stupid javascripts are turning it 90 degrees counter-clockwise
         so when you want "right" icon here you must set "up" icon etc.
-         */
+       */
         content: var(--lumo-icons-angle-left) !important;
       }
     `;
@@ -85,19 +85,21 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
    */
   _saveAccordionState(items) {
     const storageId = this.getAttribute('id');
+
     // Avoid null key.
     if (storageId) {
       const stateItems = [];
+
       items.forEach((value, key) => {
         stateItems[key] = items[key].opened;
       });
       this._dispatchCustomEvent(stateItems);
       localStorage.setItem(storageId, JSON.stringify(stateItems));
-      this._updateCSSAndPanelStateToCheckboxesStates();
+      this._updateClassesWithCheckboxesStatuses();
     }
   }
 
-  _updateCSSAndPanelStateToCheckboxesStates() {
+  _updateClassesWithCheckboxesStatuses() {
     const checkboxes = this.querySelectorAll('vaadin-checkbox');
     const panels = this.querySelectorAll('vaadin-accordion-panel');
     checkboxes.forEach((checkbox, index) => {
@@ -108,6 +110,7 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
       const accordionPanel = panels[index];
       accordionPanel.querySelectorAll('.summaryTop').forEach(el => {
         if (isChecked) {
+          accordionPanel.removeAttribute('opened');
           el.classList.add('checked');
         } else {
           el.classList.remove('checked');
