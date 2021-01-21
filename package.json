@@ -93,7 +93,6 @@
       "git add"
     ],
     "*.scss": [
-      "stylelint --syntax=scss",
       "prettier --single-quote=false --write",
       "git add"
     ]

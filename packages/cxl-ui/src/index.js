@@ -5,6 +5,7 @@ export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 
 // Order matters.
 export { CXLVaadinAccordion } from './components/cxl-vaadin-accordion.js';
+export { CXLAdeftAccordion } from './components/cxl-adeft-accordion.js';
 export { CXLAccordionCard } from './components/cxl-accordion-card.js';
 
 export { CXLInlineCommentContextMenu } from './components/cxl-inline-comment-context-menu';
