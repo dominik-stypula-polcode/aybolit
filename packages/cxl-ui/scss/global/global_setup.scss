@@ -1,0 +1,68 @@
+/* Brand */
+$brand-01: #002bf1;
+/* Complementary */
+$compl-01: #ffffff;
+$compl-01-hover: #f0f4ff;
+$compl-02: #d20707;
+$compl-03: #ffcf2d;
+/* Tophography */
+$text-01: #242628;
+$text-02-inverse: #ffffff;
+/* Surface / Background / Border */
+$ui-01: #d3d4d8;
+$ui-02: #f8f8f8;
+$ui-03: #919393;
+$ui-04: #ffcf2d;
+$ui-05: #d20707;
+/* Effects */
+$box-shadow-rgba: rgba(36, 38, 40, 0.12);
+
+$todo-checkbox-blue: #2247f2;
+$sidebar-box-borders: #bdbebf;
+
+$standard-margin: 16px;
+$medium-margin: 24px;
+$large-margin: 40px;
+
+/** global css classes to extend */
+
+/* Body strong */
+.fontBolded {
+  font-weight: 700;
+}
+.fontBolded600 {
+  font-weight: 600;
+}
+.fontBoldedMedium {
+  font-weight: 500;
+}
+
+.fontExtraLarge {
+  font-size: 28px;
+  line-height: 36px;
+}
+
+/* Body large */
+.fontLarge {
+  font-size: 18px;
+  line-height: 32px;
+}
+/* Body medium */
+.fontMedium {
+  font-size: 16px;
+  line-height: 24px;
+}
+/* Body small */
+.fontSmall {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.fontRegular {
+  font-family: Inter;
+  @extend .fontMedium;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+/* ---------- */
