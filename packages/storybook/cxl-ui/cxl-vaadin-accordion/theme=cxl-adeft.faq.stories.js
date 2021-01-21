@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-institute-layout.js';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, number } from '@storybook/addon-knobs';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import faqData from './theme=cxl-faq.data.json';
 
@@ -9,23 +9,22 @@ export default {
   decorators: [withKnobs]
 };
 
-const saveInlineCommentHandler = evt => {
-  // eslint-disable-next-line no-console
-  console.log(evt);
-  setTimeout(() => document.body.click(), 1000);
-};
-
 const Template = () => {
-  const isDisabled = boolean('Disabled', false);
+  const width = number('Comments Width', 200);
+  const height = number('Comments Height', 60);
   return html`
     <style>
       .plural .entry-title {
         margin: 0;
       }
+      textarea {
+        width: ${width}px;
+        height: ${height}px;
+      }
     </style>
     <h3>Frequently Asked Questions</h3>
 
-    <cxl-vaadin-accordion
+    <cxl-adeft-accordion
       id="cxl-vaadin-accordion-26107"
       class="archive archive-faq plural"
       theme="cxl-faq"
@@ -39,28 +38,16 @@ const Template = () => {
           >
             <header class="entry-header" slot="summary">
               <h5 class="entry-title" itemprop="headline">
-                <cxl-inline-comment-context-menu
-                  disabled="${isDisabled}"
-                  id="${el.cxl_hybrid_attr_post['@attributes'].id}_title"
-                  @cxl-save-inline-comment=${saveInlineCommentHandler}
-                >
-                  <a>${unsafeHTML(el.title.rendered)}</a>
-                </cxl-inline-comment-context-menu>
+                <a>${unsafeHTML(el.title.rendered)}</a>
               </h5>
             </header>
             <div class="entry-summary" itemprop="description">
-              <cxl-inline-comment-context-menu
-                disabled="${isDisabled}"
-                id="${el.cxl_hybrid_attr_post['@attributes'].id}_content"
-                @cxl-save-inline-comment=${saveInlineCommentHandler}
-              >
-                <span>${unsafeHTML(el.content.rendered)}</span>
-              </cxl-inline-comment-context-menu>
+              <span>${unsafeHTML(el.content.rendered)}</span>
             </div>
           </vaadin-accordion-panel>
         `
       )}
-    </cxl-vaadin-accordion>
+    </cxl-adeft-accordion>
   `;
 };
 
