@@ -22,13 +22,10 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
             border-radius: 20px;
     }
     [part="content"] {
-      width: 300px;
-      height: 80px;
+      width: 200px;
       color: transparent;
       background: none;
       box-shadow: none;
-
-      filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
       overflow: hidden;
     }
 

@@ -13,12 +13,14 @@ $blue: #1ea7fd;
     overflow: hidden;
     background: #fff;
   }
-  #areaContainer {
+  .areaContainer {
     width: 100%;
     justify-content: center;
     display: flex;
+    padding: 5px;
+    margin: 0;
     textarea {
-      width: calc(100% - 20px);
+      width: calc(100% - 10px);
       border: 2px solid $blue;
       border-radius: 5px;
     }
@@ -26,13 +28,12 @@ $blue: #1ea7fd;
 
   .buttons {
     display: flex;
-    margin-top: 5px;
     justify-content: left;
     width: 100%;
     padding-left: 7px;
     button {
       padding: 5px 10px;
-      border: 1px solid #fafafa;
+      border: 1px solid #a3a3a3;
       border-radius: 5px;
       box-shadow: none;
       font-weight: bold;
