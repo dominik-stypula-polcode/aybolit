@@ -1,5 +1,56 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 @use "../mixins";
+@import "./global_setup";
 
 cxl-adeft-accordion {
+  --lumo-secondary-text-color: #000;
+  --lumo-line-height-m: 20px;
+  --lumo-line-height-xs: 20px;
+  --lumo-font-size-m: 16px;
+  --lumo-primary-color: $todo-checkbox-blue;
+  --lumo-contrast-20pct: $todo-checkbox-blue;
+  margin-bottom: $standard-margin;
+
+  &.widened {
+    margin-right: -#{$standard-margin - 1};
+    margin-left: -#{$standard-margin - 1};
+  }
+
+  @media #{mq.$medium} {
+    &.widened {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  .itemContent {
+    @extend .fontMedium;
+    letter-spacing: 0.25px;
+    padding: $standard-margin $standard-margin/2;
+  }
+
+  .accordionSummary {
+    display: flex;
+    .left {
+      min-width: $large-margin;
+      width: $large-margin;
+      background: $todo-checkbox-blue;
+      border-radius: 4px 0 0 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .right {
+      padding: $standard-margin;
+      width: calc(100% - #{$large-margin});
+      .summaryTop {
+        @extend .fontBolded600;
+        @extend .fontMedium;
+        padding: 5px;
+        &.checked {
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
 }
