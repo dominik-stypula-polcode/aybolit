@@ -118,9 +118,9 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
 
   _updateCheckboxesStates() {
     const checkboxesStorageId = `${this.getAttribute('id')}_checkboxes`;
-    let stateCheckboxes = JSON.parse(localStorage.getItem(checkboxesStorageId));
+    const stateCheckboxes = JSON.parse(localStorage.getItem(checkboxesStorageId));
     if (stateCheckboxes === null) {
-      stateCheckboxes = [];
+      return;
     }
     const checkboxes = this.querySelectorAll('vaadin-checkbox');
     checkboxes.forEach((item, key) => {
