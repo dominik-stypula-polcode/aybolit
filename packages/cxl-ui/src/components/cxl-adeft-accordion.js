@@ -125,7 +125,7 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
     const checkboxes = this.querySelectorAll('vaadin-checkbox');
     checkboxes.forEach((item, key) => {
       const checkbox = checkboxes[key];
-      const isChecked = stateCheckboxes[key];
+      const isChecked = !!stateCheckboxes[key]; // autocast from null or undefined to boolean
       checkbox.setAttribute('aria-checked', isChecked ? 'true' : 'false');
       checkbox.checked = isChecked;
     });
