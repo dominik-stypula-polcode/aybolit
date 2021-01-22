@@ -1,6 +1,6 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 @use "../mixins";
-@import "./global_setup";
+@import "~@conversionxl/cxl-lumo-styles/scss/global_adeft_setup";
 
 cxl-adeft-accordion {
   --lumo-secondary-text-color: #000;
