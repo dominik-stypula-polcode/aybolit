@@ -3,6 +3,11 @@
 @import "~@conversionxl/cxl-lumo-styles/scss/global_adeft_setup";
 
 cxl-adeft-accordion {
+  vaadin-vertical-layout {
+    display: flex;
+    border-top: 1px solid $todo-checkbox-blue;
+    border-left: 4px solid $todo-checkbox-blue;
+  }
   --lumo-secondary-text-color: #000;
   --lumo-line-height-m: 20px;
   --lumo-line-height-xs: 20px;
