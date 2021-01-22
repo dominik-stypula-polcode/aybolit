@@ -1976,15 +1976,6 @@
     rollup "^1.1.0"
     rollup-plugin-babel "^4.3.0"
 
-"@pika/plugin-build-web@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@pika/plugin-build-web/-/plugin-build-web-0.7.1.tgz#09d847f194972b1030844cef419e040c0665e57f"
-  integrity sha512-jF7BzBqJjE2BDdSqrs6dV/Gn7JdtU6k2cXcuBMte/tY92nC30ZwvOnPSD7p3UR3kCgTvuF7CcTM/i4LOOW8r+Q==
-  dependencies:
-    "@pika/types" "^0.7.1"
-    "@types/node" "^10.12.18"
-    rollup "^1.1.0"
-
 "@pika/plugin-build-web@^0.8.1":
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/@pika/plugin-build-web/-/plugin-build-web-0.8.3.tgz#4f6142c892c998e5ce8471bd2ca9dfbc715ca86a"
@@ -2004,23 +1995,6 @@
     rollup-plugin-commonjs "^9.2.0"
     rollup-plugin-json "^3.1.0"
     rollup-plugin-node-resolve "^4.0.0"
-
-"@pika/plugin-bundle-web@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@pika/plugin-bundle-web/-/plugin-bundle-web-0.7.1.tgz#f7cc1c05c34238da741c551cf772a3f6b576c010"
-  integrity sha512-qacMYNJgTK9PNggLvL2tGVtjFxBRknIeA+5ioZ/EmZPCBhbWbglPmTViXfuIJg+6dpmcHQPTblF2dot+Wjg9jQ==
-  dependencies:
-    "@babel/core" "^7.0.0"
-    "@babel/plugin-syntax-dynamic-import" "^7.2.0"
-    "@babel/plugin-syntax-import-meta" "^7.2.0"
-    "@babel/preset-env" "^7.2.3"
-    "@pika/types" "^0.7.1"
-    rollup "^1.1.0"
-    rollup-plugin-babel "^4.3.0"
-    rollup-plugin-commonjs "^9.2.0"
-    rollup-plugin-json "^3.1.0"
-    rollup-plugin-node-resolve "^4.0.0"
-    rollup-plugin-terser "^5.1.1"
 
 "@pika/plugin-bundle-web@^0.8.1":
   version "0.8.3"
@@ -2048,15 +2022,6 @@
     "@types/node" "^10.12.18"
     standard-pkg "^0.4.0"
 
-"@pika/plugin-standard-pkg@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@pika/plugin-standard-pkg/-/plugin-standard-pkg-0.7.1.tgz#7a4da2dcc726b4408d6f6006dbef73ca84acbea7"
-  integrity sha512-QVcui5YxSSjCdXsDxeEtq3pmHKroYbc/yF98g5Pm1ZSRt/zg/1ZG+N5rLMnlkjpSgQrZ24quXaLSS4jO3Z3iig==
-  dependencies:
-    "@pika/types" "^0.7.1"
-    "@types/node" "^10.12.18"
-    standard-pkg "^0.5.0"
-
 "@pika/plugin-standard-pkg@^0.8.1":
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/@pika/plugin-standard-pkg/-/plugin-standard-pkg-0.8.3.tgz#79104442a15457271342df1c8e74a431d63ae013"
@@ -2080,11 +2045,6 @@
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@pika/types/-/types-0.6.1.tgz#864b1803f3a95093b871ced387bb87779ebfc862"
   integrity sha512-1ZsOHGc0qJDofO+/98PfchHJqJjtfZL3liVGi4QZ28GtLmTVuZ4SUJFa5NgbsYawnrr//pdNOfx9JiaLFKpzrA==
-
-"@pika/types@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@pika/types/-/types-0.7.1.tgz#b875b4bb22c3949665e5f3e031634415e1ae0d8e"
-  integrity sha512-K4jnvnPAXbW1XqUQN4wsAt0H73gbgsRCESWF/Y2ceM1eBA13BS0fxc4ph2yRFXZfvwm+NrLojO14USqwF6gmeA==
 
 "@pika/types@^0.8.3":
   version "0.8.3"
@@ -2817,6 +2777,18 @@
     "@vaadin/vaadin-material-styles" "^1.2.0"
     "@vaadin/vaadin-themable-mixin" "^1.2.1"
 
+"@vaadin/vaadin-checkbox@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-checkbox/-/vaadin-checkbox-2.5.0.tgz#ee4baaf553d2fb01ee37515ba2dcda0af7dbcdcf"
+  integrity sha512-56DsET7CTvqVsVPNKuGdUuCY+uxyUydRZSf6V6yyaRSNFA3zKWJQ6ixzIxiXSR91fnpVXA75j1+GnLsnVfvV3A==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+    "@vaadin/vaadin-control-state-mixin" "^2.2.1"
+    "@vaadin/vaadin-element-mixin" "^2.4.1"
+    "@vaadin/vaadin-lumo-styles" "^1.4.1"
+    "@vaadin/vaadin-material-styles" "^1.2.0"
+    "@vaadin/vaadin-themable-mixin" "^1.6.1"
+
 "@vaadin/vaadin-context-menu@^4.3.14":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-context-menu/-/vaadin-context-menu-4.4.0.tgz#0653e8f9a65275e8d7715d8ad2b7d3aa01617275"
@@ -2851,6 +2823,13 @@
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-control-state-mixin/-/vaadin-control-state-mixin-2.2.3.tgz#da9456374f5a1f2348b4fa2cc01b0f32ee607824"
   integrity sha512-a0a+Hh99fQ5ueKTmY6F0i94jOfdOwKFS9ppNs0amfQwO+Js5ZC84naLnyVMVtY87K98FQ1vEYqpzxDYZy6duPw==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
+"@vaadin/vaadin-control-state-mixin@^2.2.1":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-control-state-mixin/-/vaadin-control-state-mixin-2.2.4.tgz#9c3779228ada8a9062ad18356e6a9a4317b8a162"
+  integrity sha512-oGsNaWbM6RisY1LkyWYtwnw+DtSRSpkFDbemEOtkYezj+Hhsd9+07LqILaUU4pB0zPaRq+uq+2tKba/TL3t23g==
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
@@ -3000,6 +2979,14 @@
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-themable-mixin/-/vaadin-themable-mixin-1.6.1.tgz#febaeea211a23e3a9f060345252bfe101284a469"
   integrity sha512-UXjOlEfMEk/QxpBjpiO0QTjPOSiO88bhhtV+0UTfpqk8ILvJYO+6vbwcja33xY5Wi9sTAXtHixAjM0LthyXglQ==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+    lit-element "^2.0.0"
+
+"@vaadin/vaadin-themable-mixin@^1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-themable-mixin/-/vaadin-themable-mixin-1.6.2.tgz#8d619722819ba850af777579a550ff8b1d2b960f"
+  integrity sha512-PZZOZnke3KUlZsDrRVbWxAGEeFBPRyRayNRCvip0XnQK+Zs3cLuRgdgbdro3Ir9LZ3Izsw6HqA6XNMKffEP67A==
   dependencies:
     "@polymer/polymer" "^3.0.0"
     lit-element "^2.0.0"
