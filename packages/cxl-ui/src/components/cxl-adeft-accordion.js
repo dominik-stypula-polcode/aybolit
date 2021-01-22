@@ -108,7 +108,6 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
       const accordionPanel = panels[index];
       accordionPanel.querySelectorAll('.summaryTop').forEach(el => {
         if (isChecked) {
-          accordionPanel.removeAttribute('opened');
           el.classList.add('checked');
         } else {
           el.classList.remove('checked');
