@@ -2,7 +2,7 @@ import { customElement } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/vaadin-accordion';
 import '@vaadin/vaadin-checkbox';
-import { registerStyles, css } from '@vaadin/vaadin-themable-mixin/register-styles.js';
+import { css, registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles.js';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import cxlAdeftAccordionGlobalStyles from '../styles/global/cxl-adeft-accordion-css.js';
 import { CXLVaadinAccordion } from './cxl-vaadin-accordion';
@@ -76,6 +76,7 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
     registerGlobalStyles(cxlAdeftAccordionGlobalStyles, {
       moduleId: 'cxl-adeft-accordion-global'
     });
+    this._updateCheckboxesStates();
   }
 
   /**
@@ -91,10 +92,44 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
       items.forEach((value, key) => {
         stateItems[key] = items[key].opened;
       });
-      this._dispatchCustomEvent(stateItems);
       localStorage.setItem(storageId, JSON.stringify(stateItems));
       this._updateCSSAndPanelStateToCheckboxesStates();
+      this._dispatchCustomEvent(stateItems);
+      this._saveCheckboxesState();
     }
+  }
+
+  _saveCheckboxesState() {
+    const stateCheckboxes = [];
+    const checkboxes = this.querySelectorAll('vaadin-checkbox');
+    checkboxes.forEach((value, key) => {
+      const checkbox = checkboxes[key];
+      stateCheckboxes[key] =
+        checkbox.hasAttribute('aria-checked') && checkbox.getAttribute('aria-checked') === 'true';
+    });
+    const checkboxesStorageId = `${this.getAttribute('id')}_checkboxes`;
+    localStorage.setItem(checkboxesStorageId, JSON.stringify(stateCheckboxes));
+  }
+
+  // Restore accordion panel state.
+  _updateItems(items, opened) {
+    super._updateItems(items, opened);
+  }
+
+  _updateCheckboxesStates() {
+    const checkboxesStorageId = `${this.getAttribute('id')}_checkboxes`;
+    let stateCheckboxes = JSON.parse(localStorage.getItem(checkboxesStorageId));
+    if (stateCheckboxes === null) {
+      stateCheckboxes = [];
+    }
+    const checkboxes = this.querySelectorAll('vaadin-checkbox');
+    checkboxes.forEach((item, key) => {
+      const checkbox = checkboxes[key];
+      const isChecked = stateCheckboxes[key];
+      checkbox.setAttribute('aria-checked', isChecked ? 'true' : 'false');
+      checkbox.checked = isChecked;
+    });
+    this._updateCSSAndPanelStateToCheckboxesStates();
   }
 
   _updateCSSAndPanelStateToCheckboxesStates() {
