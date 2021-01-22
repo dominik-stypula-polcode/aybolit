@@ -1,25 +1,17 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-institute-layout.js';
-import { withKnobs, number } from '@storybook/addon-knobs';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import faqData from './theme=cxl-faq.data.json';
 
 export default {
-  title: 'CXL UI|cxl-adeft-accordion',
-  decorators: [withKnobs]
+  title: 'CXL UI|cxl-adeft-accordion'
 };
 
 const Template = () => {
-  const width = number('Comments Width', 200);
-  const height = number('Comments Height', 60);
   return html`
     <style>
       .plural .entry-title {
         margin: 0;
-      }
-      textarea {
-        width: ${width}px;
-        height: ${height}px;
       }
       cxl-adeft-accordion {
         padding: 10px;
@@ -47,7 +39,7 @@ const Template = () => {
             </div>
             <vaadin-vertical-layout>
               <div class="itemContent">
-                <div class="checked">
+                <div>
                   ${unsafeHTML(el.content.rendered)}
                 </div>
               </div>
