@@ -15,10 +15,10 @@ cxl-adeft-accordion {
       margin-left: $opened-margin;
     }
 
-    @media #{mq.$large} {
+    @media #{mq.$medium} {
       &[opened] {
-        margin-right: inherit;
-        margin-left: inherit;
+        margin-right: 0;
+        margin-left: 0;
       }
     }
   }
