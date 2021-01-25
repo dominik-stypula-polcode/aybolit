@@ -26,7 +26,7 @@ cxl-adeft-accordion {
     padding: var(--lumo-space-l) var(--lumo-space-l) / 2;
   }
 
-  .accordion-summary {
+  [slot="summary"] {
     display: flex;
     .left {
       display: flex;

@@ -31,7 +31,7 @@ const Template = () => {
               class="${el.cxl_hybrid_attr_post['@attributes'].class}"
               theme="reverse"
             >
-              <div class="accordion-summary" slot="summary">
+              <div slot="summary">
                 <div class="left">
                   <vaadin-checkbox value="Option" theme="custom"></vaadin-checkbox>
                 </div>
