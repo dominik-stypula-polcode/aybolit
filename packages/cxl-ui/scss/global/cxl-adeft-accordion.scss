@@ -1,19 +1,22 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 @use "../mixins";
-@import "~@conversionxl/cxl-lumo-styles/scss/global_adeft_setup";
+
+$bg-color: #0000ff;
+$standard-margin: 16px;
+$medium-margin: 24px;
+$large-margin: 32px;
 
 cxl-adeft-accordion {
   vaadin-vertical-layout {
     display: flex;
-    border-top: 1px solid $todo-checkbox-blue;
-    border-left: 4px solid $todo-checkbox-blue;
+    border-top: 1px solid $bg-color;
+    border-left: 4px solid $bg-color;
   }
   --lumo-secondary-text-color: #000;
   --lumo-line-height-m: 20px;
   --lumo-line-height-xs: 20px;
-  --lumo-font-size-m: 16px;
-  --lumo-primary-color: $todo-checkbox-blue;
-  --lumo-contrast-20pct: $todo-checkbox-blue;
+  --lumo-primary-color: $bg-color;
+  --lumo-contrast-20pct: $bg-color;
   margin-bottom: $standard-margin;
 
   &.widened {
@@ -29,7 +32,6 @@ cxl-adeft-accordion {
   }
 
   .itemContent {
-    @extend .fontMedium;
     letter-spacing: 0.25px;
     padding: $standard-margin $standard-margin/2;
   }
@@ -39,7 +41,7 @@ cxl-adeft-accordion {
     .left {
       min-width: $large-margin;
       width: $large-margin;
-      background: $todo-checkbox-blue;
+      background: $bg-color;
       border-radius: 4px 0 0 4px;
       display: flex;
       align-items: center;
@@ -49,8 +51,6 @@ cxl-adeft-accordion {
       padding: $standard-margin;
       width: calc(100% - #{$large-margin});
       .summaryTop {
-        @extend .fontBolded600;
-        @extend .fontMedium;
         padding: 5px;
         &.checked {
           text-decoration: line-through;
