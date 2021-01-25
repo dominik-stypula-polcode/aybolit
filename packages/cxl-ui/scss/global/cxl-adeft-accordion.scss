@@ -1,22 +1,18 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 @use "../mixins";
 
-$standard-margin: 16px;
-$medium-margin: 24px;
-$large-margin: 32px;
-
 cxl-adeft-accordion {
   vaadin-vertical-layout {
     display: flex;
   }
 
-  --lumo-line-height-m: 20px;
-  --lumo-line-height-xs: 20px;
-  margin-bottom: $standard-margin;
+  vaadin-accordion-panel {
+    margin-bottom: var(--lumo-space-s);
+  }
 
   &[widened] {
-    margin-right: -#{$standard-margin - 1};
-    margin-left: -#{$standard-margin - 1};
+    margin-right: -#{var(--lumo-space-l) - 1};
+    margin-left: -#{var(--lumo-space-l) - 1};
   }
 
   @media #{mq.$medium} {
@@ -27,8 +23,7 @@ cxl-adeft-accordion {
   }
 
   .item-content {
-    padding: $standard-margin $standard-margin / 2;
-    letter-spacing: 0.25px;
+    padding: var(--lumo-space-l) var(--lumo-space-l) / 2;
   }
 
   .accordion-summary {
@@ -37,15 +32,15 @@ cxl-adeft-accordion {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: $large-margin;
-      min-width: $large-margin;
-      border-radius: 4px 0 0 4px;
+      width: var(--lumo-space-xl);
+      min-width: var(--lumo-space-xl);
+      border-radius: var(--lumo-border-radius-l);
     }
     .right {
-      width: calc(100% - #{$large-margin});
-      padding: $standard-margin;
+      width: calc(100% - #{var(--lumo-space-xl)});
+      padding: var(--lumo-space-l);
       .summary-top {
-        padding: 5px;
+        padding: var(--lumo-space-s);
         &.checked {
           text-decoration: line-through;
         }
