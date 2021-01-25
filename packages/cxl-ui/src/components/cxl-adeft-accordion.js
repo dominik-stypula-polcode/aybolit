@@ -72,10 +72,12 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
    */
   ready() {
     super.ready();
+
     // Define and register a style sheet for the <vaadin-text-field> component
     registerGlobalStyles(cxlAdeftAccordionGlobalStyles, {
       moduleId: 'cxl-adeft-accordion-global'
     });
+
     this._updateCheckboxesStates();
   }
 
@@ -89,12 +91,17 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
     // Avoid null key.
     if (storageId) {
       const stateItems = [];
+
       items.forEach((value, key) => {
         stateItems[key] = items[key].opened;
       });
+
       localStorage.setItem(storageId, JSON.stringify(stateItems));
+
       this._updateCSSAndPanelStateToCheckboxesStates();
+
       this._dispatchCustomEvent(stateItems);
+
       this._saveCheckboxesState();
     }
   }
@@ -102,11 +109,14 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
   _saveCheckboxesState() {
     const stateCheckboxes = [];
     const checkboxes = this.querySelectorAll('vaadin-checkbox');
+
     checkboxes.forEach((value, key) => {
       const checkbox = checkboxes[key];
+
       stateCheckboxes[key] =
         checkbox.hasAttribute('aria-checked') && checkbox.getAttribute('aria-checked') === 'true';
     });
+
     const checkboxesStorageId = `${this.getAttribute('id')}_checkboxes`;
     localStorage.setItem(checkboxesStorageId, JSON.stringify(stateCheckboxes));
   }
@@ -119,27 +129,34 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
   _updateCheckboxesStates() {
     const checkboxesStorageId = `${this.getAttribute('id')}_checkboxes`;
     const stateCheckboxes = JSON.parse(localStorage.getItem(checkboxesStorageId));
+
     if (stateCheckboxes === null) {
       return;
     }
+
     const checkboxes = this.querySelectorAll('vaadin-checkbox');
+
     checkboxes.forEach((item, key) => {
       const checkbox = checkboxes[key];
       const isChecked = !!stateCheckboxes[key]; // autocast from null or undefined to boolean
       checkbox.setAttribute('aria-checked', isChecked ? 'true' : 'false');
       checkbox.checked = isChecked;
     });
+
     this._updateCSSAndPanelStateToCheckboxesStates();
   }
 
   _updateCSSAndPanelStateToCheckboxesStates() {
     const checkboxes = this.querySelectorAll('vaadin-checkbox');
     const panels = this.querySelectorAll('vaadin-accordion-panel');
+
     checkboxes.forEach((checkbox, index) => {
       if (!panels[index])
         throw new Error(`vaadin-accordion-panel with index ${index} doesn't exist`);
+
       const isChecked =
         checkbox.hasAttribute('aria-checked') && checkbox.getAttribute('aria-checked') === 'true';
+
       const accordionPanel = panels[index];
       accordionPanel.querySelectorAll('.summaryTop').forEach(el => {
         if (isChecked) {
@@ -159,6 +176,7 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
         id: this.getAttribute('id')
       }
     });
+
     this.dispatchEvent(event);
   }
 }
