@@ -17,42 +17,43 @@ const Template = () => {
         padding: 10px;
       }
     </style>
-    <h3>Frequently Asked Questions</h3>
 
-    <cxl-adeft-accordion id="cxl-vaadin-accordion-26107" theme="reverse">
-      ${faqData.map(
-        el => html`
-          <vaadin-accordion-panel
-            id="${el.cxl_hybrid_attr_post['@attributes'].id}"
-            class="${el.cxl_hybrid_attr_post['@attributes'].class}"
-            theme="reverse"
-          >
-            <div class="accordionSummary" slot="summary">
-              <div class="left">
-                <vaadin-checkbox value="Option" theme="custom"></vaadin-checkbox>
-              </div>
-              <div class="right">
-                <div class="summaryTop">
-                  ${unsafeHTML(el.title.rendered)}
+    <cxl-institute-layout theme="2c-l" id="container">
+      <cxl-adeft-accordion id="cxl-vaadin-accordion-26107" theme="reverse">
+        ${faqData.map(
+          el => html`
+            <vaadin-accordion-panel
+              id="${el.cxl_hybrid_attr_post['@attributes'].id}"
+              class="${el.cxl_hybrid_attr_post['@attributes'].class}"
+              theme="reverse"
+            >
+              <div class="accordionSummary" slot="summary">
+                <div class="left">
+                  <vaadin-checkbox value="Option" theme="custom"></vaadin-checkbox>
+                </div>
+                <div class="right">
+                  <div class="summaryTop">
+                    ${unsafeHTML(el.title.rendered)}
+                  </div>
                 </div>
               </div>
-            </div>
-            <vaadin-vertical-layout>
-              <div class="itemContent">
-                <div>
-                  ${unsafeHTML(el.content.rendered)}
+              <vaadin-vertical-layout>
+                <div class="itemContent">
+                  <div>
+                    ${unsafeHTML(el.content.rendered)}
+                  </div>
                 </div>
-              </div>
-            </vaadin-vertical-layout>
-          </vaadin-accordion-panel>
-        `
-      )}
-    </cxl-adeft-accordion>
+              </vaadin-vertical-layout>
+            </vaadin-accordion-panel>
+          `
+        )}
+      </cxl-adeft-accordion>
+    </cxl-institute-layout>
   `;
 };
 
 export const CxlAdeftVaadinAccordionThemeFaq = Template.bind({});
 
 CxlAdeftVaadinAccordionThemeFaq.story = {
-  name: '[theme=cxl-adeft.faq.stories]'
+  name: '[theme=2c-l]'
 };
