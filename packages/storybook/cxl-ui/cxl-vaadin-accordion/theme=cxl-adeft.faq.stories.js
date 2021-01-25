@@ -19,7 +19,11 @@ const Template = () => {
     </style>
 
     <cxl-institute-layout theme="2c-l" id="container">
-      <cxl-adeft-accordion id="cxl-vaadin-accordion-26107" theme="reverse">
+      <cxl-adeft-accordion
+        id="cxl-vaadin-accordion-26107"
+        theme="reverse"
+        class="cxl-adeft-accordion-class"
+      >
         ${faqData.map(
           el => html`
             <vaadin-accordion-panel
@@ -27,18 +31,18 @@ const Template = () => {
               class="${el.cxl_hybrid_attr_post['@attributes'].class}"
               theme="reverse"
             >
-              <div class="accordionSummary" slot="summary">
+              <div class="accordion-summary" slot="summary">
                 <div class="left">
                   <vaadin-checkbox value="Option" theme="custom"></vaadin-checkbox>
                 </div>
                 <div class="right">
-                  <div class="summaryTop">
+                  <div class="summary-top">
                     ${unsafeHTML(el.title.rendered)}
                   </div>
                 </div>
               </div>
               <vaadin-vertical-layout>
-                <div class="itemContent">
+                <div class="item-content">
                   <div>
                     ${unsafeHTML(el.content.rendered)}
                   </div>

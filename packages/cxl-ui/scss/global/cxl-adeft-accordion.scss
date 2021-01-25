@@ -1,7 +1,6 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 @use "../mixins";
 
-$bg-color: #0000ff;
 $standard-margin: 16px;
 $medium-margin: 24px;
 $large-margin: 32px;
@@ -9,48 +8,43 @@ $large-margin: 32px;
 cxl-adeft-accordion {
   vaadin-vertical-layout {
     display: flex;
-    border-top: 1px solid $bg-color;
-    border-left: 4px solid $bg-color;
   }
-  --lumo-secondary-text-color: #000;
+
   --lumo-line-height-m: 20px;
   --lumo-line-height-xs: 20px;
-  --lumo-primary-color: $bg-color;
-  --lumo-contrast-20pct: $bg-color;
   margin-bottom: $standard-margin;
 
-  &.widened {
+  &[widened] {
     margin-right: -#{$standard-margin - 1};
     margin-left: -#{$standard-margin - 1};
   }
 
   @media #{mq.$medium} {
-    &.widened {
+    &[widened] {
       margin-right: 0;
       margin-left: 0;
     }
   }
 
-  .itemContent {
+  .item-content {
+    padding: $standard-margin $standard-margin / 2;
     letter-spacing: 0.25px;
-    padding: $standard-margin $standard-margin/2;
   }
 
-  .accordionSummary {
+  .accordion-summary {
     display: flex;
     .left {
-      min-width: $large-margin;
-      width: $large-margin;
-      background: $bg-color;
-      border-radius: 4px 0 0 4px;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: $large-margin;
+      min-width: $large-margin;
+      border-radius: 4px 0 0 4px;
     }
     .right {
-      padding: $standard-margin;
       width: calc(100% - #{$large-margin});
-      .summaryTop {
+      padding: $standard-margin;
+      .summary-top {
         padding: 5px;
         &.checked {
           text-decoration: line-through;
