@@ -25,31 +25,11 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
         box-shadow: 0 4px 12px rgba(36, 38, 40, 0.12);
         padding: 0;
       }
-      :host(.checked) [part='summary'] {
-        background-color: #2247f2;
-        color: #fff;
-      }
-      :host(.checked) [part='summary']:hover {
-        color: #fff;
-      }
-      :host(.checked) [part='toggle'] {
-        color: #fff !important;
-      }
       :host(.emptyContent) [part='toggle'] {
         display: none;
       }
       [part='toggle'] {
         padding: 12px;
-      }
-      [part='toggle']::before {
-        content: var(--lumo-icons-angle-down);
-      }
-      [part='summary'][aria-expanded='true'] [part='toggle']::before {
-        /** QUIRK WARNING: You can't set up correct icon here,
-        because some stupid javascripts are turning it 90 degrees counter-clockwise
-        so when you want "right" icon here you must set "up" icon etc.
-         */
-        content: var(--lumo-icons-angle-left) !important;
       }
     `;
   }
@@ -57,7 +37,7 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
   static _getVaadinCheckboxStyles() {
     return css`
       :host([theme~='custom']) [part='checkbox'] {
-        border: 2px solid #fff !important;
+        border: 2px solid !important;
         width: 18px;
         height: 18px;
       }
@@ -158,6 +138,7 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
         checkbox.hasAttribute('aria-checked') && checkbox.getAttribute('aria-checked') === 'true';
 
       const accordionPanel = panels[index];
+
       accordionPanel.querySelectorAll('.summaryTop').forEach(el => {
         if (isChecked) {
           el.classList.add('checked');
