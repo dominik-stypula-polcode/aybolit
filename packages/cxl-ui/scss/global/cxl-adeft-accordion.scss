@@ -8,17 +8,18 @@ cxl-adeft-accordion {
 
   vaadin-accordion-panel {
     margin-bottom: var(--lumo-space-s);
-  }
 
-  &[widened] {
-    margin-right: -#{var(--lumo-space-l) - 1};
-    margin-left: -#{var(--lumo-space-l) - 1};
-  }
+    &[opened] {
+      $opened-margin: calc(var(--lumo-space-xl) * -1);
+      margin-right: $opened-margin;
+      margin-left: $opened-margin;
+    }
 
-  @media #{mq.$medium} {
-    &[widened] {
-      margin-right: 0;
-      margin-left: 0;
+    @media #{mq.$large} {
+      &[opened] {
+        margin-right: inherit;
+        margin-left: inherit;
+      }
     }
   }
 
