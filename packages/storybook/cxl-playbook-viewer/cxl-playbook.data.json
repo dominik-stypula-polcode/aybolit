@@ -1,0 +1,441 @@
+{
+  "success":true,
+  "data":{
+    "id":2720,
+    "userId":32,
+    "permalink":"https:\/\/adeft.polcode.dev\/playbook\/fix-mobile-navigation-issues-with-dynamic-heatmaps-recordings\/",
+    "title":"Fix mobile navigation issues with dynamic heatmaps & recordings",
+    "author":{
+      "id":105,
+      "niceName":"sarahluckyorange-com",
+      "displayName":"Sarah Bond @ Lucky Orange",
+      "email":"sarah@luckyorange.com",
+      "profilePicture":"https:\/\/secure.gravatar.com\/avatar\/d755c17c4997b7624bfe8cceb7f6c4a9?s=96&d=mm&r=g",
+      "profileUrl":"https:\/\/www.luckyorange.com",
+      "bio":"Lucky Orange will help you answer the question of why 99% of visitors that visit your site never turn into customers."
+    },
+    "editor":{
+      "id":10,
+      "niceName":"andonovska25gmail-com",
+      "displayName":"Alex Andonovska",
+      "email":"andonovska25@gmail.com",
+      "profilePicture":"https:\/\/secure.gravatar.com\/avatar\/ad115d1c14ab075ae4db52601e4c82d0?s=96&d=mm&r=g",
+      "profileUrl":"",
+      "bio":""
+    },
+    "expert":[
+
+    ],
+    "useCase":"Find and fix user experience issues with mobile navigation by evaluating visitor engagement through dynamic heatmaps and session recordings",
+    "useCaseId":"use-case-1611648195609",
+    "steps":[
+      {
+        "idx":1,
+        "title":"Use a dynamic heatmap software like Lucky Orange to view engagement with your mobile navigation elements like expandable menus",
+        "stepId":"step-1611648193301",
+        "stepTitleId":"step-title-1611648193301",
+        "stepContentId":"step-title-1611648193301",
+        "content":"\n\n<ol><li>Some heatmap softwares are not dynamic and don\u2019t allow you to evaluate user engagement with elements like overlays, expandable\/hamburger menus or single-page apps.<\/li><li>Start with a high impact page such as your home page or one that is a critical part of the conversion process<\/li><\/ol>\n\n\n\n<figure class=\"wp-block-image\"><img src=\"https:\/\/lh4.googleusercontent.com\/KomtVtEBGeS9E5Xh4kH18YJtI99FA3PmcYpVfZHr4z3bOhEDhRiiC5f8LU_LTtDooe_kYkuOAufEijc64C4POU3aOIswMaF997ko_paF2iB8wNTuBsyY240a7ViFxfyQZY7fBOwj\" alt=\"A website being viewed on a mobile phone with a Lucky Orange dynamic heatmap showing engagement with an expandable navigation element. Areas with more visitor engagement are shown with a red or orange overlay on them.\" title=\"Lucky Orange heatmap on a mobile website\"\/><\/figure>\n\n",
+        "raw":{
+          "blockName":"adeft\/step",
+          "attrs":{
+            "stepTitle":"Use a dynamic heatmap software like Lucky Orange to view engagement with your mobile navigation elements like expandable menus",
+            "adeftStepId":"step-1611648193301",
+            "adeftStepTitleId":"step-title-1611648193301",
+            "adeftStepContentId":"step-content-1611648193301"
+          },
+          "innerBlocks":[
+            {
+              "blockName":"core\/list",
+              "attrs":{
+                "ordered":true
+              },
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<ol><li>Some heatmap softwares are not dynamic and don\u2019t allow you to evaluate user engagement with elements like overlays, expandable\/hamburger menus or single-page apps.<\/li><li>Start with a high impact page such as your home page or one that is a critical part of the conversion process<\/li><\/ol>\n",
+              "innerContent":[
+                "\n<ol><li>Some heatmap softwares are not dynamic and don\u2019t allow you to evaluate user engagement with elements like overlays, expandable\/hamburger menus or single-page apps.<\/li><li>Start with a high impact page such as your home page or one that is a critical part of the conversion process<\/li><\/ol>\n"
+              ]
+            },
+            {
+              "blockName":"core\/image",
+              "attrs":[
+
+              ],
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<figure class=\"wp-block-image\"><img src=\"https:\/\/lh4.googleusercontent.com\/KomtVtEBGeS9E5Xh4kH18YJtI99FA3PmcYpVfZHr4z3bOhEDhRiiC5f8LU_LTtDooe_kYkuOAufEijc64C4POU3aOIswMaF997ko_paF2iB8wNTuBsyY240a7ViFxfyQZY7fBOwj\" alt=\"A website being viewed on a mobile phone with a Lucky Orange dynamic heatmap showing engagement with an expandable navigation element. Areas with more visitor engagement are shown with a red or orange overlay on them.\" title=\"Lucky Orange heatmap on a mobile website\"\/><\/figure>\n",
+              "innerContent":[
+                "\n<figure class=\"wp-block-image\"><img src=\"https:\/\/lh4.googleusercontent.com\/KomtVtEBGeS9E5Xh4kH18YJtI99FA3PmcYpVfZHr4z3bOhEDhRiiC5f8LU_LTtDooe_kYkuOAufEijc64C4POU3aOIswMaF997ko_paF2iB8wNTuBsyY240a7ViFxfyQZY7fBOwj\" alt=\"A website being viewed on a mobile phone with a Lucky Orange dynamic heatmap showing engagement with an expandable navigation element. Areas with more visitor engagement are shown with a red or orange overlay on them.\" title=\"Lucky Orange heatmap on a mobile website\"\/><\/figure>\n"
+              ]
+            }
+          ],
+          "innerHTML":"\n\n\n\n",
+          "innerContent":[
+            "\n",
+            null,
+            "\n\n",
+            null,
+            "\n"
+          ]
+        }
+      },
+      {
+        "idx":2,
+        "title":"Use the device menu to view traffic from phone or tablet visitors.",
+        "stepId":"step-1611648212453",
+        "stepTitleId":"step-title-1611648212453",
+        "stepContentId":"step-title-1611648212453",
+        "content":"\n\n<ol><li>If your website is optimized for mobile, filtering by device type allows you to see your website exactly how a user on that specific device type sees your website<\/li><\/ol>\n\n\n\n<figure class=\"wp-block-image\"><img src=\"https:\/\/lh4.googleusercontent.com\/I2ukLWwkFUjPBb43HDxo3-ecJn2ZudkSICAB1WEzamJjJ_fT9tcKTpP8NnDiwT6m2dwHL1dgQMgPnfrApPuvpR-3zsZEGMg1L74RlZnlpxfZ43rk_rlStxQXJLajUxN3vXSyEEZa\" alt=\"A screen shot of the Lucky Orange app showing how to filter traffic to see a heatmap with only interaction from visitors from mobile devices.\" title=\"Lucky Orange heatmap filtered to mobile devices only\"\/><\/figure>\n\n",
+        "raw":{
+          "blockName":"adeft\/step",
+          "attrs":{
+            "stepTitle":"Use the device menu to view traffic from phone or tablet visitors.",
+            "adeftStepId":"step-1611648212453",
+            "adeftStepTitleId":"step-title-1611648212453",
+            "adeftStepContentId":"step-content-1611648212453"
+          },
+          "innerBlocks":[
+            {
+              "blockName":"core\/list",
+              "attrs":{
+                "ordered":true
+              },
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<ol><li>If your website is optimized for mobile, filtering by device type allows you to see your website exactly how a user on that specific device type sees your website<\/li><\/ol>\n",
+              "innerContent":[
+                "\n<ol><li>If your website is optimized for mobile, filtering by device type allows you to see your website exactly how a user on that specific device type sees your website<\/li><\/ol>\n"
+              ]
+            },
+            {
+              "blockName":"core\/image",
+              "attrs":[
+
+              ],
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<figure class=\"wp-block-image\"><img src=\"https:\/\/lh4.googleusercontent.com\/I2ukLWwkFUjPBb43HDxo3-ecJn2ZudkSICAB1WEzamJjJ_fT9tcKTpP8NnDiwT6m2dwHL1dgQMgPnfrApPuvpR-3zsZEGMg1L74RlZnlpxfZ43rk_rlStxQXJLajUxN3vXSyEEZa\" alt=\"A screen shot of the Lucky Orange app showing how to filter traffic to see a heatmap with only interaction from visitors from mobile devices.\" title=\"Lucky Orange heatmap filtered to mobile devices only\"\/><\/figure>\n",
+              "innerContent":[
+                "\n<figure class=\"wp-block-image\"><img src=\"https:\/\/lh4.googleusercontent.com\/I2ukLWwkFUjPBb43HDxo3-ecJn2ZudkSICAB1WEzamJjJ_fT9tcKTpP8NnDiwT6m2dwHL1dgQMgPnfrApPuvpR-3zsZEGMg1L74RlZnlpxfZ43rk_rlStxQXJLajUxN3vXSyEEZa\" alt=\"A screen shot of the Lucky Orange app showing how to filter traffic to see a heatmap with only interaction from visitors from mobile devices.\" title=\"Lucky Orange heatmap filtered to mobile devices only\"\/><\/figure>\n"
+              ]
+            }
+          ],
+          "innerHTML":"\n\n\n\n",
+          "innerContent":[
+            "\n",
+            null,
+            "\n\n",
+            null,
+            "\n"
+          ]
+        }
+      },
+      {
+        "idx":3,
+        "title":"Choose a precise interactions heatmap to see additional detail",
+        "stepId":"step-1611648225302",
+        "stepTitleId":"step-title-1611648225302",
+        "stepContentId":"step-title-1611648225302",
+        "content":"\n\n<ol><li>A precise interaction shows you exactly where a visitor tapped<\/li><\/ol>\n\n\n\nInstead of a colored overlay, a colored dot is displayed to show the exact point where a visitor interacted with your site\n\n\n\n<img alt=\"A Lucky Orange heatmap showing the precise location mobile phone users engaged with a website. Areas where a visitor tapped are shown with an orange dot overlaid on the website. \" src=\"https:\/\/lh6.googleusercontent.com\/8NUhiknQvQzJr2AU3dvtl8lY2PCbcAItG5Ez7jY-K7bUp2XGWWGy_Ads2llb0R1Cm0xAXnsvvssuCCjcLeaMQ0vQbl1buZk67ftZ3M0yN0vL9nz0S6PmId2VsZB5y1ZwyBl92mQa\" width=\"533\" height=\"301\">\n\n",
+        "raw":{
+          "blockName":"adeft\/step",
+          "attrs":{
+            "stepTitle":"Choose a precise interactions heatmap to see additional detail",
+            "adeftStepId":"step-1611648225302",
+            "adeftStepTitleId":"step-title-1611648225302",
+            "adeftStepContentId":"step-content-1611648225302"
+          },
+          "innerBlocks":[
+            {
+              "blockName":"core\/list",
+              "attrs":{
+                "ordered":true
+              },
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<ol><li>A precise interaction shows you exactly where a visitor tapped<\/li><\/ol>\n",
+              "innerContent":[
+                "\n<ol><li>A precise interaction shows you exactly where a visitor tapped<\/li><\/ol>\n"
+              ]
+            },
+            {
+              "blockName":"core\/paragraph",
+              "attrs":[
+
+              ],
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<p>Instead of a colored overlay, a colored dot is displayed to show the exact point where a visitor interacted with your site<\/p>\n",
+              "innerContent":[
+                "\n<p>Instead of a colored overlay, a colored dot is displayed to show the exact point where a visitor interacted with your site<\/p>\n"
+              ]
+            },
+            {
+              "blockName":"core\/paragraph",
+              "attrs":[
+
+              ],
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<p><img alt=\"A Lucky Orange heatmap showing the precise location mobile phone users engaged with a website. Areas where a visitor tapped are shown with an orange dot overlaid on the website. \" src=\"https:\/\/lh6.googleusercontent.com\/8NUhiknQvQzJr2AU3dvtl8lY2PCbcAItG5Ez7jY-K7bUp2XGWWGy_Ads2llb0R1Cm0xAXnsvvssuCCjcLeaMQ0vQbl1buZk67ftZ3M0yN0vL9nz0S6PmId2VsZB5y1ZwyBl92mQa\" width=\"533\" height=\"301\"><\/p>\n",
+              "innerContent":[
+                "\n<p><img alt=\"A Lucky Orange heatmap showing the precise location mobile phone users engaged with a website. Areas where a visitor tapped are shown with an orange dot overlaid on the website. \" src=\"https:\/\/lh6.googleusercontent.com\/8NUhiknQvQzJr2AU3dvtl8lY2PCbcAItG5Ez7jY-K7bUp2XGWWGy_Ads2llb0R1Cm0xAXnsvvssuCCjcLeaMQ0vQbl1buZk67ftZ3M0yN0vL9nz0S6PmId2VsZB5y1ZwyBl92mQa\" width=\"533\" height=\"301\"><\/p>\n"
+              ]
+            }
+          ],
+          "innerHTML":"\n\n\n\n\n\n",
+          "innerContent":[
+            "\n",
+            null,
+            "\n\n",
+            null,
+            "\n\n",
+            null,
+            "\n"
+          ]
+        }
+      },
+      {
+        "idx":4,
+        "title":"Use the Elements option to see the parts of your site that received the most engagement from visitors",
+        "stepId":"step-1611648245356",
+        "stepTitleId":"step-title-1611648245356",
+        "stepContentId":"step-title-1611648245356",
+        "content":"\n\n<ol><li>Elements are ordered by the number of clicks they received from visitors<\/li><li>The warmer overlays - reds and oranges - to see where most visitors are engaging with your site.<\/li><\/ol>\n\n\n\n<img alt=\"A Lucky Orange heatmap on a mobile device with the option to see the percentage of visitor engagement different elements on a website received.\" src=\"https:\/\/lh5.googleusercontent.com\/OZTmDxeKMpL0QZ22v57unq6gIYJ9bprz6GWFf-U9idJJ2fic3J-UFhdw8aWKy0XccP0zHgxWDsBEn4n4YkWKk_d88Jmrz4JNC5NPGlLVM-7vXzh_ZMdP0lLoooTJAirktpKScEqy\" width=\"624\" height=\"351\">\n\n",
+        "raw":{
+          "blockName":"adeft\/step",
+          "attrs":{
+            "stepTitle":"Use the Elements option to see the parts of your site that received the most engagement from visitors",
+            "adeftStepId":"step-1611648245356",
+            "adeftStepTitleId":"step-title-1611648245356",
+            "adeftStepContentId":"step-content-1611648245356"
+          },
+          "innerBlocks":[
+            {
+              "blockName":"core\/list",
+              "attrs":{
+                "ordered":true
+              },
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<ol><li>Elements are ordered by the number of clicks they received from visitors<\/li><li>The warmer overlays - reds and oranges - to see where most visitors are engaging with your site.<\/li><\/ol>\n",
+              "innerContent":[
+                "\n<ol><li>Elements are ordered by the number of clicks they received from visitors<\/li><li>The warmer overlays - reds and oranges - to see where most visitors are engaging with your site.<\/li><\/ol>\n"
+              ]
+            },
+            {
+              "blockName":"core\/paragraph",
+              "attrs":[
+
+              ],
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<p><img alt=\"A Lucky Orange heatmap on a mobile device with the option to see the percentage of visitor engagement different elements on a website received.\" src=\"https:\/\/lh5.googleusercontent.com\/OZTmDxeKMpL0QZ22v57unq6gIYJ9bprz6GWFf-U9idJJ2fic3J-UFhdw8aWKy0XccP0zHgxWDsBEn4n4YkWKk_d88Jmrz4JNC5NPGlLVM-7vXzh_ZMdP0lLoooTJAirktpKScEqy\" width=\"624\" height=\"351\"><\/p>\n",
+              "innerContent":[
+                "\n<p><img alt=\"A Lucky Orange heatmap on a mobile device with the option to see the percentage of visitor engagement different elements on a website received.\" src=\"https:\/\/lh5.googleusercontent.com\/OZTmDxeKMpL0QZ22v57unq6gIYJ9bprz6GWFf-U9idJJ2fic3J-UFhdw8aWKy0XccP0zHgxWDsBEn4n4YkWKk_d88Jmrz4JNC5NPGlLVM-7vXzh_ZMdP0lLoooTJAirktpKScEqy\" width=\"624\" height=\"351\"><\/p>\n"
+              ]
+            }
+          ],
+          "innerHTML":"\n\n\n\n",
+          "innerContent":[
+            "\n",
+            null,
+            "\n\n",
+            null,
+            "\n"
+          ]
+        }
+      },
+      {
+        "idx":5,
+        "title":"Look for engagement issues with aspects of your site that may be problematic for mobile visitors",
+        "stepId":"step-1611648261137",
+        "stepTitleId":"step-title-1611648261137",
+        "stepContentId":"step-title-1611648261137",
+        "content":"\n\n<ol><li>See if expandable menus are working properly. You should see warmer overlays on the menu expand icon as well as items inside the menu.&nbsp;<\/li><li>Review CTA buttons and note the amount of user engagement<\/li><li>Evaluate forms to make sure visitors can engage with all of the fields without having to pinch the screen or scroll for a lengthy period of time<\/li><\/ol>\n\n",
+        "raw":{
+          "blockName":"adeft\/step",
+          "attrs":{
+            "stepTitle":"Look for engagement issues with aspects of your site that may be problematic for mobile visitors",
+            "adeftStepId":"step-1611648261137",
+            "adeftStepTitleId":"step-title-1611648261137",
+            "adeftStepContentId":"step-content-1611648261137"
+          },
+          "innerBlocks":[
+            {
+              "blockName":"core\/list",
+              "attrs":{
+                "ordered":true
+              },
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<ol><li>See if expandable menus are working properly. You should see warmer overlays on the menu expand icon as well as items inside the menu.&nbsp;<\/li><li>Review CTA buttons and note the amount of user engagement<\/li><li>Evaluate forms to make sure visitors can engage with all of the fields without having to pinch the screen or scroll for a lengthy period of time<\/li><\/ol>\n",
+              "innerContent":[
+                "\n<ol><li>See if expandable menus are working properly. You should see warmer overlays on the menu expand icon as well as items inside the menu.&nbsp;<\/li><li>Review CTA buttons and note the amount of user engagement<\/li><li>Evaluate forms to make sure visitors can engage with all of the fields without having to pinch the screen or scroll for a lengthy period of time<\/li><\/ol>\n"
+              ]
+            }
+          ],
+          "innerHTML":"\n\n",
+          "innerContent":[
+            "\n",
+            null,
+            "\n"
+          ]
+        }
+      },
+      {
+        "idx":6,
+        "title":"Compare engagement on mobile with engagement on desktop",
+        "stepId":"step-1611648275642",
+        "stepTitleId":"step-title-1611648275642",
+        "stepContentId":"step-title-1611648275642",
+        "content":"\n\n<ol><li>Review a heatmap of the same page with traffic filtered to desktop users.&nbsp;<\/li><li>User engagement should be proportionate if your website is responsive. If you see significantly lower engagement with an element for mobile visitors than from desktop, it can be an indicator of a mobile-specific problem.<\/li><\/ol>\n\n",
+        "raw":{
+          "blockName":"adeft\/step",
+          "attrs":{
+            "stepTitle":"Compare engagement on mobile with engagement on desktop",
+            "adeftStepId":"step-1611648275642",
+            "adeftStepTitleId":"step-title-1611648275642",
+            "adeftStepContentId":"step-content-1611648275642"
+          },
+          "innerBlocks":[
+            {
+              "blockName":"core\/list",
+              "attrs":{
+                "ordered":true
+              },
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<ol><li>Review a heatmap of the same page with traffic filtered to desktop users.&nbsp;<\/li><li>User engagement should be proportionate if your website is responsive. If you see significantly lower engagement with an element for mobile visitors than from desktop, it can be an indicator of a mobile-specific problem.<\/li><\/ol>\n",
+              "innerContent":[
+                "\n<ol><li>Review a heatmap of the same page with traffic filtered to desktop users.&nbsp;<\/li><li>User engagement should be proportionate if your website is responsive. If you see significantly lower engagement with an element for mobile visitors than from desktop, it can be an indicator of a mobile-specific problem.<\/li><\/ol>\n"
+              ]
+            }
+          ],
+          "innerHTML":"\n\n",
+          "innerContent":[
+            "\n",
+            null,
+            "\n"
+          ]
+        }
+      },
+      {
+        "idx":7,
+        "title":"If you find differences in engagement between mobile and desktop users, view recordings to see firsthand what the visitor experienced",
+        "stepId":"step-1611648291314",
+        "stepTitleId":"step-title-1611648291314",
+        "stepContentId":"step-title-1611648291314",
+        "content":"\n\n<ol><li>Choose the Recordings menu to see a playback of a visitor engaging with the page<\/li><li>Recordings are already filtered based on the parameters you set for the heatmap<\/li><\/ol>\n\n\n\n\n\n",
+        "raw":{
+          "blockName":"adeft\/step",
+          "attrs":{
+            "stepTitle":"If you find differences in engagement between mobile and desktop users, view recordings to see firsthand what the visitor experienced",
+            "adeftStepId":"step-1611648291314",
+            "adeftStepTitleId":"step-title-1611648291314",
+            "adeftStepContentId":"step-content-1611648291314"
+          },
+          "innerBlocks":[
+            {
+              "blockName":"core\/list",
+              "attrs":{
+                "ordered":true
+              },
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<ol><li>Choose the Recordings menu to see a playback of a visitor engaging with the page<\/li><li>Recordings are already filtered based on the parameters you set for the heatmap<\/li><\/ol>\n",
+              "innerContent":[
+                "\n<ol><li>Choose the Recordings menu to see a playback of a visitor engaging with the page<\/li><li>Recordings are already filtered based on the parameters you set for the heatmap<\/li><\/ol>\n"
+              ]
+            },
+            {
+              "blockName":"core\/paragraph",
+              "attrs":[
+
+              ],
+              "innerBlocks":[
+
+              ],
+              "innerHTML":"\n<p><\/p>\n",
+              "innerContent":[
+                "\n<p><\/p>\n"
+              ]
+            }
+          ],
+          "innerHTML":"\n\n\n\n",
+          "innerContent":[
+            "\n",
+            null,
+            "\n\n",
+            null,
+            "\n"
+          ]
+        }
+      }
+    ],
+    "datePosted":1611648309,
+    "starRating":0,
+    "hasUserVoted":false,
+    "userVote":0,
+    "breadcrumbs":[
+      {
+        "id":2309,
+        "displayName":"marketing",
+        "slug":"marketing",
+        "url":"",
+        "taxonomyId":2309,
+        "taxonomyName":"playbook-level-1",
+        "count":231
+      },
+      {
+        "id":2322,
+        "displayName":"ux",
+        "slug":"ux",
+        "url":"",
+        "taxonomyId":2322,
+        "taxonomyName":"playbook-level-2",
+        "count":10
+      },
+      {
+        "id":2357,
+        "displayName":"mobile",
+        "slug":"mobile",
+        "url":"",
+        "taxonomyId":2357,
+        "taxonomyName":"playbook-level-3",
+        "count":11
+      },
+      {
+        "id":2573,
+        "displayName":"heatmaps",
+        "slug":"heatmaps",
+        "url":"",
+        "taxonomyId":2573,
+        "taxonomyName":"playbook-level-4",
+        "count":3
+      },
+      {
+        "id":3453,
+        "displayName":"navigation",
+        "slug":"navigation",
+        "url":"",
+        "taxonomyId":3453,
+        "taxonomyName":"playbook-level-5",
+        "count":3
+      }
+    ]
+  }
+}
