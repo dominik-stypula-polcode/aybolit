@@ -1,51 +1,57 @@
-$blue: #1ea7fd;
-
-.listBoxContainer {
-  width: calc(100% - 10px);
-  height: 100%;
+.list-box-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  padding: 5px;
+  width: calc(100% - var(--lumo-space-s));
+  height: 100%;
+  padding: var(--lumo-space-xs);
   overflow: hidden;
+
   vaadin-list-box {
     overflow: hidden;
-    background: #fff;
+    background-color: var(--lumo-base-color);
   }
-  .areaContainer {
-    width: 100%;
-    justify-content: center;
+
+  .area-container {
     display: flex;
-    padding: 5px;
+    justify-content: center;
+    width: 100%;
+    padding: var(--lumo-space-s);
     margin: 0;
+
     textarea {
-      width: calc(100% - 10px);
-      border: 2px solid $blue;
-      border-radius: 5px;
+      width: calc(100% - var(--lumo-space-m));
+      border-radius: var(--lumo-border-radius-m);
+      box-shadow: var(--lumo-box-shadow-xs);
     }
   }
 
   .buttons {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     width: 100%;
-    padding-left: 7px;
+
     button {
-      padding: 5px 10px;
-      border: 1px solid #a3a3a3;
-      border-radius: 5px;
-      box-shadow: none;
-      font-weight: bold;
+      padding: var(--lumo-space-xs) var(--lumo-space-s);
+      font-weight: var(--lumo-font-size-l);
+      border-radius: var(--lumo-border-radius-m);
+      box-shadow: var(--lumo-box-shadow-xs);
+
+      &:hover {
+        cursor: pointer;
+      }
     }
-    #sendButton {
-      margin-right: 5px;
-      color: #fff;
-      background: $blue;
+
+    #send {
+      margin-right: var(--lumo-space-s);
+      color: var(--lumo-base-color);
+      background: var(--lumo-primary-color);
     }
-    #cancelButton {
-      color: $blue;
-      background: #fff;
+
+    #cancel {
+      color: var(--lumo-primary-color);
+      background-color: var(--lumo-base-color);
     }
   }
 }

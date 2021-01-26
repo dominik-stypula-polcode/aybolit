@@ -44,7 +44,7 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
       ...super.properties,
       textareaPlaceholder: {
         type: String,
-        value: 'Put your comment here',
+        value: 'Put comment here',
         notify: true,
         reflectToAttribute: true
       },
@@ -68,8 +68,10 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
     const doc = window.document;
     const contextMenu = this;
     contextMenu.closeOn = 'blur';
+
     contextMenu.renderer = root => {
       let listBox = root.firstElementChild;
+
       // // Check if there is a list-box generated with the previous renderer call to update its content instead of recreation
       if (listBox) {
         listBox.innerHTML = '';
@@ -77,22 +79,26 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
         listBox = doc.createElement('vaadin-list-box');
         root.appendChild(listBox);
       }
+
       listBox.innerHTML = `
-          <div class="listBoxContainer">
-            <div class="areaContainer">
-                <textarea id="commentArea" placeholder="${this.textareaPlaceholder}"></textarea>
+          <div class="list-box-container">
+            <div class="area-container">
+                <textarea placeholder="${this.textareaPlaceholder}"></textarea>
             </div>
             <div class="buttons">
-              <button id="sendButton">${this.buttonText}</button>
-              <button id="cancelButton">Cancel</button>
+              <button id="send">${this.buttonText}</button>
+              <button id="cancel">Cancel</button>
             </div>
           </div>
         `;
-      const button = root.querySelector('#sendButton');
-      const textarea = root.querySelector('#commentArea');
+
+      const button = root.querySelector('#send');
+      const textarea = root.querySelector('.area-container textarea');
+
       button.onclick = () => {
         button.disabled = true;
         button.textContent = this.buttonTextSavingComment;
+
         const evt = new CustomEvent('cxl-save-inline-comment', {
           bubbles: true,
           composed: true,
@@ -102,6 +108,7 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
             elementId: this.getAttribute('id')
           }
         });
+
         contextMenu.dispatchEvent(evt);
       };
     };
