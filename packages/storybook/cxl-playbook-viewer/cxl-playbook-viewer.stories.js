@@ -55,14 +55,16 @@ export const CxlPlaybookViewerLayout = () => {
             tabindex="0"
           >
             <a>Search <iron-icon icon="lumo:search"></iron-icon></a>
-          </vaadin-tab> </vaadin-tabs
-      ></cxl-marketing-nav>
+          </vaadin-tab>
+        </vaadin-tabs>
+        ></cxl-marketing-nav
+      >
 
       <div class="breadcrumbs">
         ${dataAdapter.getBreadcrumbsData().anchors.map(value => {
           const className = value.active ? 'active' : 'inactive';
           return html`
-            <a class="${className}" href=${value.href}>${value.content}</a>
+            <a class="${className}" href="${value.href}">${value.content}</a>
           `;
         })}
       </div>
@@ -89,7 +91,7 @@ export const CxlPlaybookViewerLayout = () => {
                 <div id="with-tooltip-div" class="with-tooltip">
                   <iron-star-rating id="iron-star-rating" icon="icons:star" />
                   ${!userLoggedIn
-                    ? html`
+                    ? `
                         <paper-tooltip
                           animationDelay="0"
                           offset="5"
@@ -123,13 +125,12 @@ export const CxlPlaybookViewerLayout = () => {
             </a>
             <div class="right">
               <div class="name">
-                <a href=${authorObj.profileUrl}>${authorObj.username}</a>
+                <a href="${authorObj.profileUrl}">${authorObj.username}</a>
               </div>
             </div>
           </div>
           <div class="bio">
-            ${// @TODO: what is wrong with this code that is not wrong in 4 lines above?
-            // eslint-disable-next-line lit/no-invalid-html
+            ${// eslint-disable-next-line lit/no-invalid-html
             authorObj.bio}
           </div>
         </div>
