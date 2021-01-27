@@ -73,7 +73,8 @@ export const CxlPlaybookViewerLayout = () => {
           <div>
             <b
               >${// @TODO: what is wrong with this code that is not wrong in couple of lines above?
-              moment(dataAdapter.getPlaybookTimestamp()).format('DD. MMMM YYYY')}</b // eslint-disable-next-line lit/no-invalid-html
+              // eslint-disable-next-line lit/no-invalid-html
+              moment(dataAdapter.getPlaybookTimestamp()).format('DD. MMMM YYYY')}</b
             >
           </div>
         </div>
@@ -108,9 +109,6 @@ export const CxlPlaybookViewerLayout = () => {
               <a href="#" id="report"
                 ><i><iron-icon icon="cxl:report"></iron-icon></i><span>Report</span></a
               >
-              <!-- lightbox resize image
-              <iron-icon icon="vaadin:resize-h" />
-              -->
             </div>
           </div>
         </div>
@@ -131,7 +129,8 @@ export const CxlPlaybookViewerLayout = () => {
           </div>
           <div class="bio">
             ${// @TODO: what is wrong with this code that is not wrong in 4 lines above?
-            authorObj.bio} // eslint-disable-next-line lit/no-invalid-html
+            // eslint-disable-next-line lit/no-invalid-html
+            authorObj.bio}
           </div>
         </div>
 
