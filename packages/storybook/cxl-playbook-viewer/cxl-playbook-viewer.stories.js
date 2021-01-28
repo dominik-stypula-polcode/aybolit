@@ -203,7 +203,16 @@ export const CxlPlaybookViewerLayout = () => {
       <!-- container -->
 
       <footer slot="footer">
-        FOOTER
+        <div class="links">
+          <div class="footer-el logo">
+            <div>
+              <iron-icon icon="cxl:logo" style="width: var(--lumo-icon-size-xl, 48px);"></iron-icon>
+            </div>
+          </div>
+          <div class="footer-el year">&copy; 2020 Adeft</div>
+          <a href="#" class="footer-el contact">Contact us</a>
+        </div>
+        <!-- links -->
       </footer>
     </cxl-institute-layout>
   `;
