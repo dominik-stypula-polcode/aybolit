@@ -17,7 +17,7 @@ export default {
 export const CxlPlaybookViewerLayout = () => {
   const dataAdapter = new DataAdapter(jsonData.data);
   const authorObj = dataAdapter.getAuthor();
-  const userLoggedIn = false; // dataAdapter.getUserId() > 0;
+  const userLoggedIn = dataAdapter.getUserId() > 0;
   const userHasVoted = false;
 
   registerGlobalStyles(playbookViewerCSS, {
@@ -41,9 +41,9 @@ export const CxlPlaybookViewerLayout = () => {
           theme="cxl-marketing-nav"
         >
           <vaadin-tab class="menu-item menu-item-logo menu-item-wide" theme="cxl-marketing-nav">
-            <a href="https://conversionxl.com"
-              ><iron-icon icon="cxl:logo" style="width: var(--lumo-icon-size-xl, 48px);"></iron-icon
-            ></a>
+            <a href="https://conversionxl.com">
+              <iron-icon icon="cxl:logo" style="width: var(--lumo-icon-size-xl, 48px);"></iron-icon>
+            </a>
           </vaadin-tab>
           <vaadin-tab
             theme="cxl-marketing-nav"
@@ -57,8 +57,7 @@ export const CxlPlaybookViewerLayout = () => {
             <a>Search <iron-icon icon="lumo:search"></iron-icon></a>
           </vaadin-tab>
         </vaadin-tabs>
-        ></cxl-marketing-nav
-      >
+      </cxl-marketing-nav>
 
       <div class="breadcrumbs">
         ${dataAdapter.getBreadcrumbsData().anchors.map(value => {
@@ -73,13 +72,10 @@ export const CxlPlaybookViewerLayout = () => {
         <div class="sidebar-published">
           <div>Last updated:</div>
           <div>
-            <b
-              >${// @TODO: what is wrong with this code that is not wrong in couple of lines above?
-              // eslint-disable-next-line lit/no-invalid-html
-              moment(dataAdapter.getPlaybookTimestamp()).format('DD. MMMM YYYY')}</b
-            >
+            <strong>${moment(dataAdapter.getPlaybookTimestamp()).format('DD. MMMM YYYY')}</strong>
           </div>
         </div>
+        <!-- sidebar-published -->
 
         <div class="actions-sb">
           <div class="info">
@@ -89,9 +85,9 @@ export const CxlPlaybookViewerLayout = () => {
             <div class="icons">
               <div class="rating">
                 <div id="with-tooltip-div" class="with-tooltip">
-                  <iron-star-rating id="iron-star-rating" icon="icons:star" />
+                  <iron-star-rating id="iron-star-rating" icon="icons:star"></iron-star-rating>
                   ${!userLoggedIn
-                    ? `
+                    ? html`
                         <paper-tooltip
                           animationDelay="0"
                           offset="5"
@@ -103,8 +99,9 @@ export const CxlPlaybookViewerLayout = () => {
                       `
                     : ``}
                 </div>
+                <!-- with-tooltip-div -->
               </div>
-
+              <!-- rating -->
               <a href="#" id="share"
                 ><i><iron-icon icon="cxl:share"></iron-icon></i><span>Share</span></a
               >
@@ -112,8 +109,11 @@ export const CxlPlaybookViewerLayout = () => {
                 ><i><iron-icon icon="cxl:report"></iron-icon></i><span>Report</span></a
               >
             </div>
+            <!-- icons -->
           </div>
+          <!-- icons-vertical -->
         </div>
+        <!-- actions-sb -->
 
         <div class="author-info-sb">
           <div class="about">
@@ -128,10 +128,11 @@ export const CxlPlaybookViewerLayout = () => {
                 <a href="${authorObj.profileUrl}">${authorObj.username}</a>
               </div>
             </div>
+            <!-- right -->
           </div>
+          <!-- sb-author-flex -->
           <div class="bio">
-            ${// eslint-disable-next-line lit/no-invalid-html
-            authorObj.bio}
+            ${authorObj.bio}
           </div>
         </div>
 
@@ -140,7 +141,7 @@ export const CxlPlaybookViewerLayout = () => {
             <div class="first">
               <span>Sync with:</span>
               <i class="question">
-                <iron-icon id="question-mark1" icon="vaadin:question-circle" />
+                <iron-icon id="question-mark1" icon="vaadin:question-circle"></iron-icon>
                 <paper-tooltip
                   animationDelay="0"
                   offset="5"
@@ -151,6 +152,7 @@ export const CxlPlaybookViewerLayout = () => {
                 </paper-tooltip>
               </i>
             </div>
+            <!-- first -->
             <div class="icons">
               <a href="#"
                 ><i><iron-icon icon="cxl:trello"></iron-icon></i><span>Trello</span></a
@@ -162,8 +164,11 @@ export const CxlPlaybookViewerLayout = () => {
                 ><i><iron-icon icon="cxl:basecamp"></iron-icon></i><span>Basecamp</span></a
               >
             </div>
+            <!-- icons -->
           </div>
+          <!-- sync-with-sb-content -->
         </div>
+        <!-- sync-with-sb -->
       </section>
 
       <div id="container">
@@ -187,9 +192,7 @@ export const CxlPlaybookViewerLayout = () => {
                 </div>
                 <vaadin-vertical-layout>
                   <div class="item-content">
-                    <div>
-                      ${unsafeHTML(el.content)}
-                    </div>
+                    ${unsafeHTML(el.content)}
                   </div>
                 </vaadin-vertical-layout>
               </vaadin-accordion-panel>
@@ -197,6 +200,7 @@ export const CxlPlaybookViewerLayout = () => {
           )}
         </cxl-adeft-accordion>
       </div>
+      <!-- container -->
 
       <footer slot="footer">
         FOOTER
