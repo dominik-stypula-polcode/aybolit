@@ -134,7 +134,7 @@ class DataAdapter {
       return {
         title: `${val.idx}. ${val.title}`,
         time: '[time_placeholder]',
-        itemContent: val.content
+        content: val.content || '[empty_content]'
       };
     });
     if (items.length < 1) {
