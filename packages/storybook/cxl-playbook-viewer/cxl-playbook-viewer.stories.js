@@ -1,9 +1,10 @@
 import { html } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import '@conversionxl/cxl-ui/src/components/cxl-institute-layout.js';
+import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import '@cwmr/iron-star-rating';
 import '@polymer/paper-tooltip/paper-tooltip';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import moment from 'moment';
 import playbookViewerCSS from '@conversionxl/cxl-ui/src/styles/playbook-viewer-css.js';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
@@ -11,10 +12,14 @@ import jsonData from './cxl-playbook.data.json';
 import DataAdapter from './DataAdapter';
 
 export default {
+  decorators: [withKnobs],
   title: 'CXL Playbook Viewer'
 };
 
 export const CxlPlaybookViewerLayout = () => {
+  const hasPanelsScroll = boolean('Has panels scroll?', true);
+  const hasWidgetBackground = boolean('Has widget background?', false);
+
   const dataAdapter = new DataAdapter(jsonData.data);
   const authorObj = dataAdapter.getAuthor();
   const userLoggedIn = dataAdapter.getUserId() > 0;
@@ -31,7 +36,11 @@ export const CxlPlaybookViewerLayout = () => {
   }
 
   return html`
-    <cxl-institute-layout id="container" theme="2c-l">
+    <cxl-app-layout
+      id="container"
+      layout="2c-l"
+      scroll="${hasPanelsScroll ? 'panels' : 'document'}"
+    >
       <cxl-marketing-nav slot="header">
         <vaadin-tabs
           id="menu-primary-items"
@@ -68,7 +77,7 @@ export const CxlPlaybookViewerLayout = () => {
         })}
       </div>
 
-      <section class="widget-odd widget-last widget-first widget-1 widget" slot="sidebar">
+      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
         <div class="sidebar-published">
           <div>Last updated:</div>
           <div>
@@ -206,7 +215,7 @@ export const CxlPlaybookViewerLayout = () => {
         <div class="links">
           <div class="footer-el logo">
             <div>
-              <iron-icon icon="cxl:logo" style="width: var(--lumo-icon-size-xl, 48px);"></iron-icon>
+              <iron-icon icon="cxl:adeft-logo"></iron-icon>
             </div>
           </div>
           <div class="footer-el year">&copy; 2020 Adeft</div>
@@ -214,7 +223,7 @@ export const CxlPlaybookViewerLayout = () => {
         </div>
         <!-- links -->
       </footer>
-    </cxl-institute-layout>
+    </cxl-app-layout>
   `;
 };
 
