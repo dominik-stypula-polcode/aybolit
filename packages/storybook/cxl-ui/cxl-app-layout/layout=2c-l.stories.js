@@ -28,7 +28,7 @@ export const CXLAppLayout2cl = () => {
       ${CXLMarketingNav()}
 
       <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
-        <label>Widget</label>
+        <label>Widget [test greg]</label>
         <h3 class="widget-title">Menu</h3>
         <ul>
           <li>Menu item 1</li>
