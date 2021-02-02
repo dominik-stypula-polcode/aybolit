@@ -12,7 +12,7 @@
     "build": "yarn build-styling",
     "build-styling": "node packages/sass-render/bin/sass-render.js -s \"packages/*/scss/**/*.scss\"",
     "deploy-storybook": "yarn --cwd packages/storybook storybook-to-ghpages",
-    "deploy-test": "yarn --cwd packages/storybook storybook-to-ghpages --source-branch=custom-branch",
+    "deploy-test": "yarn --cwd packages/storybook storybook-to-ghpages --source-branch=dominik-adeft-playbook-viewer-layout",
     "dist": "lerna run dist",
     "lint": "npm-run-all --parallel lint:*",
     "lint:eclint": "eclint check packages scripts test . !.*/* !**/node_modules/** !**/pkg/**",
