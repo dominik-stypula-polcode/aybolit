@@ -1,10 +1,10 @@
 import { html } from 'lit-html';
-import '@conversionxl/cxl-ui/src/components/cxl-institute-layout.js';
+import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import faqData from './theme=cxl-faq.data.json';
 
 export default {
-  title: 'CXL UI|cxl-adeft-accordion'
+  title: 'CXL UI|cxl-adeft-faq-stories'
 };
 
 const Template = () => {
@@ -18,7 +18,7 @@ const Template = () => {
       }
     </style>
 
-    <cxl-institute-layout theme="2c-l" id="container">
+    <cxl-app-layout theme="2c-l" id="container">
       <cxl-adeft-accordion
         id="cxl-vaadin-accordion-26107"
         theme="reverse"
@@ -52,7 +52,7 @@ const Template = () => {
           `
         )}
       </cxl-adeft-accordion>
-    </cxl-institute-layout>
+    </cxl-app-layout>
   `;
 };
 
