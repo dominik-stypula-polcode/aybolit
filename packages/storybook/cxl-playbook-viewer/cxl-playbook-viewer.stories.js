@@ -82,108 +82,115 @@ export const CxlPlaybookViewerLayout = () => {
         })}
       </div>
 
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
-        <div class="sidebar-published">
-          <div>Last updated:</div>
-          <div>
-            <strong>${moment(dataAdapter.getPlaybookTimestamp()).format('DD. MMMM YYYY')}</strong>
+      <section
+        class="widget ${hasWidgetBackground ? 'has-background' : ''} only-desktop"
+        slot="sidebar"
+      >
+        <div class="inner-sidebar-wrapper">
+          <div class="sidebar-published">
+            <div>Last updated:</div>
+            <div>
+              <strong>${moment(dataAdapter.getPlaybookTimestamp()).format('DD. MMMM YYYY')}</strong>
+            </div>
           </div>
-        </div>
-        <!-- sidebar-published -->
+          <!-- sidebar-published -->
 
-        <div class="actions-sb">
-          <div class="info">
-            <span>Rate this playbook:</span>
-            <!-- greg 2021-02-04 : CHANGED as per request -->
-            <!-- <span>Actions:</span> -->
-          </div>
-          <div class="icons-vertical">
-            <div class="icons">
-              <div class="rating">
-                <div id="with-tooltip-div" class="with-tooltip">
-                  <iron-star-rating id="iron-star-rating" icon="icons:star"></iron-star-rating>
-                  ${!userLoggedIn
-                    ? html`
-                        <paper-tooltip
-                          animationDelay="0"
-                          offset="5"
-                          position="top"
-                          htmlFor="with-tooltip-div"
-                        >
-                          Log in to vote
-                        </paper-tooltip>
-                      `
-                    : ``}
+          <div class="actions-sb">
+            <div class="info">
+              <span>Rate this playbook:</span>
+              <!-- greg 2021-02-04 : CHANGED as per request -->
+              <!-- <span>Actions:</span> -->
+            </div>
+            <div class="icons-vertical">
+              <div class="icons">
+                <div class="rating">
+                  <div id="with-tooltip-div" class="with-tooltip">
+                    <iron-star-rating id="iron-star-rating" icon="icons:star"></iron-star-rating>
+                    ${!userLoggedIn
+                      ? html`
+                          <paper-tooltip
+                            animationDelay="0"
+                            offset="5"
+                            position="top"
+                            htmlFor="with-tooltip-div"
+                          >
+                            Log in to vote
+                          </paper-tooltip>
+                        `
+                      : ``}
+                  </div>
+                  <!-- with-tooltip-div -->
                 </div>
-                <!-- with-tooltip-div -->
+                <!-- rating -->
+
+                <!-- greg 2021-02-04 : DISABLED as per request -->
+                <!-- <a href="#" id="share"><i><iron-icon icon="cxl:share"></iron-icon></i><span>Share</span></a> -->
+                <!-- <a href="#" id="report"><i><iron-icon icon="cxl:report"></iron-icon></i><span>Report</span></a> -->
               </div>
-              <!-- rating -->
-
-              <!-- greg 2021-02-04 : DISABLED as per request -->
-              <!-- <a href="#" id="share"><i><iron-icon icon="cxl:share"></iron-icon></i><span>Share</span></a> -->
-              <!-- <a href="#" id="report"><i><iron-icon icon="cxl:report"></iron-icon></i><span>Report</span></a> -->
+              <!-- icons -->
             </div>
-            <!-- icons -->
+            <!-- icons-vertical -->
           </div>
-          <!-- icons-vertical -->
-        </div>
-        <!-- actions-sb -->
+          <!-- actions-sb -->
 
-        <!--Begin: Author Info SideBar-->
-        <div class="author-info-sb">
-          <div class="about">
-            <span>About the author:</span>
+          <!--Begin: Author Info SideBar-->
+          <div class="author-info-sb">
+            <div class="about">
+              <span>About the author:</span>
+            </div>
+            ${RenderAvatarPersonInfo(authorObj)} ${RenderAvatarPersonBio(authorObj.bio)}
           </div>
-          ${RenderAvatarPersonInfo(authorObj)} ${RenderAvatarPersonBio(authorObj.bio)}
-        </div>
-        <!--End: Author Info SideBar-->
+          <!--End: Author Info SideBar-->
 
-        <!--Begin: Validated By SideBar-->
-        <div class="validated-by-sb">
-          <div class="about">
-            <span>Validated by:</span>
+          <!--Begin: Validated By SideBar-->
+          <div class="validated-by-sb">
+            <div class="about">
+              <span>Peer reviewed by:</span>
+            </div>
+            ${dataAdapter.getExperts().map(reviewer => RenderAvatarPersonInfo(reviewer))}
           </div>
-          ${dataAdapter.getExperts().map(reviewer => RenderAvatarPersonInfo(reviewer))}
-        </div>
-        <!--End: Validated By SideBar-->
+          <!--End: Validated By SideBar-->
 
-        ${RenderRelatedBlogs(dataAdapter.getRelatedBlogs())}
-        ${RenderRelatedLessons(dataAdapter.getLessons())} ${RenderTools(dataAdapter.getTools())}
+          ${RenderRelatedBlogs(dataAdapter.getRelatedBlogs())}
+          ${RenderRelatedLessons(dataAdapter.getLessons())} ${RenderTools(dataAdapter.getTools())}
 
-        <div class="sync-with-sb">
-          <div class="sync-with-sb-content">
-            <div class="first">
-              <span>Sync with:</span>
-              <i class="question">
-                <iron-icon id="question-mark1" icon="vaadin:question-circle"></iron-icon>
-                <paper-tooltip
-                  animationDelay="0"
-                  offset="5"
-                  position="top"
-                  htmlFor="question-mark1"
+          <div class="sync-with-sb">
+            <div class="sync-with-sb-content">
+              <div class="first">
+                <span>Sync with:</span>
+                <i class="question">
+                  <iron-icon id="question-mark1" icon="vaadin:question-circle"></iron-icon>
+                  <paper-tooltip
+                    animationDelay="0"
+                    offset="5"
+                    position="top"
+                    htmlFor="question-mark1"
+                  >
+                    coming soon
+                  </paper-tooltip>
+                </i>
+              </div>
+              <!-- first -->
+              <div class="icons">
+                <a href="#"
+                  ><i><iron-icon icon="cxl:trello"></iron-icon></i><span>Trello</span></a
                 >
-                  coming soon
-                </paper-tooltip>
-              </i>
+                <a href="#"
+                  ><i><iron-icon icon="cxl:asana"></iron-icon></i><span>Asana</span></a
+                >
+                <a href="#"
+                  ><i><iron-icon icon="cxl:basecamp"></iron-icon></i><span>Basecamp</span></a
+                >
+              </div>
+              <!-- icons -->
             </div>
-            <!-- first -->
-            <div class="icons">
-              <a href="#"
-                ><i><iron-icon icon="cxl:trello"></iron-icon></i><span>Trello</span></a
-              >
-              <a href="#"
-                ><i><iron-icon icon="cxl:asana"></iron-icon></i><span>Asana</span></a
-              >
-              <a href="#"
-                ><i><iron-icon icon="cxl:basecamp"></iron-icon></i><span>Basecamp</span></a
-              >
-            </div>
-            <!-- icons -->
+            <!-- sync-with-sb-content -->
           </div>
-          <!-- sync-with-sb-content -->
+          <!-- sync-with-sb -->
         </div>
-        <!-- sync-with-sb -->
+        <!--inner-sidebar-wrapper-->
       </section>
+      <!--slot sidebar-->
 
       <div id="container">
         <cxl-adeft-accordion

@@ -1,0 +1,34 @@
+.sync-with-sb {
+  @extend .sidebar-box-border;
+  width: 100%;
+
+  .sync-with-sb-content {
+    display: flex;
+    flex-direction: column;
+    width: var(--lumo-size-xxl);
+
+    .first {
+      display: flex;
+      margin: 0;
+      paper-tooltip {
+        @extend .paper-tooltip-for-question-mark;
+      }
+      span {
+        font-weight: 600;
+      }
+      .question {
+        @extend .icon-svg-common;
+        margin-left: var(--lumo-space-s);
+      }
+    }
+
+    .icons {
+      display: flex;
+      flex-direction: column;
+      font-size: var(--lumo-font-size-s);
+      a {
+        @extend .sidebar-icons-a;
+      }
+    }
+  }
+}

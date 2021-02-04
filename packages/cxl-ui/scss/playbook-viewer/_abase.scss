@@ -1,0 +1,41 @@
+.icon-svg-common {
+  width: var(--lumo-size-xs);
+  height: var(--lumo-size-xs);
+}
+
+.paper-tooltip-for-question-mark {
+  --paper-tooltip-delay-in: 0;
+  --paper-tooltip-background: var(--lumo-contrast);
+  --paper-tooltip-duration-in: 100;
+  --paper-tooltip-duration-out: 100;
+  --paper-tooltip-opacity: 1;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.sidebar-box-border {
+  padding-top: $margin-between-boxes;
+  margin-top: $margin-between-boxes;
+  border-top: 1px solid var(--lumo-contrast-50pct);
+}
+
+.sidebar-icons-a {
+  display: flex;
+  align-items: center;
+  margin-top: $margin-between-boxes;
+  color: var(--lumo-contrast);
+  text-decoration: none;
+
+  i {
+    iron-icon {
+      @extend .icon-svg-common;
+      margin-right: var(--lumo-space-s);
+    }
+  }
+
+  span {
+    display: block;
+  }
+}

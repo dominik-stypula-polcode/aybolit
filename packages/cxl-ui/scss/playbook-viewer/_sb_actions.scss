@@ -1,0 +1,25 @@
+.actions-sb {
+  @extend .sidebar-box-border;
+
+  .info {
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .icons-vertical {
+    display: flex;
+    flex-direction: column;
+    background: var(--lumo-background);
+
+    .icons {
+      display: block;
+      .rating {
+        margin-top: $margin-between-boxes;
+      }
+      a {
+        @extend .sidebar-icons-a;
+      }
+    }
+  }
+}

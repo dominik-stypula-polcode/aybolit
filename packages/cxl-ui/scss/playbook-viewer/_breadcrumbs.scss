@@ -1,0 +1,25 @@
+.breadcrumbs {
+  margin-top: $margin-between-boxes;
+  margin-bottom: $margin-between-boxes;
+  $inactive: var(--lumo-contrast-40pct);
+  $active: var(--lumo-contrast);
+  a {
+    font-size: var(--lumo-font-size-s);
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: lowercase;
+  }
+  .active:hover {
+    text-decoration: underline;
+  }
+  .active {
+    color: $active;
+  }
+  .inactive {
+    color: $inactive;
+  }
+  .inactive::after {
+    color: $inactive;
+    content: " / ";
+  }
+}
