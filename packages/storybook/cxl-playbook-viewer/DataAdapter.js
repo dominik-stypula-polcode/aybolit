@@ -116,6 +116,30 @@ class DataAdapter {
   }
 
   /**
+   * @return {{items: []}|{items:{id: string, URL: string, Name: string}}}
+   */
+  getRelatedBlogs() {
+    const relatedBlogs = this.apiData.relatedBlogs || [];
+    return relatedBlogs;
+  }
+
+  /**
+   * @return {{items: []}|{items:{id: string, Name: string}}}
+   */
+  getTools() {
+    const tools = this.apiData.tools || [];
+    return tools;
+  }
+
+  /**
+   * @return {{items: []}|{items:{id: string, URL: string, Name: string}}}
+   */
+  getLessons() {
+    const lessons = this.apiData.lessons || [];
+    return lessons;
+  }
+
+  /**
    *
    * @return {{items: []}|{items: {itemContent: *, time: string, title: string}[]}}
    */
@@ -145,6 +169,16 @@ class DataAdapter {
     return {
       items
     };
+  }
+
+  /**
+   *
+   * @param {*} personsCollection
+   * @return {{items: []}|{items: {profileUrl: (string), avatarUrl: string, bio: string, id: number, email: string, username: string}[]}}
+   * @private
+   */
+  _getPersonsCollection(personsCollection) {
+    return personsCollection.map(this._getPersonAll);
   }
 
   /**
@@ -216,6 +250,21 @@ class DataAdapter {
   }
 
   /**
+   * @return [] | array of {{profileUrl: (string), avatarUrl: string, bio: string, id: number, email: string, username: string}}
+   */
+  getExperts() {
+    const experts = this.apiData.expert || [];
+    return this._getPersonsCollection(experts);
+  }
+
+  /**
+   * @return bool
+   */
+  getShouldHideAuthor() {
+    return this.apiData.hideAuthor;
+  }
+
+  /**
    *
    * @return {string}
    */
@@ -232,6 +281,7 @@ class DataAdapter {
   /**
    *
    * @return {string}
+   * @remove
    */
   getExpertName() {
     const person = this.getExpert();
@@ -241,6 +291,19 @@ class DataAdapter {
     // eslint-disable-next-line no-console
     console.warn('apiData.expert[x].displayName is empty from API');
     return '';
+  }
+
+  /**
+   * @return {string}
+   */
+  getExpertsNames() {
+    const persons = this.getExperts();
+    if (!persons || !persons.length) return '';
+    const names = [];
+    for (let i = 0; i < persons.length; i += 1) {
+      names.push(persons[i].username);
+    }
+    return names.join(', ');
   }
 
   /**

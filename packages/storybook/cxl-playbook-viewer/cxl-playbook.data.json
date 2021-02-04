@@ -14,6 +14,7 @@
       "profileUrl":"https:\/\/www.luckyorange.com",
       "bio":"Lucky Orange will help you answer the question of why 99% of visitors that visit your site never turn into customers."
     },
+    "hideAuthor": false,
     "editor":{
       "id":10,
       "niceName":"andonovska25gmail-com",
@@ -24,7 +25,24 @@
       "bio":""
     },
     "expert":[
-
+      {
+        "id":12,
+        "niceName":"johndoe",
+        "displayName":"John Doe",
+        "email":"john.doe@adeft.com",
+        "profilePicture":"https:\/\/secure.gravatar.com\/avatar\/ad115d1c14ab075ae4db52601e4c82d0?s=96&d=mm&r=g",
+        "profileUrl":"",
+        "bio":"This is John Does's bio"
+      },
+      {
+        "id":12,
+        "niceName":"maryjane",
+        "displayName":"Mary Jane",
+        "email":"mary.jane@adeft.com",
+        "profilePicture":"https:\/\/secure.gravatar.com\/avatar\/ad115d1c14ab075ae4db52601e4c82d0?s=96&d=mm&r=g",
+        "profileUrl":"",
+        "bio":"This is Mary Jane's bio"
+      }
     ],
     "useCase":"Find and fix user experience issues with mobile navigation by evaluating visitor engagement through dynamic heatmaps and session recordings",
     "useCaseId":"use-case-1611648195609",
@@ -390,6 +408,66 @@
     "starRating":0,
     "hasUserVoted":false,
     "userVote":0,
+    "tools": [{
+      "id": "recVUdgH4PhatQjtC",
+      "Name": "Tableau"
+    }, {
+      "id": "recuHiO4PVOMVqBN0",
+      "Name": "Power BI"
+    }, {
+      "id": "recENoAWulCvtHvYz",
+      "Name": "google-ads"
+    }],
+    "relatedBlogs": [{
+      "URL": "https:\/\/cxl.com\/blog\/key-insights-every-speaker-elite-camp-2017\/",
+      "Name": "Key Insights from Every Speaker of Elite Camp 2017",
+      "id": "recSJmsAXH00jQsUo"
+    }, {
+      "URL": "https:\/\/cxl.com\/blog\/better-measure-b2b-lead-generation\/",
+      "Name": "How To Better Measure B2B Lead Generation",
+      "id": "recIHYA8n6m1y0LIC"
+    }, {
+      "URL": "https:\/\/cxl.com\/blog\/types-value-propositions\/",
+      "Name": "The 4 Types of Value Propositions Every Business Needs | CXL",
+      "id": "recAo97ozNwtQui82"
+    }],
+    "lessons": [{
+      "id": "recPNj4SYKzHdnYHH",
+      "course": "principles-of-persuasive-design",
+      "lesson_id": 20589,
+      "course_name": "Principles of Persuasive Design",
+      "lesson_slug": "principles-of-persuasive-design-2",
+      "lesson_title": "Principles of Persuasive Design",
+      "course_wp_id": "20581",
+      "lesson_number": 0
+    }, {
+      "id": "recpJyfipm0lP9kiC",
+      "course": "biases",
+      "lesson_id": 11479,
+      "course_name": "Cognitive Biases",
+      "lesson_slug": "the-presenters-paradox-how-do-freebies-influence-product-evaluation",
+      "lesson_title": "The Presenter's Paradox Revisited: No Effects of Visuals on Perceived Value",
+      "course_wp_id": "258228",
+      "lesson_number": 0
+    }, {
+      "id": "recRUDG6zqYSuuC2B",
+      "course": "psychology-of-communication",
+      "lesson_id": 299908,
+      "course_name": "Psychology of Communication",
+      "lesson_slug": "from-wtf-to-hell-yes-how-to-come-up-with-copy-that-persuades",
+      "lesson_title": "From WTF to Hell Yes: How to Come Up with Copy that Persuades",
+      "course_wp_id": "266183",
+      "lesson_number": 0
+    }, {
+      "id": "recJRhFVUIunM5dwR",
+      "course": "psychology-of-websites",
+      "lesson_id": 299912,
+      "course_name": "Psychology of Websites",
+      "lesson_slug": "how-to-create-landing-pages-that-address-the-emotional-needs-of-customers",
+      "lesson_title": "How to Create Landing Pages That Address the Emotional Needs of Customers",
+      "course_wp_id": "219091",
+      "lesson_number": 0
+    }],
     "breadcrumbs":[
       {
         "id":2309,

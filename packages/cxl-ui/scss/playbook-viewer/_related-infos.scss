@@ -1,0 +1,45 @@
+.related-infos {
+  @extend .sidebar-box-border;
+
+  .heading {
+    margin-bottom: $margin-between-boxes;
+    font-weight: 600;
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .items-list {
+    padding-left: 0;
+    margin-left: 0;
+    list-style-type: none;
+
+    i {
+      margin-left: -5px;
+      iron-icon {
+        @extend .icon-svg-common;
+        margin-right: var(--lumo-space-s);
+      }
+    }
+
+    .items-list--item {
+      display: block;
+      padding-left: 0;
+      margin-bottom: $margin-between-boxes;
+      margin-left: 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .item-link {
+        font-size: var(--lumo-font-size-s);
+        color: var(--lumo-secondary-text-color);
+        &:hover {
+          color: var(--lumo-secondary-text-color);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

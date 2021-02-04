@@ -10,6 +10,11 @@ import playbookViewerCSS from '@conversionxl/cxl-ui/src/styles/playbook-viewer-c
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import jsonData from './cxl-playbook.data.json';
 import DataAdapter from './DataAdapter';
+import RenderAvatarPersonInfo from './render-partials/avatarPersonInfo';
+import RenderAvatarPersonBio from './render-partials/avatarPersonBio';
+import RenderRelatedBlogs from './sections/sidebar/relatedBlogs';
+import RenderRelatedLessons from './sections/sidebar/relatedLessons';
+import RenderTools from './sections/sidebar/tools';
 
 export default {
   decorators: [withKnobs],
@@ -88,7 +93,9 @@ export const CxlPlaybookViewerLayout = () => {
 
         <div class="actions-sb">
           <div class="info">
-            <span>Actions:</span>
+            <span>Rate this playbook:</span>
+            <!-- greg 2021-02-04 : CHANGED as per request -->
+            <!-- <span>Actions:</span> -->
           </div>
           <div class="icons-vertical">
             <div class="icons">
@@ -111,12 +118,10 @@ export const CxlPlaybookViewerLayout = () => {
                 <!-- with-tooltip-div -->
               </div>
               <!-- rating -->
-              <a href="#" id="share"
-                ><i><iron-icon icon="cxl:share"></iron-icon></i><span>Share</span></a
-              >
-              <a href="#" id="report"
-                ><i><iron-icon icon="cxl:report"></iron-icon></i><span>Report</span></a
-              >
+
+              <!-- greg 2021-02-04 : DISABLED as per request -->
+              <!-- <a href="#" id="share"><i><iron-icon icon="cxl:share"></iron-icon></i><span>Share</span></a> -->
+              <!-- <a href="#" id="report"><i><iron-icon icon="cxl:report"></iron-icon></i><span>Report</span></a> -->
             </div>
             <!-- icons -->
           </div>
@@ -124,26 +129,26 @@ export const CxlPlaybookViewerLayout = () => {
         </div>
         <!-- actions-sb -->
 
+        <!--Begin: Author Info SideBar-->
         <div class="author-info-sb">
           <div class="about">
             <span>About the author:</span>
           </div>
-          <div class="sb-author-flex">
-            <a class="avatar">
-              <img class="avatar" src="${authorObj.avatarUrl}" alt="avatar" />
-            </a>
-            <div class="right">
-              <div class="name">
-                <a href="${authorObj.profileUrl}">${authorObj.username}</a>
-              </div>
-            </div>
-            <!-- right -->
-          </div>
-          <!-- sb-author-flex -->
-          <div class="bio">
-            ${authorObj.bio}
-          </div>
+          ${RenderAvatarPersonInfo(authorObj)} ${RenderAvatarPersonBio(authorObj.bio)}
         </div>
+        <!--End: Author Info SideBar-->
+
+        <!--Begin: Validated By SideBar-->
+        <div class="validated-by-sb">
+          <div class="about">
+            <span>Validated by:</span>
+          </div>
+          ${dataAdapter.getExperts().map(reviewer => RenderAvatarPersonInfo(reviewer))}
+        </div>
+        <!--End: Validated By SideBar-->
+
+        ${RenderRelatedBlogs(dataAdapter.getRelatedBlogs())}
+        ${RenderRelatedLessons(dataAdapter.getLessons())} ${RenderTools(dataAdapter.getTools())}
 
         <div class="sync-with-sb">
           <div class="sync-with-sb-content">

@@ -1,5 +1,7 @@
 $margin-between-boxes: var(--lumo-space-l);
 
+@import "./playbook-viewer/related-infos";
+
 .icon-svg-common {
   width: var(--lumo-size-xs);
   height: var(--lumo-size-xs);
@@ -100,7 +102,8 @@ $margin-between-boxes: var(--lumo-space-l);
   }
 }
 
-.author-info-sb {
+.author-info-sb,
+.validated-by-sb {
   @extend .sidebar-box-border;
 
   .about {
