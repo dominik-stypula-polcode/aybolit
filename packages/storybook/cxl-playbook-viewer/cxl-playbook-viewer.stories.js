@@ -200,13 +200,17 @@ export const CxlPlaybookViewerLayout = () => {
                   </div>
                   <div class="right">
                     <div class="summary-top">
-                      ${unsafeHTML(el.title)}
+                      <cxl-inline-comment-context-menu id="inline_comment_title_${el.idx}">
+                        ${unsafeHTML(el.title)}
+                      </cxl-inline-comment-context-menu>
                     </div>
                   </div>
                 </div>
                 <vaadin-vertical-layout>
                   <div class="item-content">
-                    ${unsafeHTML(el.content)}
+                    <cxl-inline-comment-context-menu id="inline_comment_content_${el.idx}">
+                      ${unsafeHTML(el.content)}
+                    </cxl-inline-comment-context-menu>
                   </div>
                 </vaadin-vertical-layout>
               </vaadin-accordion-panel>
