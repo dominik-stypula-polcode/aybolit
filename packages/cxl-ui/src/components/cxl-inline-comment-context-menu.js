@@ -92,12 +92,17 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
           </div>
         `;
 
-      const button = root.querySelector('#send');
+      const sendButton = root.querySelector('#send');
+      const cancelButton = root.querySelector('#cancel');
       const textarea = root.querySelector('.area-container textarea');
 
-      button.onclick = () => {
-        button.disabled = true;
-        button.textContent = this.buttonTextSavingComment;
+      cancelButton.onclick = () => {
+        listBox.innerHTML = '';
+      };
+
+      sendButton.onclick = () => {
+        sendButton.disabled = true;
+        sendButton.textContent = this.buttonTextSavingComment;
 
         const evt = new CustomEvent('cxl-save-inline-comment', {
           bubbles: true,
