@@ -110,6 +110,7 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
         });
 
         contextMenu.dispatchEvent(evt);
+
         setTimeout(() => {
           listBox.innerHTML = '';
         }, 3000);
