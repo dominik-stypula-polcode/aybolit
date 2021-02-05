@@ -65,20 +65,11 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
 
   // eslint-disable-next-line class-methods-use-this
   appendContextMenuScript() {
-    const doc = window.document;
     const contextMenu = this;
     contextMenu.closeOn = 'blur';
 
     contextMenu.renderer = root => {
-      let listBox = root.firstElementChild;
-
-      // // Check if there is a list-box generated with the previous renderer call to update its content instead of recreation
-      if (listBox) {
-        listBox.innerHTML = '';
-      } else {
-        listBox = doc.createElement('vaadin-list-box');
-        root.appendChild(listBox);
-      }
+      const listBox = this._getListBoxElementOrClearIfExists(root);
 
       listBox.innerHTML = this._getListBoxDefaultHTML(listBox);
 
@@ -97,12 +88,27 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
 
         setTimeout(() => {
           listBox.innerHTML = this._getListBoxSentHTML();
+
           setTimeout(() => {
             listBox.innerHTML = '';
           }, 3000);
         }, 2000);
       };
     };
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _getListBoxElementOrClearIfExists(root) {
+    let listBox = root.firstElementChild;
+
+    // // Check if there is a list-box generated with the previous renderer call to update its content instead of recreation
+    if (listBox) {
+      listBox.innerHTML = '';
+    } else {
+      listBox = window.document.createElement('vaadin-list-box');
+      root.appendChild(listBox);
+    }
+    return listBox;
   }
 
   _getListBoxDefaultHTML() {
