@@ -80,17 +80,7 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
         root.appendChild(listBox);
       }
 
-      listBox.innerHTML = `
-          <div class="list-box-container">
-            <div class="area-container">
-                <textarea placeholder="${this.textareaPlaceholder}"></textarea>
-            </div>
-            <div class="buttons">
-              <button id="send">${this.buttonText}</button>
-              <button id="cancel">Cancel</button>
-            </div>
-          </div>
-        `;
+      listBox.innerHTML = this._getListBoxDefaultHTML(listBox);
 
       const sendButton = root.querySelector('#send');
       const cancelButton = root.querySelector('#cancel');
@@ -103,23 +93,54 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
       sendButton.onclick = () => {
         sendButton.disabled = true;
         sendButton.textContent = this.buttonTextSavingComment;
-
-        const evt = new CustomEvent('cxl-save-inline-comment', {
-          bubbles: true,
-          composed: true,
-          detail: {
-            comment: textarea.value,
-            context: contextMenu.innerHTML,
-            elementId: this.getAttribute('id')
-          }
-        });
-
-        contextMenu.dispatchEvent(evt);
+        this._dispachCustomEvent(textarea, contextMenu);
 
         setTimeout(() => {
-          listBox.innerHTML = '';
-        }, 3000);
+          listBox.innerHTML = this._getListBoxSentHTML();
+          setTimeout(() => {
+            listBox.innerHTML = '';
+          }, 3000);
+        }, 2000);
       };
     };
+  }
+
+  _getListBoxDefaultHTML() {
+    return `
+          <div class="list-box-container">
+            <div class="area-container">
+                <textarea placeholder="${this.textareaPlaceholder}"></textarea>
+            </div>
+            <div class="buttons">
+              <button id="send">${this.buttonText}</button>
+              <button id="cancel">Cancel</button>
+            </div>
+          </div>
+        `;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _getListBoxSentHTML() {
+    return `
+          <div class="list-box-container">
+            <div class="area-container">
+                <div class="message">Your comment was saved.</div>
+            </div>
+          </div>
+        `;
+  }
+
+  _dispachCustomEvent(textarea, contextMenu) {
+    const evt = new CustomEvent('cxl-save-inline-comment', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        comment: textarea.value,
+        context: contextMenu.innerHTML,
+        elementId: this.getAttribute('id')
+      }
+    });
+
+    contextMenu.dispatchEvent(evt);
   }
 }

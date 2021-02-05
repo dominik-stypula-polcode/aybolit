@@ -25,6 +25,9 @@
       border-radius: var(--lumo-border-radius-m);
       box-shadow: var(--lumo-box-shadow-xs);
     }
+    .message {
+      color: var(--lumo-body-text-color);
+    }
   }
 
   .buttons {
