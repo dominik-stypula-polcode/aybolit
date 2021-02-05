@@ -1,10 +1,12 @@
 $margin-between-boxes: var(--lumo-space-l);
+@use "../../cxl-lumo-styles/scss/mq";
 
 @import "./playbook-viewer/abase";
 @import "./playbook-viewer/breadcrumbs";
 
 /** Partials, reusable **/
 @import "./playbook-viewer/partial-avatar-person-flex";
+@import "./playbook-viewer/partial-use-case";
 
 /** Main container modules */
 @import "./playbook-viewer/main-title";

@@ -1,0 +1,8 @@
+.adeft-use-case {
+  margin-bottom: var(--lumo-space-xl);
+  .use-case-title {
+    @media #{mq.$small} {
+      font-size: var(--lumo-font-size-xl);
+    }
+  }
+}

@@ -20,6 +20,9 @@ import RenderRelatedBlogs from './sections/sidebar/relatedBlogs';
 import RenderRelatedLessons from './sections/sidebar/relatedLessons';
 import RenderTools from './sections/sidebar/tools';
 import RenderMainTitle from './render-partials/mainTitle';
+import RenderBreadcrumbs from './render-partials/breadcrumbs';
+import RenderUseCase from './render-partials/useCase';
+// import RenderSyncWith from './render-partials/syncWith'; // greg: disabled as per request
 
 export default {
   decorators: [withKnobs],
@@ -78,19 +81,20 @@ export const CxlPlaybookViewerLayout = () => {
         </vaadin-tabs>
       </cxl-marketing-nav>
 
-      <div class="breadcrumbs">
-        ${dataAdapter.getBreadcrumbsData().anchors.map(value => {
-          const className = value.active ? 'active' : 'inactive';
-          return html`
-            <a class="${className}" href="${value.href}">${value.content}</a>
-          `;
-        })}
-      </div>
+      <!-- Breadcrumbs -->
+      ${RenderBreadcrumbs(dataAdapter.getBreadcrumbsData())}
 
+      <!-- Playbook Title -->
       ${RenderMainTitle(dataAdapter.getPlaybookTitle())}
 
+      <!-- Author Info Top -->
       <div class="main-author-info">
         ${RenderAvatarPersonInfo(authorObj)} ${RenderAvatarPersonBio(authorObj.bio)}
+      </div>
+
+      <!-- Use Case -->
+      <div class="main-use-case">
+        ${RenderUseCase(dataAdapter.getUseCase())}
       </div>
 
       <section
@@ -144,60 +148,38 @@ export const CxlPlaybookViewerLayout = () => {
           </div>
           <!-- actions-sb -->
 
+          <!-- greg: disabled as per request -->
           <!--Begin: Author Info SideBar-->
-          <div class="author-info-sb">
+          <!-- <div class="author-info-sb">
             <div class="about">
               <span>About the author:</span>
             </div>
-            ${RenderAvatarPersonInfo(authorObj)} ${RenderAvatarPersonBio(authorObj.bio)}
-          </div>
+            // RenderAvatarPersonInfo(authorObj)} RenderAvatarPersonBio(authorObj.bio)
+          </div> -->
           <!--End: Author Info SideBar-->
 
+          <!-- greg: disabled as per request -->
           <!--Begin: Validated By SideBar-->
-          <div class="validated-by-sb">
+          <!-- <div class="validated-by-sb">
             <div class="about">
               <span>Peer reviewed by:</span>
             </div>
-            ${dataAdapter.getExperts().map(reviewer => RenderAvatarPersonInfo(reviewer))}
-          </div>
+            // dataAdapter.getExperts().map(reviewer => RenderAvatarPersonInfo(reviewer))
+          </div> -->
           <!--End: Validated By SideBar-->
 
+          <!-- Related Blogs -->
           ${RenderRelatedBlogs(dataAdapter.getRelatedBlogs())}
-          ${RenderRelatedLessons(dataAdapter.getLessons())} ${RenderTools(dataAdapter.getTools())}
 
-          <div class="sync-with-sb">
-            <div class="sync-with-sb-content">
-              <div class="first">
-                <span>Sync with:</span>
-                <i class="question">
-                  <iron-icon id="question-mark1" icon="vaadin:question-circle"></iron-icon>
-                  <paper-tooltip
-                    animationDelay="0"
-                    offset="5"
-                    position="top"
-                    htmlFor="question-mark1"
-                  >
-                    coming soon
-                  </paper-tooltip>
-                </i>
-              </div>
-              <!-- first -->
-              <div class="icons">
-                <a href="#"
-                  ><i><iron-icon icon="cxl:trello"></iron-icon></i><span>Trello</span></a
-                >
-                <a href="#"
-                  ><i><iron-icon icon="cxl:asana"></iron-icon></i><span>Asana</span></a
-                >
-                <a href="#"
-                  ><i><iron-icon icon="cxl:basecamp"></iron-icon></i><span>Basecamp</span></a
-                >
-              </div>
-              <!-- icons -->
-            </div>
-            <!-- sync-with-sb-content -->
-          </div>
-          <!-- sync-with-sb -->
+          <!-- Related Lessons & Courses -->
+          ${RenderRelatedLessons(dataAdapter.getLessons())}
+
+          <!-- Tools -->
+          ${RenderTools(dataAdapter.getTools())}
+
+          <!-- Sync With -->
+          <!-- GREG: disabled as per request -->
+          <!-- {RenderSyncWith()} -->
         </div>
         <!--inner-sidebar-wrapper-->
       </section>
