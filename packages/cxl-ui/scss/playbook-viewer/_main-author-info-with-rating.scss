@@ -3,7 +3,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--lumo-space-l);
+  margin-bottom: var(--lumo-space-m);
+
   @media #{mq.$medium} {
     flex-wrap: nowrap;
   }
@@ -20,7 +21,7 @@
   }
 
   .main-author-info {
-    margin-bottom: var(--lumo-space-s);
+    margin-bottom: var(--lumo-space-m);
     @media #{mq.$medium} {
       margin-bottom: 0;
     }

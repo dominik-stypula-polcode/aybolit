@@ -1,8 +1,8 @@
 .adeft-playbook-title {
   margin-bottom: var(--lumo-space-xl);
-  font-size: var(--lumo-font-size-l);
+  font-size: var(--lumo-font-size-xxl);
 
-  @media #{mq.$small} {
+  @media #{mq.$medium} {
     font-size: var(--lumo-font-size-xxxl);
   }
 }

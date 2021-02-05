@@ -19,9 +19,9 @@ import RenderAvatarPersonInfo from './render-partials/avatarPersonInfo';
 import RenderRelatedBlogs from './sections/sidebar/relatedBlogs';
 import RenderRelatedLessons from './sections/sidebar/relatedLessons';
 import RenderTools from './sections/sidebar/tools';
-import RenderMainTitle from './render-partials/mainTitle';
-import RenderBreadcrumbs from './render-partials/breadcrumbs';
-import RenderUseCase from './render-partials/useCase';
+import RenderMainTitle from './sections/main/mainTitle';
+import RenderBreadcrumbs from './sections/main/breadcrumbs';
+import RenderUseCase from './sections/main/useCase';
 import RenderRatingWithTooltip from './render-partials/ratingWithTooltip';
 import RenderPeerReviewedText from './render-partials/peerReviewedText';
 // import RenderSyncWith from './render-partials/syncWith'; // greg: disabled as per request
@@ -98,12 +98,19 @@ export const CxlPlaybookViewerLayout = () => {
           <!-- {RenderAvatarPersonBio(authorObj.bio)} -->
         </div>
         <div class="main-rating flex-column">
+          <!-- Peer Reviewed Text: mobile -->
+          <div class="adeft-peer-reviewed-mobile">
+            ${RenderPeerReviewedText(dataAdapter.getExpertsNames())}
+          </div>
+          <!-- Rating with tooltips -->
           ${RenderRatingWithTooltip('main-rating-with-tooltip', userLoggedIn)}
         </div>
       </div>
 
       <!-- Peer Reviewed - text list-->
-      ${RenderPeerReviewedText(dataAdapter.getExpertsNames())}
+      <div class="adeft-peer-reviewed-desktop">
+        ${RenderPeerReviewedText(dataAdapter.getExpertsNames())}
+      </div>
 
       <!-- Use Case -->
       <div class="main-use-case">

@@ -1,5 +1,28 @@
+.adeft-peer-reviewed-mobile {
+  display: block;
+  .adeft-peer-reviewed {
+    &.adeft-peer-reviewed--text {
+      margin-bottom: var(--lumo-space-m);
+      font-size: var(--lumo-font-size-s);
+      @media #{mq.$medium} {
+        margin-bottom: 0;
+      }
+    }
+  }
+  @media #{mq.$medium} {
+    display: none;
+  }
+}
+
+.adeft-peer-reviewed-desktop {
+  display: none;
+  @media #{mq.$medium} {
+    display: block;
+  }
+}
+
 .adeft-peer-reviewed {
-  &.adeft-peer-revieved--text {
+  &.adeft-peer-reviewed--text {
     margin-bottom: var(--lumo-spacing-l);
   }
 }
