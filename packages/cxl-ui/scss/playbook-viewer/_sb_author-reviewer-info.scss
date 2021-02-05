@@ -1,0 +1,11 @@
+.author-info-sb,
+.validated-by-sb {
+  @extend .sidebar-box-border;
+
+  .about {
+    margin-bottom: $margin-between-boxes;
+    span {
+      font-weight: 600;
+    }
+  }
+}

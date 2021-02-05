@@ -89,6 +89,10 @@ export const CxlPlaybookViewerLayout = () => {
 
       ${RenderMainTitle(dataAdapter.getPlaybookTitle())}
 
+      <div class="main-author-info">
+        ${RenderAvatarPersonInfo(authorObj)} ${RenderAvatarPersonBio(authorObj.bio)}
+      </div>
+
       <section
         class="widget ${hasWidgetBackground ? 'has-background' : ''} only-desktop"
         slot="sidebar"

@@ -2,11 +2,17 @@ $margin-between-boxes: var(--lumo-space-l);
 
 @import "./playbook-viewer/abase";
 @import "./playbook-viewer/breadcrumbs";
+
+/** Partials, reusable **/
+@import "./playbook-viewer/partial-avatar-person-flex";
+
+/** Main container modules */
 @import "./playbook-viewer/main-title";
-@import "./playbook-viewer/author-reviewer-info";
+@import "./playbook-viewer/main-author-info.scss";
 
 /** Sidebar modules */
 @import "./playbook-viewer/sb_base.scss";
+@import "./playbook-viewer/sb_author-reviewer-info";
 @import "./playbook-viewer/sb_published";
 @import "./playbook-viewer/sb_actions";
 @import "./playbook-viewer/sb_sync-with";

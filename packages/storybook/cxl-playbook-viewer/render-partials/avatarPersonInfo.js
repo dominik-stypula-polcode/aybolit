@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 
 const RenderAvatarPersonInfo = item => {
   return html`
-    <div class="sb-author-flex">
+    <div class="avatar-person-info-flex">
       <a class="avatar">
         <img class="avatar" src="${item.avatarUrl}" alt="avatar" />
       </a>
