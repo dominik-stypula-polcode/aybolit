@@ -1,0 +1,6 @@
+@use "../../../cxl-lumo-styles/scss/mq";
+.adeft-playbook-title {
+  @media #{mq.$small} {
+    font-size: var(--lumo-font-size-xxxl);
+  }
+}

@@ -10,11 +10,16 @@ import playbookViewerCSS from '@conversionxl/cxl-ui/src/styles/playbook-viewer-c
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import jsonData from './cxl-playbook.data.json';
 import DataAdapter from './DataAdapter';
+
+/**
+ * Partials/Modules that render specific sections of the Storybook page demo
+ */
 import RenderAvatarPersonInfo from './render-partials/avatarPersonInfo';
 import RenderAvatarPersonBio from './render-partials/avatarPersonBio';
 import RenderRelatedBlogs from './sections/sidebar/relatedBlogs';
 import RenderRelatedLessons from './sections/sidebar/relatedLessons';
 import RenderTools from './sections/sidebar/tools';
+import RenderMainTitle from './render-partials/mainTitle';
 
 export default {
   decorators: [withKnobs],
@@ -81,6 +86,8 @@ export const CxlPlaybookViewerLayout = () => {
           `;
         })}
       </div>
+
+      ${RenderMainTitle(dataAdapter.getPlaybookTitle())}
 
       <section
         class="widget ${hasWidgetBackground ? 'has-background' : ''} only-desktop"
