@@ -1,0 +1,28 @@
+.main-author-info-with-rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--lumo-space-l);
+  @media #{mq.$medium} {
+    flex-wrap: nowrap;
+  }
+
+  .flex-column {
+    flex: 1 1 auto;
+    width: 100%;
+    @media #{mq.$medium} {
+      flex: 0 1 auto;
+      align-self: auto;
+      width: auto;
+      font-size: var(--lumo-font-size-xxxl);
+    }
+  }
+
+  .main-author-info {
+    margin-bottom: var(--lumo-space-s);
+    @media #{mq.$medium} {
+      margin-bottom: 0;
+    }
+  }
+}

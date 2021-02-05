@@ -7,10 +7,11 @@ $margin-between-boxes: var(--lumo-space-l);
 /** Partials, reusable **/
 @import "./playbook-viewer/partial-avatar-person-flex";
 @import "./playbook-viewer/partial-use-case";
+@import "./playbook-viewer/partial-peer-reviewed";
 
 /** Main container modules */
 @import "./playbook-viewer/main-title";
-@import "./playbook-viewer/main-author-info.scss";
+@import "./playbook-viewer/main-author-info-with-rating.scss";
 
 /** Sidebar modules */
 @import "./playbook-viewer/sb_base.scss";
