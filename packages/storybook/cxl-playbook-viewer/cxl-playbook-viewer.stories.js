@@ -23,6 +23,7 @@ import RenderMainTitle from './render-partials/mainTitle';
 import RenderBreadcrumbs from './render-partials/breadcrumbs';
 import RenderUseCase from './render-partials/useCase';
 import RenderRatingWithTooltip from './render-partials/ratingWithTooltip';
+import RenderPeerReviewedText from './render-partials/peerReviewedText';
 // import RenderSyncWith from './render-partials/syncWith'; // greg: disabled as per request
 // import RenderSidebarActions from './sections/sidebar/sidebarActions'; // greg: disabled as per request
 
@@ -101,6 +102,9 @@ export const CxlPlaybookViewerLayout = () => {
         </div>
       </div>
 
+      <!-- Peer Reviewed - text list-->
+      ${RenderPeerReviewedText(dataAdapter.getExpertsNames())}
+
       <!-- Use Case -->
       <div class="main-use-case">
         ${RenderUseCase(dataAdapter.getUseCase())}
@@ -143,11 +147,11 @@ export const CxlPlaybookViewerLayout = () => {
           </div> -->
           <!--End: Validated By SideBar-->
 
-          <!-- Related Blogs -->
-          ${RenderRelatedBlogs(dataAdapter.getRelatedBlogs())}
-
           <!-- Related Lessons & Courses -->
           ${RenderRelatedLessons(dataAdapter.getLessons())}
+
+          <!-- Related Blogs -->
+          ${RenderRelatedBlogs(dataAdapter.getRelatedBlogs())}
 
           <!-- Tools -->
           ${RenderTools(dataAdapter.getTools())}
