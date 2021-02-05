@@ -10,7 +10,7 @@ $margin-between-boxes: var(--lumo-space-l);
 
 /** Main container modules */
 @import "./playbook-viewer/main-title";
-@import "./playbook-viewer/main-author-info.scss";
+@import "./playbook-viewer/main-author-info-with-rating.scss";
 
 /** Sidebar modules */
 @import "./playbook-viewer/sb_base.scss";

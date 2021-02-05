@@ -15,14 +15,16 @@ import DataAdapter from './DataAdapter';
  * Partials/Modules that render specific sections of the Storybook page demo
  */
 import RenderAvatarPersonInfo from './render-partials/avatarPersonInfo';
-import RenderAvatarPersonBio from './render-partials/avatarPersonBio';
+// import RenderAvatarPersonBio from './render-partials/avatarPersonBio'; // greg: disabled as per request
 import RenderRelatedBlogs from './sections/sidebar/relatedBlogs';
 import RenderRelatedLessons from './sections/sidebar/relatedLessons';
 import RenderTools from './sections/sidebar/tools';
 import RenderMainTitle from './render-partials/mainTitle';
 import RenderBreadcrumbs from './render-partials/breadcrumbs';
 import RenderUseCase from './render-partials/useCase';
+import RenderRatingWithTooltip from './render-partials/ratingWithTooltip';
 // import RenderSyncWith from './render-partials/syncWith'; // greg: disabled as per request
+// import RenderSidebarActions from './sections/sidebar/sidebarActions'; // greg: disabled as per request
 
 export default {
   decorators: [withKnobs],
@@ -35,7 +37,7 @@ export const CxlPlaybookViewerLayout = () => {
 
   const dataAdapter = new DataAdapter(jsonData.data);
   const authorObj = dataAdapter.getAuthor();
-  const userLoggedIn = dataAdapter.getUserId() > 0;
+  const userLoggedIn = dataAdapter.getUserId() > 0; // greg: became unused because the component needing it was disabled, to be returned
   const userHasVoted = false;
 
   registerGlobalStyles(playbookViewerCSS, {
@@ -88,8 +90,15 @@ export const CxlPlaybookViewerLayout = () => {
       ${RenderMainTitle(dataAdapter.getPlaybookTitle())}
 
       <!-- Author Info Top -->
-      <div class="main-author-info">
-        ${RenderAvatarPersonInfo(authorObj)} ${RenderAvatarPersonBio(authorObj.bio)}
+      <div class="main-author-info-with-rating">
+        <div class="main-author-info flex-column">
+          ${RenderAvatarPersonInfo(authorObj)}
+          <!-- greg: disable bio rendering as per request -->
+          <!-- {RenderAvatarPersonBio(authorObj.bio)} -->
+        </div>
+        <div class="main-rating flex-column">
+          ${RenderRatingWithTooltip('main-rating-with-tooltip', userLoggedIn)}
+        </div>
       </div>
 
       <!-- Use Case -->
@@ -110,43 +119,9 @@ export const CxlPlaybookViewerLayout = () => {
           </div>
           <!-- sidebar-published -->
 
-          <div class="actions-sb">
-            <div class="info">
-              <span>Rate this playbook:</span>
-              <!-- greg 2021-02-04 : CHANGED as per request -->
-              <!-- <span>Actions:</span> -->
-            </div>
-            <div class="icons-vertical">
-              <div class="icons">
-                <div class="rating">
-                  <div id="with-tooltip-div" class="with-tooltip">
-                    <iron-star-rating id="iron-star-rating" icon="icons:star"></iron-star-rating>
-                    ${!userLoggedIn
-                      ? html`
-                          <paper-tooltip
-                            animationDelay="0"
-                            offset="5"
-                            position="top"
-                            htmlFor="with-tooltip-div"
-                          >
-                            Log in to vote
-                          </paper-tooltip>
-                        `
-                      : ``}
-                  </div>
-                  <!-- with-tooltip-div -->
-                </div>
-                <!-- rating -->
-
-                <!-- greg 2021-02-04 : DISABLED as per request -->
-                <!-- <a href="#" id="share"><i><iron-icon icon="cxl:share"></iron-icon></i><span>Share</span></a> -->
-                <!-- <a href="#" id="report"><i><iron-icon icon="cxl:report"></iron-icon></i><span>Report</span></a> -->
-              </div>
-              <!-- icons -->
-            </div>
-            <!-- icons-vertical -->
-          </div>
-          <!-- actions-sb -->
+          <!-- Sidebar Actions -->
+          <!-- greg: disabled as per request -->
+          <!-- {RenderSidebarActions(userLoggedIn)} -->
 
           <!-- greg: disabled as per request -->
           <!--Begin: Author Info SideBar-->
