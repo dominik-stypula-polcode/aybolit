@@ -19,10 +19,10 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
   _appendOverlayCss() {
     const overlayCss = `
     [part="overlay"] {
-            border-radius: 20px;
+      border-radius: var(--lumo-border-radius-l);
     }
     [part="content"] {
-      width: 200px;
+      width: var(--lumo-space-wide-xl);
       color: transparent;
       background: none;
       box-shadow: none;
@@ -110,6 +110,9 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
         });
 
         contextMenu.dispatchEvent(evt);
+        setTimeout(() => {
+          listBox.innerHTML = '';
+        }, 3000);
       };
     };
   }
