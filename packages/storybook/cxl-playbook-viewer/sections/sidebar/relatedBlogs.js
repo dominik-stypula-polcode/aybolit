@@ -4,8 +4,7 @@ const _renderSingleItem = item => {
   return html`
     <li class="items-list--item">
       <a class="item-link" href=${item.URL} target="_blank" rel="noopener noreferrer">
-        <i><iron-icon icon="lumo:angle-right"></iron-icon></i
-        ><span class="item-text">${item.Name}</span>
+        <span class="item-text">${item.Name}</span>
       </a>
     </li>
   `;
