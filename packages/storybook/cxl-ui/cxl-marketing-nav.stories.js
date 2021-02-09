@@ -5,7 +5,7 @@ import { Headroom } from '@conversionxl/cxl-ui';
 import contextMenuItems from './cxl-marketing-nav.data.json';
 
 export default {
-  title: 'CXL UI/cxl-marketing-nav'
+  title: 'CXL UI/cxl-marketing-nav',
 };
 
 export const CXLMarketingNav = () => {
@@ -19,8 +19,8 @@ export const CXLMarketingNav = () => {
     const headroom = new Headroom(cxlMarketingNavElement, {
       tolerance: {
         up: 30,
-        down: 30
-      }
+        down: 30,
+      },
     });
 
     headroom.init();
@@ -39,7 +39,14 @@ export const CXLMarketingNav = () => {
             <label for="search-input"
               >Search <em style="color: var(--lumo-primary-color);">C</em>XL Institute:</label
             >
-            <input id="search-input" type="search" class="search-field" value="" name="s" />
+            <input
+              id="search-input"
+              type="search"
+              class="search-field"
+              value=""
+              placeholder="Blogs &amp; Playbooks"
+              name="s"
+            />
             <vaadin-button
               type="submit"
               class="search-submit"
