@@ -52,7 +52,6 @@ if (!source) {
 
 glob(source, (err, files) => {
   files
-    // .filter(file => !path.basename(file).startsWith('_'))
     .map((file) => {
       // if not partial, process like regular file
       const isPartial = path.basename(file).startsWith('_');
@@ -60,14 +59,14 @@ glob(source, (err, files) => {
         return file;
       }
 
-      // if this is a partial, try to find its parent searching for `${parent_dir}.scss`
-      const mainScss = `${path.dirname(file)}.scss`;
-      if (fs.existsSync(mainScss)) {
-        return mainScss;
+      // if this is a partial, try to find its parent searching for `${parentScss}.scss`
+      const parentScss = `${path.dirname(file)}.scss`;
+      if (fs.existsSync(parentScss)) {
+        return parentScss;
       }
 
       console.log(
-        `Warning! Partial file detected ${file} \nbut can't find file that should import it: ${mainScss}`
+        `Warning! Partial file detected ${file} \nbut can't find file that should import it: ${parentScss}`
       );
       return null;
     })
