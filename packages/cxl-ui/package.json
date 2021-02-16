@@ -21,13 +21,14 @@
     "@vaadin/vaadin-progress-bar": "^1.1.2",
     "@vaadin/vaadin-tabs": "^3.0.5",
     "@vaadin/vaadin-themable-mixin": "^1.5.2",
+    "cross-env": "~7.0.2",
     "headroom.js": "^0.11.0",
+    "imports-loader": "^0.8.0",
+    "laravel-mix": "^5.0.4",
     "lit-element": "^2.2.1",
     "lit-html": "^1.1.2",
-    "cross-env": "~7.0.2",
-    "laravel-mix": "^5.0.4",
     "postcss-preset-env": "^6.7.0",
-    "imports-loader": "^0.8.0"
+    "sass-loader": "10.x.x"
   },
   "@pika/pack": {
     "pipeline": [

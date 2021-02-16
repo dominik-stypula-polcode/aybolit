@@ -29,6 +29,7 @@ const mix = require('laravel-mix');
  */
 
 const devPath = 'src';
+const devScssPath = 'scss';
 
 /*
  * Sets the path to the generated assets. By default, this is the `/dist/plugin/assets` folder
@@ -71,6 +72,10 @@ mix.version();
  */
 
 mix.js(`${devPath}/index.js`, '').js(`${devPath}/index-vaadin-grid.js`, '');
+
+// currently no wildcard support
+// https://github.com/JeffreyWay/laravel-mix/issues/982
+mix.sass(`${devScssPath}/global/test.scss`, 'css');
 
 /*
  * Extract vendors etc.

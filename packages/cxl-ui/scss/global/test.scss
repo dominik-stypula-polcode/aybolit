@@ -1,0 +1,8 @@
+$x: 20px;
+body {
+  .some-class {
+    .other-class {
+      padding: $x;
+    }
+  }
+}
