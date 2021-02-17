@@ -1,11 +1,12 @@
-@import "./test_partial";
+@use "./test_partial" as test_partial;
 
 $x: 40px;
 body {
   .some-class {
     .other-class {
       padding: $x;
-      margin: $z;
+      margin: test_partial.$z;
+      @extend .test-class;
     }
   }
 }
