@@ -1,8 +1,11 @@
-$x: 20px;
+@import "./test_partial";
+
+$x: 40px;
 body {
   .some-class {
     .other-class {
       padding: $x;
+      margin: $z;
     }
   }
 }
