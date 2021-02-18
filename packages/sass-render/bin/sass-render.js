@@ -53,9 +53,7 @@ if (!source) {
 glob(source, (err, files) => {
   files
     .map((file) => {
-      // if not partial, process like regular file
-      const isPartial = path.basename(file).startsWith('_');
-      if (!isPartial) {
+      if (! path.basename(file).startsWith('_') ) {
         return file;
       }
 
