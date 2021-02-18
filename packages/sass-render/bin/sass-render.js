@@ -57,7 +57,7 @@ glob(source, (err, files) => {
         return file;
       }
 
-      // if this is a partial, try to find its parent searching for `${parentScss}.scss`
+      // if this is a partial, try to find its parent
       const parentScss = `${path.dirname(file)}.scss`;
       if (fs.existsSync(parentScss)) {
         return parentScss;
