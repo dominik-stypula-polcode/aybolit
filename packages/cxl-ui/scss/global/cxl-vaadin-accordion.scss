@@ -144,8 +144,19 @@ cxl-vaadin-accordion {
 
   &[theme~="cxl-hub-cards"] {
     @media #{mq.$large} {
-      column-count: 2;
-      column-gap: calc(var(--lumo-space-m) * 2);
+      // column-count: 2;
+      // column-gap: calc(var(--lumo-space-m) * 2);
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: var(--lumo-space-m) var(--lumo-space-m);
+      grid-template-areas: ". .";
+
+      // display: flex;
+      // flex-direction: row;
+      // flex-wrap: wrap;
+      // width: 100%;
     }
 
     iron-icon {
@@ -228,6 +239,16 @@ cxl-vaadin-accordion {
 
     // This one fixes layout when there's no image on the right because of ::slotted flex-wrap : [
     cxl-accordion-card {
+      height: min-content;
+      margin: 0;
+
+      // Super dirty Greg!
+
+      // display: flex;
+      // flex-direction: column;
+      // flex-basis: 100%;
+      // flex: 1;
+
       .entry-header {
         display: block;
       }
