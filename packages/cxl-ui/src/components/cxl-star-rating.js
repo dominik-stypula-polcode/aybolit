@@ -9,7 +9,7 @@ export class CXLStarRating extends IronStarRating {
 
   constructor() {
     super();
-    this.icon = 'lumo:cog';
+    this.icon = 'vaadin:star';
   }
 
   static get is() {
