@@ -53,11 +53,12 @@ if (!source) {
 glob(source, (err, files) => {
   files
     .map((file) => {
+      // Partial?
       if (! path.basename(file).startsWith('_') ) {
         return file;
       }
 
-      // if this is a partial, try to find its parent
+      // if partial, search for the parent
       const parentScss = `${path.dirname(file)}.scss`;
       if (fs.existsSync(parentScss)) {
         return parentScss;
