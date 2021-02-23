@@ -144,14 +144,18 @@ cxl-vaadin-accordion {
 
   &[theme~="cxl-hub-cards"] {
     @media #{mq.$large} {
+
+      // Greg: tried these three approaches, including the original column-approach
+      // but the design suggests the 'masonry' layout very strongly so went this way
+
       // column-count: 2;
       // column-gap: calc(var(--lumo-space-m) * 2);
 
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr;
-      gap: var(--lumo-space-m) var(--lumo-space-m);
-      grid-template-areas: ". .";
+      // display: grid;
+      // grid-template-columns: 1fr 1fr;
+      // grid-template-rows: 1fr;
+      // gap: var(--lumo-space-m) var(--lumo-space-m);
+      // grid-template-areas: ". .";
 
       // display: flex;
       // flex-direction: row;
@@ -192,6 +196,7 @@ cxl-vaadin-accordion {
       overflow: hidden;
       font-size: var(--lumo-font-size-xl);
       word-break: break-word;
+      margin: 0;
 
       a {
         display: block;
@@ -240,15 +245,7 @@ cxl-vaadin-accordion {
     // This one fixes layout when there's no image on the right because of ::slotted flex-wrap : [
     cxl-accordion-card {
       height: min-content;
-      margin: 0;
-
-      // Super dirty Greg!
-
-      // display: flex;
-      // flex-direction: column;
-      // flex-basis: 100%;
-      // flex: 1;
-
+      margin: 0 0 var(--lumo-space-m) 0;
       .entry-header {
         display: block;
       }
@@ -276,9 +273,9 @@ cxl-vaadin-accordion {
 
     cxl-accordion-card[opened] {
       border-bottom: 1px solid var(--lumo-primary-color);
-      .entry-title {
-        overflow: visible;
-      }
+      // .entry-title {
+      //   overflow: visible;
+      // }
     }
   }
 }
