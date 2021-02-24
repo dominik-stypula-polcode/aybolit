@@ -1,0 +1,45 @@
+::host {
+  display: block;
+  background: pink;
+  margin-top: var(--lumo-space-l);
+  margin-bottom: var(--lumo-space-l);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: block;
+
+  li {
+    display: inline-block;
+    &::after {
+      content: " / ";
+    }
+    &:last-child {
+      &::after {
+        display: none;
+        content: "";
+      }
+    }
+
+    a {
+      font-size: var(--lumo-font-size-s);
+      line-height: var(--lumo-line-height-s);
+      color: var(--lumo-secondary-text-color);
+      font-weight: normal;
+      margin-bottom: var(--lumo-space-xl);
+      text-decoration: none;
+    }
+  }
+}
+
+// .cxl-hub-breadcrumbs {
+// }
+
+.cxl-hub-breadcrumbs a {
+  font-size: var(--lumo-font-size-s);
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: lowercase;
+}
