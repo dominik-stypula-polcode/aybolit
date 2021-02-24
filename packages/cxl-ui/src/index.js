@@ -11,6 +11,7 @@ export { CXLVaadinAccordion } from './components/cxl-vaadin-accordion.js';
 export { CXLPlaybookAccordion } from './components/cxl-playbook-accordion.js';
 export { CXLAccordionCard } from './components/cxl-accordion-card.js';
 export { CXLStarRating } from './components/cxl-star-rating.js';
+export { CXLMasonryLayout } from './components/cxl-masonry-layout.js';
 
 // @todo maybe https://github.com/tc39/proposal-export-default-from
 export { Headroom };
