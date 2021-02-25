@@ -10,7 +10,6 @@
     "directory": "packages/cxl-ui"
   },
   "dependencies": {
-    "@appnest/masonry-layout": "^2.0.8",
     "@conversionxl/cxl-lumo-styles": "^1.1.0-alpha",
     "@cwmr/iron-star-rating": "github:conversionxl/iron-star-rating",
     "@pika/pack": "^0.5.0",

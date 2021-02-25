@@ -151,11 +151,11 @@ cxl-vaadin-accordion {
       // column-count: 2;
       // column-gap: calc(var(--lumo-space-m) * 2);
 
-      // display: grid;
-      // grid-template-columns: 1fr 1fr;
-      // grid-template-rows: 1fr;
-      // gap: var(--lumo-space-m) var(--lumo-space-m);
-      // grid-template-areas: ". .";
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: var(--lumo-space-m) var(--lumo-space-m);
+      grid-template-areas: ". .";
 
       // display: flex;
       // flex-direction: row;
@@ -245,7 +245,9 @@ cxl-vaadin-accordion {
     // This one fixes layout when there's no image on the right because of ::slotted flex-wrap : [
     cxl-accordion-card {
       height: min-content;
-      margin: 0 0 var(--lumo-space-m) 0;
+      // this margin below would have to be applied in another approach to gridding -- masonry
+      // margin: 0 0 var(--lumo-space-m) 0;
+      margin: 0;
       .entry-header {
         display: block;
       }
