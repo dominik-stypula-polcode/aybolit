@@ -83,7 +83,7 @@ export const CXLVaadinAccordionThemeArchive = () => {
             </div>
             <div class="entry-footer" style="text-align: right;">
               <a href="${el.conversionxl_certificate_sales_page}"
-                >View training<iron-icon icon="lumo:angle-right"></iron-icon
+                >Open<iron-icon icon="lumo:angle-right"></iron-icon
               ></a>
             </div>
           </cxl-accordion-card>
