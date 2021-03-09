@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Feed",
+    "url": "#",
+    "playbooks_count": 2,
+    "menu": []
+  },
+  {
+    "title": "Roadmap",
+    "url": "#",
+    "playbooks_count": 2,
+    "menu": []
+  },
+  {
+    "title": "Courses",
+    "url": "#",
+    "playbooks_count": 2,
+    "menu": []
+  },
+  {
+    "title": "Minidegrees",
+    "url": "#",
+    "playbooks_count": 2,
+    "menu": [
+      {
+        "title": "Item 1",
+        "url": "#",
+        "playbooks_count": 15,
+        "menu": []
+      },
+      {
+        "title": "Item 2",
+        "url": "#",
+        "playbooks_count": 7,
+        "menu": []
+      }
+    ]
+  },
+  {
+    "title": "Playbooks",
+    "url": "#",
+    "playbooks_count": 5,
+    "menu": [
+      {
+        "title": "Saved playbooks",
+        "url": "#",
+        "playbooks_count": 15,
+        "menu": []
+      },
+      {
+        "title": "CXL playbooks",
+        "url": "#",
+        "playbooks_count": 7,
+        "menu": []
+      },
+      {
+        "title": "Wynter playbooks",
+        "url": "#",
+        "playbooks_count": 7,
+        "menu": []
+      },
+      {
+        "title": "My drafts",
+        "url": "#",
+        "playbooks_count": 7,
+        "menu": []
+      },
+      {
+        "title": "Peer review playbooks",
+        "url": "#",
+        "playbooks_count": 7,
+        "menu": []
+      }
+    ]
+  },
+  {
+    "title": "Review new contributors",
+    "url": "#",
+    "playbooks_count": 2,
+    "menu": []
+  }
+]
