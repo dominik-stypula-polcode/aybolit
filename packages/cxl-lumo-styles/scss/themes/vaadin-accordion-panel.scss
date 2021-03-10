@@ -189,8 +189,9 @@
   }
 
   a {
+    // greg here was block !important
+    display: block;
     color: var(--lumo-secondary-text-color);;
-    display: block !important;
   }
   [part="content"] {
     padding-left: calc(var(--lumo-space-xl) * 1.5);

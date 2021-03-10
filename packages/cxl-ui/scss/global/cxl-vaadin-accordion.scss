@@ -49,8 +49,8 @@ cxl-vaadin-accordion {
       font-size: var(--lumo-font-size-xl);
       word-break: break-word;
       .entry-tag {
-        font-size: var(--lumo-font-size-m);
         margin-bottom: var(--lumo-space-m);
+        font-size: var(--lumo-font-size-m);
         color: var(--lumo-primary-text-color); // make it red for the default version (light) -- comment to know what/Greg
       }
     }
@@ -217,10 +217,10 @@ cxl-vaadin-accordion {
     .entry-title {
       flex: 1;
       height: auto;
+      margin: 0;
       overflow: hidden;
       font-size: var(--lumo-font-size-xl);
       word-break: break-word;
-      margin: 0;
 
       a {
         display: block;
@@ -233,8 +233,8 @@ cxl-vaadin-accordion {
       }
 
       .entry-tag {
-        font-size: var(--lumo-font-size-m);
         margin-bottom: var(--lumo-space-m);
+        font-size: var(--lumo-font-size-m);
         color: var(--lumo-secondary-text-color);
       }
     }
@@ -318,8 +318,8 @@ cxl-vaadin-accordion {
     .cxl-hub-sidebar-items {
       [cxl-sidebar-hub-link] {
         display: block;
-        color: var(--lumo-body-text-color);
         margin-bottom: var(--lumo-space-s);
+        color: var(--lumo-body-text-color);
       }
       [cxl-sidebar-playbooks-count] {
         padding-left: var(--lumo-space-s);
