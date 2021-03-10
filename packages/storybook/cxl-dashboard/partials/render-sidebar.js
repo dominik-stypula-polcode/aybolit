@@ -2,6 +2,13 @@ import { html } from 'lit-html';
 import sidebarData from '../data/sidebar.data.json';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 
+// eslint-disable-next-line func-names
+const sidebarLinkClickHandler = function () {
+  this.setAttribute('clicked', true);
+  this.preventDefault();
+  return false;
+};
+
 const RenderSidebarMenuItem = (menuItem) => html`
   ${menuItem.menu.length > 0
     ? html` <vaadin-accordion-panel theme="cxl-hub-sidebar">
@@ -9,7 +16,7 @@ const RenderSidebarMenuItem = (menuItem) => html`
         <div class="cxl-hub-items">
           ${menuItem.menu.map(
             (subMenu) => html`
-              <a cxl-sidebar-link href="${subMenu.url}">
+              <a cxl-sidebar-link href="${subMenu.url}" @click="${sidebarLinkClickHandler}">
                 <span cxl-sidebar-title>${subMenu.title}</span>
                 <span cxl-sidebar-playbooks-count>${subMenu.playbooks_count}</span>
               </a>
@@ -17,9 +24,7 @@ const RenderSidebarMenuItem = (menuItem) => html`
           )}
         </div>
       </vaadin-accordion-panel>`
-    : html`
-        <a one-level href="${menuItem.url}" theme="cxl-dashboard-sidebar">${menuItem.title}</a>
-      `}
+    : html` <a one-level href="${menuItem.url}" theme="cxl-hub-sidebar">${menuItem.title}</a> `}
 `;
 
 const RenderSidebar = () =>

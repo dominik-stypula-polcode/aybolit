@@ -20,7 +20,6 @@ export const CXLDashboard = () => {
   const hasWidgetBackground = boolean('Has widget background?', false);
 
   return html`
-    <style></style>
     <style>
       .widget.has-background {
         background-color: var(--lumo-shade-5pct);
@@ -43,6 +42,13 @@ export const CXLDashboard = () => {
         margin-top: 0;
         padding-top: var(--lumo-space-s);
         padding-bottom: var(--lumo-space-s);
+      }
+      vaadin-accordion-panel a[cxl-sidebar-link] {
+        display: block;
+      }
+      vaadin-accordion-panel a[cxl-sidebar-link][clicked] {
+        color: var(--lumo-primary-color);
+        font-weight: 600;
       }
     </style>
 
