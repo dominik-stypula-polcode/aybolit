@@ -1,0 +1,22 @@
+/**
+  Theme of the cxl-vaadin-accordion that hosts the
+  vaadin-accordion-panels responsible for a 2-level menu
+  As discovery shows, trying to change the <a> styles in the
+  vaadin-accordion-pannel itself is a hard (?) task
+ */
+&[theme~="cxl-dashboard-sidebar"] {
+  .cxl-sidebar-items {
+    [cxl-sidebar-link] {
+      display: block;
+      margin-bottom: var(--lumo-space-s);
+      color: var(--lumo-body-text-color);
+    }
+    [cxl-sidebar-playbooks-count] {
+      padding-left: var(--lumo-space-s);
+      color: var(--lumo-secondary-text-color);
+    }
+    [cxl-sidebar-title] {
+      color: var(--lumo-body-text-color);
+    }
+  }
+}
