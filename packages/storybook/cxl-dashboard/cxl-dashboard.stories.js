@@ -2,16 +2,21 @@ import { html } from 'lit-html';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
+import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
+import '@conversionxl/cxl-ui/src/components/cxl-playbook-breadcrumbs.js';
 import { CXLMarketingNav } from '../cxl-ui/cxl-marketing-nav.stories';
+import { CXLFooterNav } from '../cxl-ui/footer-nav.stories';
 import RenderSidebar from './partials/render-sidebar';
+
+import RenderPlaybooks from '../cxl-hubpage/partials/cxl-hubpage-render-playbooks';
 
 export default {
   decorators: [withKnobs],
-  title: 'CXL UI/cxl-dashboard',
+  title: 'CXL Dashboard',
 };
 
 export const CXLDashboard = () => {
-  const hasPanelsScroll = boolean('Has panels scroll?', true);
+  const hasPanelsScroll = boolean('Has panels scroll?', false);
   const hasWidgetBackground = boolean('Has widget background?', false);
 
   return html`
@@ -31,7 +36,7 @@ export const CXLDashboard = () => {
         margin-top: var(--lumo-space-xl);
         margin-bottom: var(--lumo-space-xl);
       }
-      a[theme~='cxl-dashboard-sidebar'] {
+      a[one-level] {
         display: block;
         padding-left: var(--lumo-space-xl);
         margin-bottom: 0;
@@ -59,17 +64,19 @@ export const CXLDashboard = () => {
         ${RenderSidebar()}
       </section>
 
-      <article
-        class="entry author-sensei-teacher post-3923 course type-course status-publish has-post-thumbnail category-general category-video-courses-30-min-or-less tag-marketing tag-optimization post membership-content access-granted user-status-active"
-        itemscope="itemscope"
-        itemtype="https://schema.org/CreativeWork"
-        id="post-3923"
-      >
-        <header class="entry-header">
-          <label>Lesson</label>
-          <h1 class="entry-title">The Persuasion Slide</h1>
+      <article class="entry">
+        <header class="cxl-hub-header">
+          <h2 class="cxl-hub-title">Write a blog.</h2>
         </header>
+        <cxl-vaadin-accordion
+          id="cxl-hubpage-hubs-and-playbooks"
+          class="archive archive-certificate plural"
+          theme="cxl-hub-cards"
+          >${RenderPlaybooks()}</cxl-vaadin-accordion
+        >
       </article>
+
+      ${CXLFooterNav()}
     </cxl-app-layout>
   `;
 };
