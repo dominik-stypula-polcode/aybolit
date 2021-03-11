@@ -3,19 +3,22 @@
     "title": "Feed",
     "url": "#",
     "playbooks_count": 2,
-    "menu": []
+    "menu": [],
+    "tags": ["Playbooks", "Courses", "Minidegrees"]
   },
   {
     "title": "Roadmap",
     "url": "#",
     "playbooks_count": 2,
-    "menu": []
+    "menu": [],
+    "tags": ["Started", "Not Started"]
   },
   {
     "title": "Courses",
     "url": "#",
     "playbooks_count": 2,
-    "menu": []
+    "menu": [],
+    "tags": ["Started", "Not Started"]
   },
   {
     "title": "Minidegrees",
@@ -23,18 +26,19 @@
     "playbooks_count": 2,
     "menu": [
       {
-        "title": "Item 1",
+        "title": "Category 1",
         "url": "#",
         "playbooks_count": 15,
         "menu": []
       },
       {
-        "title": "Item 2",
+        "title": "Category 2",
         "url": "#",
         "playbooks_count": 7,
         "menu": []
       }
-    ]
+    ],
+    "tags": ["Started", "Not Started"]
   },
   {
     "title": "Playbooks",
@@ -45,33 +49,39 @@
         "title": "Saved playbooks",
         "url": "#",
         "playbooks_count": 15,
-        "menu": []
+        "menu": [],
+        "tags": ["Drafts", "Peer review", "Saved"]
       },
       {
         "title": "CXL playbooks",
         "url": "#",
         "playbooks_count": 7,
-        "menu": []
+        "menu": [],
+        "tags": ["Drafts", "Peer review", "Saved"]
       },
       {
         "title": "Wynter playbooks",
         "url": "#",
         "playbooks_count": 7,
-        "menu": []
+        "menu": [],
+        "tags": ["Drafts", "Peer review", "Saved"]
       },
       {
         "title": "My drafts",
         "url": "#",
         "playbooks_count": 7,
-        "menu": []
+        "menu": [],
+        "tags": ["Drafts", "Peer review", "Saved"]
       },
       {
         "title": "Peer review playbooks",
         "url": "#",
         "playbooks_count": 7,
-        "menu": []
+        "menu": [],
+        "tags": ["Drafts", "Peer review", "Saved"]
       }
-    ]
+    ],
+    "tags": ["Drafts", "Peer review", "Saved"]
   },
   {
     "title": "Review new contributors",

@@ -46,9 +46,16 @@ export const CXLDashboard = () => {
       vaadin-accordion-panel a[cxl-sidebar-link] {
         display: block;
       }
-      vaadin-accordion-panel a[cxl-sidebar-link][clicked] {
+      #dashboard-sidebar-menu [is-category][checked] {
         color: var(--lumo-primary-color);
         font-weight: 600;
+      }
+      #selected-tags vaadin-button {
+        margin-right: var(--lumo-space-s);
+        margin-bottom: var(--lumo-space-s);
+      }
+      #selected-tags vaadin-button[selected] {
+        border: 1px solid var(--lumo-primary-color);
       }
     </style>
 
@@ -72,8 +79,9 @@ export const CXLDashboard = () => {
 
       <article class="entry">
         <header class="cxl-hub-header">
-          <h2 class="cxl-hub-title">Write a blog.</h2>
+          <h2 class="cxl-hub-title">Dashboard</h2>
         </header>
+        <div id="selected-tags"></div>
         <cxl-vaadin-accordion
           id="cxl-hubpage-hubs-and-playbooks"
           class="archive archive-certificate plural"

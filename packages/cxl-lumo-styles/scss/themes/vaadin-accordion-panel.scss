@@ -162,7 +162,8 @@
   }
 }
 
-:host([theme~="cxl-hub-sidebar"]) {
+:host([theme~="cxl-hub-sidebar"]),
+:host([theme~="cxl-dashboard-sidebar"]) {
   [part="toggle"] {
     margin-right: var(--lumo-space-m);
     color: var(--lumo-secondary-text-color);
@@ -176,7 +177,8 @@
   }
 }
 
-:host([theme~="cxl-hub-sidebar"][opened]) {
+:host([theme~="cxl-hub-sidebar"][opened]),
+:host([theme~="cxl-dashboard-sidebar"][opened]) {
   [part="toggle"] {
     color: var(--lumo-primary-color);
   }
@@ -191,11 +193,16 @@
   a {
     // greg here was block !important
     display: block;
-    color: var(--lumo-secondary-text-color);;
+    color: var(--lumo-secondary-text-color);
   }
   [part="content"] {
     padding-left: calc(var(--lumo-space-xl) * 1.5);
   }
-
 }
 
+:host([theme~="cxl-dashboard-sidebar"][opened]) {
+  [part="summary"] {
+    font-weight: 400;
+    color: var(--lumo-body-text-color);
+  }
+}
