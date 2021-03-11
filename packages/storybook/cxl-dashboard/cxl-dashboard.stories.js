@@ -9,6 +9,7 @@ import { CXLFooterNav } from '../cxl-ui/footer-nav.stories';
 import RenderSidebar from './partials/render-sidebar';
 
 import RenderPlaybooks from '../cxl-hubpage/partials/cxl-hubpage-render-playbooks';
+import playbooksData from './data/cxl-dashboard.playbooks.data.json';
 
 export default {
   decorators: [withKnobs],
@@ -86,7 +87,7 @@ export const CXLDashboard = () => {
           id="cxl-hubpage-hubs-and-playbooks"
           class="archive archive-certificate plural"
           theme="cxl-hub-cards"
-          >${RenderPlaybooks()}</cxl-vaadin-accordion
+          >${RenderPlaybooks(playbooksData)}</cxl-vaadin-accordion
         >
       </article>
 
