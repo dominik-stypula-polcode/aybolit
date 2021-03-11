@@ -12,7 +12,8 @@ import RenderHubs from './partials/cxl-hubpage-render-hubs';
 import RenderPlaybooks from './partials/cxl-hubpage-render-playbooks';
 import RenderHubsSidebar from './partials/cxl-hubpage-render-sidebar';
 import breadcrumbsData from './data/cxl-hubpage.breadcrumbs.data.json';
-
+import playbooksData from './data/cxl-hubpage.playbooks.data.json';
+import hubsData from './data/cxl-hubpage.hubs.data.json';
 
 export default {
   decorators: [withKnobs],
@@ -20,12 +21,10 @@ export default {
 };
 
 export const CXLDHubPage = () => {
-
   const hasPanelsScroll = boolean('Has panels scroll?', true);
   const hasWidgetBackground = boolean('Has widget background?', false);
 
   return html`
-
     <style>
       .cxl-hub-sidebar-header {
         font-size: var(--lumo-font-size-s);
@@ -45,7 +44,6 @@ export const CXLDHubPage = () => {
       layout="2c-r"
       scroll="${hasPanelsScroll ? 'panels' : 'document'}"
     >
-
       ${CXLMarketingNav()}
 
       <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
@@ -62,11 +60,11 @@ export const CXLDHubPage = () => {
           id="cxl-hubpage-hubs-and-playbooks"
           class="archive archive-certificate plural"
           theme="cxl-hub-cards"
-        >${RenderHubs()}${RenderPlaybooks()}</cxl-vaadin-accordion>
+          >${RenderHubs(hubsData)}${RenderPlaybooks(playbooksData)}</cxl-vaadin-accordion
+        >
       </article>
 
       ${CXLFooterNav()}
-
     </cxl-app-layout>
   `;
 };

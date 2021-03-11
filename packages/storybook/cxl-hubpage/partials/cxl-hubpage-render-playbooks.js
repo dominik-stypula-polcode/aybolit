@@ -1,9 +1,8 @@
 import { html } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import playbooksData from '../data/cxl-hubpage.playbooks.data.json';
 import '@conversionxl/cxl-ui/src/components/cxl-accordion-card.js';
 
-const RenderPlaybooks = () =>
+const RenderPlaybooks = (playbooksData) =>
   playbooksData.map(
     (el) => html`<cxl-accordion-card
       id="${el.cxl_hybrid_attr_post['@attributes'].id}"
