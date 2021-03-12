@@ -23,19 +23,21 @@
   {
     "title": "Minidegrees",
     "url": "#",
-    "playbooks_count": 2,
+    "playbooks_count": 17,
     "menu": [
       {
-        "title": "Category 1",
+        "title": "Advanced stuff",
         "url": "#",
-        "playbooks_count": 15,
-        "menu": []
+        "playbooks_count": 10,
+        "menu": [],
+        "tags": ["Started", "Not Started"]
       },
       {
-        "title": "Category 2",
+        "title": "Average stuff",
         "url": "#",
         "playbooks_count": 7,
-        "menu": []
+        "menu": [],
+        "tags": ["Started", "Not Started"]
       }
     ],
     "tags": ["Started", "Not Started"]
@@ -43,45 +45,45 @@
   {
     "title": "Playbooks",
     "url": "#",
-    "playbooks_count": 5,
+    "playbooks_count": 18,
     "menu": [
       {
         "title": "Saved playbooks",
         "url": "#",
-        "playbooks_count": 15,
+        "playbooks_count": 10,
         "menu": [],
-        "tags": ["Drafts", "Peer review", "Saved"]
+        "tags": ["Drafts", "Peer Review", "Saved"]
       },
       {
         "title": "CXL playbooks",
         "url": "#",
-        "playbooks_count": 7,
+        "playbooks_count": 2,
         "menu": [],
-        "tags": ["Drafts", "Peer review", "Saved"]
+        "tags": ["Drafts", "Peer Review", "Saved"]
       },
       {
         "title": "Wynter playbooks",
         "url": "#",
-        "playbooks_count": 7,
+        "playbooks_count": 1,
         "menu": [],
-        "tags": ["Drafts", "Peer review", "Saved"]
+        "tags": ["Drafts", "Peer Review", "Saved"]
       },
       {
         "title": "My drafts",
         "url": "#",
-        "playbooks_count": 7,
+        "playbooks_count": 2,
         "menu": [],
-        "tags": ["Drafts", "Peer review", "Saved"]
+        "tags": ["Drafts", "Peer Review", "Saved"]
       },
       {
         "title": "Peer review playbooks",
         "url": "#",
-        "playbooks_count": 7,
+        "playbooks_count": 3,
         "menu": [],
-        "tags": ["Drafts", "Peer review", "Saved"]
+        "tags": ["Drafts", "Peer Review", "Saved"]
       }
     ],
-    "tags": ["Drafts", "Peer review", "Saved"]
+    "tags": ["Drafts", "Peer Review", "Saved"]
   },
   {
     "title": "Review new contributors",

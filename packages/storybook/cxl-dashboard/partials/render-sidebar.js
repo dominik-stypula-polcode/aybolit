@@ -3,7 +3,22 @@ import sidebarData from '../data/sidebar.data.json';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 
 const tagClickedHandler = (event) => {
+  document.querySelectorAll('#selected-tags vaadin-button').forEach((el) => {
+    if (el !== event.currentTarget) {
+      el.removeAttribute('selected');
+    }
+  });
+
   event.currentTarget.toggleAttribute('selected');
+
+  const customEvent = new CustomEvent('cxl-dashboard-tags-changed', {
+    detail: {
+      element: event.currentTarget,
+    },
+    bubbles: true,
+  });
+
+  event.currentTarget.dispatchEvent(customEvent);
 };
 
 const displayTags = (tagsJson) => {
@@ -41,6 +56,20 @@ const sidebarCategoryClickHandler = (event) => {
   displayTitle(elementWithHandler);
   displayTags(elementWithHandler.getAttribute('tags'));
 
+  const customEvent = new CustomEvent('cxl-dashboard-category-changed', {
+    detail: {
+      element: event.currentTarget,
+      category: elementWithHandler.querySelector('[cxl-sidebar-title]')
+        ? elementWithHandler.querySelector('[cxl-sidebar-title]').innerText
+        : elementWithHandler.innerText,
+    },
+    bubbles: true,
+  });
+
+  console.log(customEvent);
+
+  elementWithHandler.dispatchEvent(customEvent);
+
   return false;
 };
 
@@ -48,6 +77,7 @@ const RenderSidebarMenuItem = (menuItem) => html`
   ${menuItem.menu.length > 0
     ? html` <vaadin-accordion-panel theme="cxl-dashboard-sidebar">
         <div
+          ?checked=${menuItem.isChecked}
           is-category
           tags="${JSON.stringify(menuItem.tags)}"
           title="${menuItem.title}"
@@ -60,6 +90,7 @@ const RenderSidebarMenuItem = (menuItem) => html`
           ${menuItem.menu.map(
             (subMenu) => html`
               <a
+                ?checked=${subMenu.isChecked}
                 is-category
                 cxl-sidebar-link
                 href="${subMenu.url}"
@@ -76,6 +107,7 @@ const RenderSidebarMenuItem = (menuItem) => html`
       </vaadin-accordion-panel>`
     : html`
         <a
+          ?checked=${menuItem.isChecked}
           is-category
           one-level
           tags="${JSON.stringify(menuItem.tags)}"
@@ -87,10 +119,20 @@ const RenderSidebarMenuItem = (menuItem) => html`
       `}
 `;
 
-const RenderSidebar = () =>
+const RenderSidebar = (defaultCheckedCategory) =>
   html`
     <cxl-vaadin-accordion id="dashboard-sidebar-menu" theme="cxl-hub-sidebar">
-      ${sidebarData.map((menuItem) => RenderSidebarMenuItem(menuItem))}
+      ${sidebarData.map((menuItem) => {
+        // eslint-disable-next-line no-param-reassign
+        menuItem.isChecked = menuItem.title === defaultCheckedCategory;
+        // eslint-disable-next-line no-param-reassign
+        menuItem.menu = menuItem.menu.map((subMenu) => {
+          // eslint-disable-next-line no-param-reassign
+          subMenu.isChecked = subMenu.title === defaultCheckedCategory;
+          return subMenu;
+        });
+        return RenderSidebarMenuItem(menuItem);
+      })}
     </cxl-vaadin-accordion>
   `;
 

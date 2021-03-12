@@ -1,5 +1,5 @@
-import { html } from 'lit-html';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { html, render } from 'lit-html';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
@@ -7,8 +7,9 @@ import '@conversionxl/cxl-ui/src/components/cxl-playbook-breadcrumbs.js';
 import { CXLMarketingNav } from '../cxl-ui/cxl-marketing-nav.stories';
 import { CXLFooterNav } from '../cxl-ui/footer-nav.stories';
 import RenderSidebar from './partials/render-sidebar';
-
-import RenderPlaybooks from '../cxl-hubpage/partials/cxl-hubpage-render-playbooks';
+import RenderPlaybooksDashboard from './partials/render-playbooks-dashboard';
+import coursesData from './data/cxl-dashboard.courses.data.json';
+import minidegreesData from './data/cxl-dashboard.minidegrees.data.json';
 import playbooksData from './data/cxl-dashboard.playbooks.data.json';
 
 export default {
@@ -16,9 +17,52 @@ export default {
   title: 'CXL Dashboard',
 };
 
+const getDataByCategory = (category) => {
+  let data = {};
+  switch (category) {
+    case 'Feed':
+      data = { hubs: minidegreesData, playbooks: playbooksData.concat(coursesData) };
+      break;
+    case 'Roadmap':
+      data = { hubs: [], playbooks: playbooksData };
+      break;
+    case 'Courses':
+      data = { hubs: [], playbooks: coursesData };
+      break;
+    case 'Minidegrees':
+    case 'Advanced stuff':
+    case 'Average stuff':
+      data = { hubs: minidegreesData, playbooks: [] };
+      break;
+    case 'Playbooks':
+      data = { hubs: [], playbooks: playbooksData };
+      break;
+    default:
+      data = { hubs: [], playbooks: playbooksData };
+      break;
+  }
+  return data;
+};
+
 export const CXLDashboard = () => {
   const hasPanelsScroll = boolean('Has panels scroll?', false);
   const hasWidgetBackground = boolean('Has widget background?', false);
+  const defaultCategorySelected = text('Default category selected?', 'Feed');
+
+  document.addEventListener('cxl-dashboard-tags-changed', () => {
+    render(
+      RenderPlaybooksDashboard(minidegreesData, playbooksData.concat(coursesData)),
+      document.getElementById('cxl-dashboard-playbooks')
+    );
+  });
+
+  document.addEventListener('cxl-dashboard-category-changed', (event) => {
+    const data = getDataByCategory(event.detail.category);
+    render(
+      RenderPlaybooksDashboard(data.hubs, data.playbooks),
+      document.getElementById('cxl-dashboard-playbooks')
+    );
+  });
 
   return html`
     <style>
@@ -54,9 +98,15 @@ export const CXLDashboard = () => {
       #selected-tags vaadin-button {
         margin-right: var(--lumo-space-s);
         margin-bottom: var(--lumo-space-s);
+        color: var(--lumo-body-text-color);
       }
       #selected-tags vaadin-button[selected] {
         border: 1px solid var(--lumo-primary-color);
+        color: var(--lumo-primary-color);
+      }
+      span[cxl-sidebar-playbooks-count] {
+        color: var(--lumo-contrast-50pct);
+        margin-left: var(--lumo-space-s);
       }
     </style>
 
@@ -75,7 +125,7 @@ export const CXLDashboard = () => {
         slot="sidebar"
       >
         <h2 class="cxl-sidebar-header">Navigation</h2>
-        ${RenderSidebar()}
+        ${RenderSidebar(defaultCategorySelected)}
       </section>
 
       <article class="entry">
@@ -84,10 +134,10 @@ export const CXLDashboard = () => {
         </header>
         <div id="selected-tags"></div>
         <cxl-vaadin-accordion
-          id="cxl-hubpage-hubs-and-playbooks"
+          id="cxl-dashboard-playbooks"
           class="archive archive-certificate plural"
           theme="cxl-hub-cards"
-          >${RenderPlaybooks(playbooksData)}</cxl-vaadin-accordion
+          >${RenderPlaybooksDashboard([], playbooksData)}</cxl-vaadin-accordion
         >
       </article>
 
