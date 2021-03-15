@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": {
-      "raw": "This is playbook 1"
+      "raw": "This is playbook 1. This has some longer title."
     },
     "content": {
       "cxl_get_extended_main": "<p>This is an example description of a Playboom. Below are the breacrumbs that are taken directly from the fake JSON definition.<\/p>"
