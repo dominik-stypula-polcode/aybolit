@@ -51,7 +51,9 @@ cxl-vaadin-accordion {
       .entry-tag {
         margin-bottom: var(--lumo-space-m);
         font-size: var(--lumo-font-size-m);
-        color: var(--lumo-primary-text-color); // make it red for the default version (light) -- comment to know what/Greg
+        color: var(
+          --lumo-primary-text-color
+        ); // make it red for the default version (light) -- comment to know what/Greg
       }
     }
 
@@ -166,9 +168,9 @@ cxl-vaadin-accordion {
 
   // Greg: these will probably get removed but i needed to add them somewhere
 
-  &[theme~="cxl-hub-cards"] {
+  &[theme~="cxl-hub-cards"],
+  &[theme~="cxl-dashboard-cards"] {
     @media #{mq.$large} {
-
       // Greg: tried these three approaches, including the original column-approach
       // but the design suggests the 'masonry' layout very strongly so went this way
 
@@ -307,13 +309,28 @@ cxl-vaadin-accordion {
     }
   }
 
+  // make avatar visible on the right
+  &[theme~="cxl-dashboard-cards"] {
+    cxl-accordion-card {
+      &[card-type="playbook"] {
+        .is-avatar-url {
+          visibility: hidden;
+        }
+      }
+
+      .entry-header {
+        display: flex;
+      }
+    }
+  }
+
   /**
     Theme of the cxl-vaadin-accordion that hosts the
     vaadin-accordion-panels responsible for a 2-level menu
 
     As discovery shows, trying to change the <a> styles in the
     vaadin-accordion-pannel itself is a hard (?) task
-  */
+   */
   &[theme~="cxl-hub-sidebar"] {
     .cxl-hub-sidebar-items {
       [cxl-sidebar-hub-link] {
@@ -327,5 +344,4 @@ cxl-vaadin-accordion {
       }
     }
   }
-
 }

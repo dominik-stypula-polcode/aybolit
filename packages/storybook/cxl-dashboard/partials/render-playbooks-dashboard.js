@@ -1,7 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { html } from 'lit-element';
-import RenderPlaybooks from '../../cxl-hubpage/partials/cxl-hubpage-render-playbooks';
-import RenderHubs from '../../cxl-hubpage/partials/cxl-hubpage-render-hubs';
+import DashboardRenderItems from './dashboard-render-items';
 
 const filterByTags = (playbooksData) => {
   /**
@@ -28,10 +27,10 @@ const filterByTags = (playbooksData) => {
   return playbooksData;
 };
 
-const RenderPlaybooksDashboard = (hubsData, playbooksData) => {
+const RenderPlaybooksDashboard = (miniDegData, playbooksData) => {
   const filteredPlaybooks = filterByTags(playbooksData);
-  const filteredHubs = filterByTags(hubsData);
-  return html`${RenderHubs(filteredHubs)}${RenderPlaybooks(filteredPlaybooks)}`;
+  const filteredMiniDeg = filterByTags(miniDegData);
+  return html`${DashboardRenderItems(filteredMiniDeg)} ${DashboardRenderItems(filteredPlaybooks)}`;
 };
 
 export default RenderPlaybooksDashboard;

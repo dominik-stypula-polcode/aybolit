@@ -7,7 +7,7 @@ import '@conversionxl/cxl-ui/src/components/cxl-playbook-breadcrumbs.js';
 import { CXLMarketingNav } from '../cxl-ui/cxl-marketing-nav.stories';
 import { CXLFooterNav } from '../cxl-ui/footer-nav.stories';
 import RenderSidebar from './partials/render-sidebar';
-import RenderPlaybooksDashboard from './partials/render-playbooks-dashboard';
+import RenderDashboardItems from './partials/render-playbooks-dashboard';
 import coursesData from './data/cxl-dashboard.courses.data.json';
 import minidegreesData from './data/cxl-dashboard.minidegrees.data.json';
 import playbooksData from './data/cxl-dashboard.playbooks.data.json';
@@ -21,24 +21,24 @@ const getDataByCategory = (category) => {
   let data = {};
   switch (category) {
     case 'Feed':
-      data = { hubs: minidegreesData, playbooks: playbooksData.concat(coursesData) };
+      data = { black: minidegreesData, white: playbooksData.concat(coursesData) };
       break;
     case 'Roadmap':
-      data = { hubs: [], playbooks: playbooksData };
+      data = { black: [], white: playbooksData };
       break;
     case 'Courses':
-      data = { hubs: [], playbooks: coursesData };
+      data = { black: [], white: coursesData };
       break;
     case 'Minidegrees':
     case 'Advanced stuff':
     case 'Average stuff':
-      data = { hubs: minidegreesData, playbooks: [] };
+      data = { black: minidegreesData, white: [] };
       break;
     case 'Playbooks':
-      data = { hubs: [], playbooks: playbooksData };
+      data = { black: [], white: playbooksData };
       break;
     default:
-      data = { hubs: [], playbooks: playbooksData };
+      data = { black: [], white: [] };
       break;
   }
   return data;
@@ -51,7 +51,7 @@ export const CXLDashboard = () => {
 
   document.addEventListener('cxl-dashboard-tags-changed', () => {
     render(
-      RenderPlaybooksDashboard(minidegreesData, playbooksData.concat(coursesData)),
+      RenderDashboardItems(minidegreesData, playbooksData.concat(coursesData)),
       document.getElementById('cxl-dashboard-playbooks')
     );
   });
@@ -59,7 +59,7 @@ export const CXLDashboard = () => {
   document.addEventListener('cxl-dashboard-category-changed', (event) => {
     const data = getDataByCategory(event.detail.category);
     render(
-      RenderPlaybooksDashboard(data.hubs, data.playbooks),
+      RenderDashboardItems(data.black, data.white),
       document.getElementById('cxl-dashboard-playbooks')
     );
   });
@@ -108,6 +108,12 @@ export const CXLDashboard = () => {
         color: var(--lumo-contrast-50pct);
         margin-left: var(--lumo-space-s);
       }
+      .show-time {
+        margin-bottom: var(--lumo-space-xs);
+      }
+      .entry-byline .show-time iron-icon {
+        margin-right: var(--lumo-space-xs);
+      }
     </style>
 
     <cxl-app-layout
@@ -136,8 +142,8 @@ export const CXLDashboard = () => {
         <cxl-vaadin-accordion
           id="cxl-dashboard-playbooks"
           class="archive archive-certificate plural"
-          theme="cxl-hub-cards"
-          >${RenderPlaybooksDashboard([], playbooksData)}</cxl-vaadin-accordion
+          theme="cxl-dashboard-cards"
+          >${RenderDashboardItems([], playbooksData)}</cxl-vaadin-accordion
         >
       </article>
 
