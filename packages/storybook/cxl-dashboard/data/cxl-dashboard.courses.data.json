@@ -101,7 +101,7 @@
       "raw": "This is course 4"
     },
     "content": {
-      "cxl_get_extended_main": "<p>This is an example description of a Playboom. Below are the breacrumbs that are taken directly from the fake JSON definition.<\/p>"
+      "cxl_get_extended_main": "<p>This is an example description of a Course. Below are the breacrumbs that are taken directly from the fake JSON definition.<\/p>"
     },
     "featured_media": 1497178,
     "categories": [
@@ -133,7 +133,7 @@
       "raw": "This is course 5"
     },
     "content": {
-      "cxl_get_extended_main": "<p>This is an example description of a Playboom. Below are the breacrumbs that are taken directly from the fake JSON definition.<\/p><p><em>doing positive stuff</em> | <em>something very interesting</em> | <em>prioritization</em></p>"
+      "cxl_get_extended_main": "<p>This is an example description of a Course. Below are the breacrumbs that are taken directly from the fake JSON definition.<\/p><p><em>doing positive stuff</em> | <em>something very interesting</em> | <em>prioritization</em></p>"
     },
     "featured_media": 1497178,
     "categories": [

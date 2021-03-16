@@ -33,7 +33,7 @@ const displayTags = (tagsJson) => {
 };
 
 const displayTitle = (categoryNode) => {
-  document.querySelector('.cxl-hub-header h2').innerHTML = categoryNode.getAttribute('title');
+  document.querySelector('.cxl-hub-title').innerHTML = categoryNode.getAttribute('title');
 };
 
 const sidebarCategoryClickHandler = (event) => {
@@ -121,6 +121,8 @@ const RenderSidebarMenuItem = (menuItem) => html`
 
 const RenderSidebar = (defaultCheckedCategory) =>
   html`
+    <h3>My Dashboard</h3>
+    <h2 class="cxl-sidebar-header">Navigation</h2>
     <cxl-vaadin-accordion id="dashboard-sidebar-menu" theme="cxl-hub-sidebar">
       ${sidebarData.map((menuItem) => {
         // eslint-disable-next-line no-param-reassign

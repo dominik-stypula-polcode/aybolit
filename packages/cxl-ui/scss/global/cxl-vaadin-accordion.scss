@@ -312,6 +312,11 @@ cxl-vaadin-accordion {
   // make avatar visible on the right
   &[theme~="cxl-dashboard-cards"] {
     cxl-accordion-card {
+      margin-bottom: var(--lumo-space-m);
+      @media #{mq.$large} {
+        margin-bottom: 0;
+      }
+
       &[card-type="playbook"] {
         .is-avatar-url {
           visibility: hidden;
