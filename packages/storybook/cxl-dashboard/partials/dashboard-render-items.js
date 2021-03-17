@@ -28,8 +28,17 @@ const DashboardRenderItems = (itemsData) =>
         belowEntrySummary = renderBreadcrumbs(el);
         break;
 
-      case 'course':
+      case 'playbook-hub':
         theme = 'dark';
+        entryTag = 'Playbook Hub';
+        byline = html` ${el.cxl_steps_count ? html`${el.cxl_steps_count} Steps` : ''}
+          <hr />
+          ${el.cxl_author ? html`Section owner: ${el.cxl_author}` : ''}`;
+        belowEntrySummary = renderBreadcrumbs(el);
+        break;
+
+      case 'course':
+        theme = 'light';
         entryTag = 'Course';
         byline = html` ${html`<div class="show-time">
             <iron-icon icon="lumo:clock"></iron-icon>${el.conversionxl_live_course_duration}

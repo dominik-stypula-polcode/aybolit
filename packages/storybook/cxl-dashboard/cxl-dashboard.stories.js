@@ -8,9 +8,11 @@ import { CXLMarketingNav } from '../cxl-ui/cxl-marketing-nav.stories';
 import { CXLFooterNav } from '../cxl-ui/footer-nav.stories';
 import RenderSidebar from './partials/render-sidebar';
 import RenderDashboardItems from './partials/render-playbooks-dashboard';
+
 import coursesData from './data/cxl-dashboard.courses.data.json';
 import minidegreesData from './data/cxl-dashboard.minidegrees.data.json';
 import playbooksData from './data/cxl-dashboard.playbooks.data.json';
+import playbookHubsData from './data/cxl-dashboard.playbook-hubs.data.json';
 
 export default {
   decorators: [withKnobs],
@@ -23,21 +25,24 @@ const getDataByCategory = (category) => {
   let data;
   switch (category) {
     case 'Most Recent':
-      data = { black: minidegreesData, white: playbooksData.concat(coursesData) };
+      data = {
+        black: playbookHubsData.concat(minidegreesData),
+        white: playbooksData.concat(coursesData),
+      };
       break;
 
-    case 'Roadmap':
-      data = { black: [], white: playbooksData };
+    case 'My Roadmap':
+      data = { black: minidegreesData, white: coursesData };
       break;
 
     case 'Courses':
-      data = { black: coursesData, white: [] };
+      data = { black: [], white: coursesData };
       break;
 
     case 'Minidegrees':
     case 'Advanced stuff':
     case 'Average stuff':
-      data = { black: minidegreesData, white: [] };
+      data = { black: coursesData, white: [] };
       break;
 
     case 'Playbooks':
@@ -46,7 +51,7 @@ const getDataByCategory = (category) => {
     case 'Wynter playbooks':
     case 'My drafts':
     case 'Peer review playbooks':
-      data = { black: [], white: playbooksData };
+      data = { black: playbookHubsData, white: playbooksData };
       break;
 
     default:
@@ -80,7 +85,7 @@ const filterCardsByCategory = (data, category) => {
     case 'Minidegrees':
     case 'Advanced stuff':
     case 'Average stuff':
-      shouldBeType = 'minidegree';
+      shouldBeType = 'course';
       break;
 
     default:
@@ -119,6 +124,10 @@ export const CXLDashboard = () => {
       RenderDashboardItems(data.black, data.white),
       document.getElementById('cxl-dashboard-playbooks')
     );
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('#dashboard-sidebar-menu > a:nth-child(1)').click();
   });
 
   return html`
@@ -177,11 +186,11 @@ export const CXLDashboard = () => {
       }
 
       [slot='sidebar'] h3 {
-        margin-top: var(--lumo-space-s);
+        margin-top: var(--lumo-space-xl);
       }
 
       .right-panel-info {
-        margin-top: var(--lumo-space-xl);
+        margin-top: var(--lumo-space-s);
       }
 
       .right-panel-info > div > :not(span) {
@@ -274,8 +283,7 @@ export const CXLDashboard = () => {
           id="cxl-dashboard-playbooks"
           class="archive archive-certificate plural"
           theme="cxl-dashboard-cards"
-          >${RenderDashboardItems([], playbooksData)}</cxl-vaadin-accordion
-        >
+        ></cxl-vaadin-accordion>
       </article>
 
       ${CXLFooterNav()}

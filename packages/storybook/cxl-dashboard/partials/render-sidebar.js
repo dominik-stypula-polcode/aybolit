@@ -34,15 +34,22 @@ const displayTags = (tagsJson) => {
 
 const displayTitle = (categoryNode) => {
   const categoryTitle = categoryNode.getAttribute('title');
-  if (categoryTitle.indexOf('Roadmap') !== -1) {
+
+  if (categoryTitle.indexOf('My Roadmap') !== -1) {
     document.querySelector('.header-category-time').classList.add('visible');
     document.querySelector('.cxl-hub-header .edit').classList.add('visible');
     document.querySelector('.cxl-hub-header .add-new').classList.remove('visible');
+  } else if (
+    categoryTitle.indexOf('Courses') !== -1 ||
+    categoryTitle.indexOf('Minidegrees') !== -1
+  ) {
+    document.querySelector('.cxl-hub-header .add-new').classList.add('visible');
   } else {
     document.querySelector('.header-category-time').classList.remove('visible');
     document.querySelector('.cxl-hub-header .edit').classList.remove('visible');
-    document.querySelector('.cxl-hub-header .add-new').classList.add('visible');
+    document.querySelector('.cxl-hub-header .add-new').classList.remove('visible');
   }
+
   document.querySelector('.cxl-hub-title').innerHTML = categoryTitle;
 };
 
@@ -129,12 +136,11 @@ const RenderSidebarMenuItem = (menuItem) => html`
 
 const RenderSidebar = (defaultCheckedCategory) =>
   html`
+    <h3>My Dashboard</h3>
     <div class="right-panel-info">
       <div><span>Study commitment:</span><b>16h/wk</b><a href="#">Edit</a></div>
       <div><span>Progress on schedule:</span><b>98% on time</b></div>
     </div>
-
-    <h3>My Dashboard</h3>
     <h2 class="cxl-sidebar-header">Navigation</h2>
     <cxl-vaadin-accordion id="dashboard-sidebar-menu" theme="cxl-hub-sidebar">
       ${sidebarData.map((menuItem) => {
