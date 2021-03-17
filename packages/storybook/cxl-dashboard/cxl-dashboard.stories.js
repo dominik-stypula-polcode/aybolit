@@ -31,7 +31,7 @@ const getDataByCategory = (category) => {
       break;
 
     case 'Courses':
-      data = { black: [], white: coursesData };
+      data = { black: coursesData, white: [] };
       break;
 
     case 'Minidegrees':
@@ -127,10 +127,6 @@ export const CXLDashboard = () => {
         background-color: var(--lumo-shade-5pct);
       }
 
-      [slot='sidebar'] h3 {
-        margin-top: var(--lumo-space-xl);
-      }
-
       .cxl-sidebar-header {
         font-size: var(--lumo-font-size-s);
         line-height: var(--lumo-line-height-s);
@@ -151,35 +147,57 @@ export const CXLDashboard = () => {
         margin-top: var(--lumo-space-m);
       }
 
+      .cxl-hub-header .add-new,
+      .cxl-hub-header .edit {
+        margin-left: var(--lumo-space-l);
+        display: none;
+      }
+
       .cxl-hub-header,
-      .cxl-hub-header .left,
-      .cxl-hub-header .right {
-        display: flex;
-      }
-
-      .cxl-hub-header .right {
-        margin-left: auto;
-      }
-      .cxl-hub-header .right-panel-info > div {
-        display: flex;
-      }
-      .cxl-hub-header .right-panel-info span {
-        color: var(--lumo-secondary-text-color);
-      }
-
-      .cxl-hub-header .middle {
-        justify-content: center;
-        align-items: center;
+      .cxl-hub-header .left {
         display: flex;
       }
 
       .header-category-time {
         color: var(--lumo-contrast-50pct);
         margin-left: var(--lumo-space-m);
+        display: none;
       }
 
-      .right-panel-info > div > * {
+      .header-category-time.visible,
+      .cxl-hub-header .add-new.visible,
+      .cxl-hub-header .edit.visible {
+        display: block;
+      }
+
+      .middle {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+
+      [slot='sidebar'] h3 {
+        margin-top: var(--lumo-space-s);
+      }
+
+      .right-panel-info {
+        margin-top: var(--lumo-space-xl);
+      }
+
+      .right-panel-info > div > :not(span) {
         margin-left: var(--lumo-space-s);
+      }
+
+      .right-panel-info > div {
+        display: flex;
+      }
+
+      .right-panel-info > div > a {
+        color: var(--lumo-primary-color);
+      }
+
+      .right-panel-info span {
+        color: var(--lumo-secondary-text-color);
       }
 
       a[one-level] {
@@ -247,13 +265,8 @@ export const CXLDashboard = () => {
           <div class="left middle">
             <h3 class="cxl-hub-title">Most Recent</h3>
             <div class="header-category-time">36h</div>
-            <a href="#" style="margin-left:10px;">Add New</a>
-          </div>
-          <div class="right middle">
-            <div class="right-panel-info">
-              <div><span>Study commitment:</span><b>16h/wk</b><a href="#">Edit</a></div>
-              <div><span>Progress on schedule:</span><b>98% on time</b></div>
-            </div>
+            <a class="add-new" href="#">Add New</a>
+            <a class="edit" href="#">Edit</a>
           </div>
         </header>
         <div id="selected-tags"></div>

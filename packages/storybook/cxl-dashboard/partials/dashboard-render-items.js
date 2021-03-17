@@ -29,7 +29,7 @@ const DashboardRenderItems = (itemsData) =>
         break;
 
       case 'course':
-        theme = 'light';
+        theme = 'dark';
         entryTag = 'Course';
         byline = html` ${html`<div class="show-time">
             <iron-icon icon="lumo:clock"></iron-icon>${el.conversionxl_live_course_duration}

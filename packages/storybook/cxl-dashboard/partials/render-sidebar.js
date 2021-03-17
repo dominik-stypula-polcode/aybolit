@@ -33,7 +33,17 @@ const displayTags = (tagsJson) => {
 };
 
 const displayTitle = (categoryNode) => {
-  document.querySelector('.cxl-hub-title').innerHTML = categoryNode.getAttribute('title');
+  const categoryTitle = categoryNode.getAttribute('title');
+  if (categoryTitle.indexOf('Roadmap') !== -1) {
+    document.querySelector('.header-category-time').classList.add('visible');
+    document.querySelector('.cxl-hub-header .edit').classList.add('visible');
+    document.querySelector('.cxl-hub-header .add-new').classList.remove('visible');
+  } else {
+    document.querySelector('.header-category-time').classList.remove('visible');
+    document.querySelector('.cxl-hub-header .edit').classList.remove('visible');
+    document.querySelector('.cxl-hub-header .add-new').classList.add('visible');
+  }
+  document.querySelector('.cxl-hub-title').innerHTML = categoryTitle;
 };
 
 const sidebarCategoryClickHandler = (event) => {
@@ -65,8 +75,6 @@ const sidebarCategoryClickHandler = (event) => {
     },
     bubbles: true,
   });
-
-  console.log(customEvent);
 
   elementWithHandler.dispatchEvent(customEvent);
 
@@ -121,6 +129,11 @@ const RenderSidebarMenuItem = (menuItem) => html`
 
 const RenderSidebar = (defaultCheckedCategory) =>
   html`
+    <div class="right-panel-info">
+      <div><span>Study commitment:</span><b>16h/wk</b><a href="#">Edit</a></div>
+      <div><span>Progress on schedule:</span><b>98% on time</b></div>
+    </div>
+
     <h3>My Dashboard</h3>
     <h2 class="cxl-sidebar-header">Navigation</h2>
     <cxl-vaadin-accordion id="dashboard-sidebar-menu" theme="cxl-hub-sidebar">
