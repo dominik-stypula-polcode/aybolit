@@ -8,11 +8,7 @@ import { CXLMarketingNav } from '../cxl-ui/cxl-marketing-nav.stories';
 import { CXLFooterNav } from '../cxl-ui/footer-nav.stories';
 import RenderSidebar from './partials/render-sidebar';
 import RenderDashboardItems from './partials/render-playbooks-dashboard';
-
-import coursesData from './data/cxl-dashboard.courses.data.json';
-import minidegreesData from './data/cxl-dashboard.minidegrees.data.json';
-import playbooksData from './data/cxl-dashboard.playbooks.data.json';
-import playbookHubsData from './data/cxl-dashboard.playbook-hubs.data.json';
+import GetDataByCategory from './get-data-by-category';
 
 export default {
   decorators: [withKnobs],
@@ -21,85 +17,12 @@ export default {
 
 let selectedCategory = '';
 
-const getDataByCategory = (category) => {
-  let data;
-  switch (category) {
-    case 'Most Recent':
-      data = {
-        black: playbookHubsData.concat(minidegreesData),
-        white: playbooksData.concat(coursesData),
-      };
-      break;
-
-    case 'My Roadmap':
-      data = { black: minidegreesData, white: coursesData };
-      break;
-
-    case 'Courses':
-      data = { black: [], white: coursesData };
-      break;
-
-    case 'Minidegrees':
-    case 'Advanced stuff':
-    case 'Average stuff':
-      data = { black: coursesData, white: [] };
-      break;
-
-    case 'Playbooks':
-    case 'Saved playbooks':
-    case 'CXL playbooks':
-    case 'Wynter playbooks':
-    case 'My drafts':
-    case 'Peer review playbooks':
-      data = { black: playbookHubsData, white: playbooksData };
-      break;
-
-    default:
-      data = { black: [], white: [] };
-      break;
-  }
-  return data;
-};
-
-const filterCardsByCategory = (data, category) => {
-  if (data.length < 1 || category.length < 1) {
-    return;
-  }
-
-  let shouldBeType = '';
-
-  switch (category) {
-    case 'Courses':
-      shouldBeType = 'course';
-      break;
-
-    case 'Playbooks':
-    case 'Saved playbooks':
-    case 'CXL playbooks':
-    case 'Wynter playbooks':
-    case 'My drafts':
-    case 'Peer review playbooks':
-      shouldBeType = 'playbook';
-      break;
-
-    case 'Minidegrees':
-    case 'Advanced stuff':
-    case 'Average stuff':
-      shouldBeType = 'course';
-      break;
-
-    default:
-      break;
-  }
-
-  // eslint-disable-next-line consistent-return
-  return data.filter((el) => {
-    const type = el.cxl_item_type;
-    if (shouldBeType.length < 1) {
-      return true;
-    }
-    return !(shouldBeType !== type);
-  });
+const renderItems = () => {
+  const data = GetDataByCategory(selectedCategory);
+  render(
+    RenderDashboardItems(data.black, data.white),
+    document.getElementById('cxl-dashboard-playbooks')
+  );
 };
 
 export const CXLDashboard = () => {
@@ -108,22 +31,12 @@ export const CXLDashboard = () => {
   const defaultCategorySelected = text('Default category selected?', 'Most Recent');
 
   document.addEventListener('cxl-dashboard-tags-changed', () => {
-    render(
-      RenderDashboardItems(
-        filterCardsByCategory(minidegreesData, selectedCategory),
-        filterCardsByCategory(playbooksData.concat(coursesData), selectedCategory)
-      ),
-      document.getElementById('cxl-dashboard-playbooks')
-    );
+    renderItems();
   });
 
   document.addEventListener('cxl-dashboard-category-changed', (event) => {
     selectedCategory = event.detail.category;
-    const data = getDataByCategory(selectedCategory);
-    render(
-      RenderDashboardItems(data.black, data.white),
-      document.getElementById('cxl-dashboard-playbooks')
-    );
+    renderItems();
   });
 
   document.addEventListener('DOMContentLoaded', () => {
