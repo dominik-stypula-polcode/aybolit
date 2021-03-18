@@ -71,7 +71,7 @@ export const CXLDashboard = () => {
 
       .cxl-hub-header .add-new,
       .cxl-hub-header .edit {
-        margin-left: var(--lumo-space-l);
+        margin-left: var(--lumo-space-s);
         display: none;
       }
 
@@ -82,7 +82,7 @@ export const CXLDashboard = () => {
 
       .header-category-time {
         color: var(--lumo-contrast-50pct);
-        margin-left: var(--lumo-space-m);
+        margin-left: var(--lumo-space-s);
         display: none;
       }
 
@@ -133,6 +133,7 @@ export const CXLDashboard = () => {
 
       vaadin-accordion-panel a[cxl-sidebar-link] {
         display: block;
+        margin-bottom: var(--lumo-space-s);
       }
 
       #dashboard-sidebar-menu [is-category][checked] {

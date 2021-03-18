@@ -32,23 +32,32 @@ const displayTags = (tagsJson) => {
   render(templateResultObjects, document.querySelector('#selected-tags'));
 };
 
+const showSpecificActionButtonsForSpecificCategories = (categoryTitle) => {
+  switch (categoryTitle) {
+    case 'My Roadmap':
+      document.querySelector('.header-category-time').classList.add('visible');
+      document.querySelector('.cxl-hub-header .edit').classList.add('visible');
+      document.querySelector('.cxl-hub-header .add-new').classList.remove('visible');
+      break;
+
+    case 'Courses':
+    case 'Minidegrees':
+      document.querySelector('.cxl-hub-header .edit').classList.remove('visible');
+      document.querySelector('.cxl-hub-header .add-new').classList.add('visible');
+      break;
+
+    default:
+      document.querySelector('.header-category-time').classList.remove('visible');
+      document.querySelector('.cxl-hub-header .edit').classList.remove('visible');
+      document.querySelector('.cxl-hub-header .add-new').classList.remove('visible');
+      break;
+  }
+};
+
 const displayTitle = (categoryNode) => {
   const categoryTitle = categoryNode.getAttribute('title');
 
-  if (categoryTitle.indexOf('My Roadmap') !== -1) {
-    document.querySelector('.header-category-time').classList.add('visible');
-    document.querySelector('.cxl-hub-header .edit').classList.add('visible');
-    document.querySelector('.cxl-hub-header .add-new').classList.remove('visible');
-  } else if (
-    categoryTitle.indexOf('Courses') !== -1 ||
-    categoryTitle.indexOf('Minidegrees') !== -1
-  ) {
-    document.querySelector('.cxl-hub-header .add-new').classList.add('visible');
-  } else {
-    document.querySelector('.header-category-time').classList.remove('visible');
-    document.querySelector('.cxl-hub-header .edit').classList.remove('visible');
-    document.querySelector('.cxl-hub-header .add-new').classList.remove('visible');
-  }
+  showSpecificActionButtonsForSpecificCategories(categoryTitle);
 
   document.querySelector('.cxl-hub-title').innerHTML = categoryTitle;
 };

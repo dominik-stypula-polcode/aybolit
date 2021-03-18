@@ -16,6 +16,7 @@ const DashboardRenderItems = (itemsData) =>
     let theme;
     let entryTag;
     let byline;
+    let hasAvatar;
     let belowEntrySummary = '';
 
     switch (el.cxl_item_type) {
@@ -26,15 +27,18 @@ const DashboardRenderItems = (itemsData) =>
           <hr />
           ${el.cxl_author ? html`Author: ${el.cxl_author}` : ''}`;
         belowEntrySummary = renderBreadcrumbs(el);
+        hasAvatar = false;
         break;
 
       case 'playbook-hub':
         theme = 'dark';
         entryTag = 'Playbook Hub';
-        byline = html` ${el.cxl_steps_count ? html`${el.cxl_steps_count} Steps` : ''}
+        byline = html` ${el.cxl_hubs_count ? html`${el.cxl_hubs_count} Hubs, ` : ''}
+          ${el.cxl_playbooks_count ? html`${el.cxl_playbooks_count} Playbooks` : ''}
           <hr />
           ${el.cxl_author ? html`Section owner: ${el.cxl_author}` : ''}`;
         belowEntrySummary = renderBreadcrumbs(el);
+        hasAvatar = false;
         break;
 
       case 'course':
@@ -45,6 +49,7 @@ const DashboardRenderItems = (itemsData) =>
           </div>`}
           <hr />
           ${el.cxl_author ? html`Instructor(s): ${el.cxl_author}` : ''}`;
+        hasAvatar = true;
         break;
 
       case 'minidegree':
@@ -55,14 +60,16 @@ const DashboardRenderItems = (itemsData) =>
           </div>`}
           <hr />
           ${el.cxl_author ? html`Instructor(s): ${el.cxl_author}` : ''}`;
+        hasAvatar = true;
         break;
 
       default:
         theme = 'light';
-        entryTag = 'ITEM';
+        entryTag = '[ITEM]';
         byline = html` ${el.cxl_steps_count ? html`${el.cxl_steps_count} Steps` : ''}
           <hr />
           ${el.cxl_author ? html`Author: ${el.cxl_author}` : ''}`;
+        hasAvatar = true;
         break;
     }
 
@@ -72,7 +79,7 @@ const DashboardRenderItems = (itemsData) =>
       theme="${theme}"
       card-type="${el.cxl_item_type}"
     >
-      <header class="entry-header" slot="summary">
+      <header class="entry-header" style="${hasAvatar ? `` : `display:block`}" slot="summary">
         <h3 class="entry-title no-anchor" itemprop="headline">
           <div class="entry-tag">${entryTag}</div>
           <a href="${el.conversionxl_certificate_sales_page}" rel="bookmark" itemprop="url"
@@ -80,23 +87,27 @@ const DashboardRenderItems = (itemsData) =>
           >
         </h3>
 
-        <a
-          href="${el.conversionxl_certificate_sales_page}"
-          rel="bookmark"
-          itemprop="url"
-          class="is-avatar-url"
-        >
-          <img
-            class="landscape cw-greater thumbnail shop_catalog lazyloaded"
-            alt="${el.title.raw}"
-            itemprop="image"
-            src="${el.cxl_featured_media.shop_catalog}"
-            data-src="${el.cxl_featured_media.shop_catalog}"
-            loading="lazy"
-            width="64"
-            height="64"
-          />
-        </a>
+        ${hasAvatar
+          ? html`
+              <a
+                href="${el.conversionxl_certificate_sales_page}"
+                rel="bookmark"
+                itemprop="url"
+                class="is-avatar-url"
+              >
+                <img
+                  class="landscape cw-greater thumbnail shop_catalog lazyloaded"
+                  alt="${el.title.raw}"
+                  itemprop="image"
+                  src="${el.cxl_featured_media.shop_catalog}"
+                  data-src="${el.cxl_featured_media.shop_catalog}"
+                  loading="lazy"
+                  width="64"
+                  height="64"
+                />
+              </a>
+            `
+          : ``}
 
         <div class="entry-byline">${byline}</div>
       </header>

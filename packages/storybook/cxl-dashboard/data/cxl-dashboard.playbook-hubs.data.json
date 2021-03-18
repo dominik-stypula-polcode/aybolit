@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": {
-      "raw": "This is playbook 1. This has some longer title."
+      "raw": "This is playbook-hub 1. This has some longer title."
     },
     "content": {
       "cxl_get_extended_main": "<p>This is an example description of a Playboom. Below are the breacrumbs that are taken directly from the fake JSON definition.<\/p>"
@@ -14,7 +14,8 @@
     "cxl_item_type": "playbook-hub",
     "cxl_breadcrumbs": ["breadcrumbs", "only", "three", "of", "five"],
     "cxl_tags": ["Drafts", "Started"],
-    "cxl_steps_count": 10,
+    "cxl_hubs_count": 6,
+    "cxl_playbooks_count": 18,
     "cxl_author": "Mr Author",
     "conversionxl_certificate_sales_page": "https:\/\/cxl.com\/institute\/online-course\/ab-testing-mastery\/",
     "conversionxl_live_course_duration": "8h",
@@ -35,7 +36,7 @@
   {
     "id": 2,
     "title": {
-      "raw": "This is playbook 2"
+      "raw": "This is playbook-hub 2. This has some longer title."
     },
     "content": {
       "cxl_get_extended_main": "<p>This is an example description of a Playboom. Below are the breacrumbs that are taken directly from the fake JSON definition.<\/p>"
@@ -47,7 +48,8 @@
     "cxl_item_type": "playbook-hub",
     "cxl_breadcrumbs": ["breadcrumbs", "only", "three", "of", "five"],
     "cxl_tags": ["Playbooks", "Peer Review", "Not Started"],
-    "cxl_steps_count": 10,
+    "cxl_hubs_count": 5,
+    "cxl_playbooks_count": 15,
     "cxl_author": "Mr Author",
     "conversionxl_certificate_sales_page": "https:\/\/cxl.com\/institute\/online-course\/ab-testing-mastery\/",
     "conversionxl_live_course_duration": "8h",
@@ -68,7 +70,7 @@
   {
     "id": 3,
     "title": {
-      "raw": "This is playbook hub 3"
+      "raw": "This is playbook-hub 3. This has some longer title."
     },
     "content": {
       "cxl_get_extended_main": "<p>This is an example description of a Playboom. Below are the breacrumbs that are taken directly from the fake JSON definition.<\/p>"
@@ -80,7 +82,8 @@
     "cxl_item_type": "playbook-hub",
     "cxl_breadcrumbs": ["breadcrumbs", "only", "three", "of", "five"],
     "cxl_tags": ["Playbooks", "Started", "Saved"],
-    "cxl_steps_count": 10,
+    "cxl_hubs_count": 3,
+    "cxl_playbooks_count": 8,
     "cxl_author": "Mr Author",
     "conversionxl_certificate_sales_page": "https:\/\/cxl.com\/institute\/online-course\/ab-testing-mastery\/",
     "conversionxl_live_course_duration": "8h",
@@ -101,7 +104,7 @@
   {
     "id": 4,
     "title": {
-      "raw": "This is playbook hub 4"
+      "raw": "This is playbook-hub 4. This has some longer title."
     },
     "content": {
       "cxl_get_extended_main": "<p>This is an example description of a Playboom. Below are the breacrumbs that are taken directly from the fake JSON definition.<\/p>"
@@ -113,7 +116,8 @@
     "cxl_item_type": "playbook-hub",
     "cxl_breadcrumbs": ["breadcrumbs", "only", "three", "of", "five"],
     "cxl_tags": ["Playbooks", "Drafts", "Not Started"],
-    "cxl_steps_count": 10,
+    "cxl_hubs_count": 2,
+    "cxl_playbooks_count": 5,
     "cxl_author": "Mr Author",
     "conversionxl_certificate_sales_page": "https:\/\/cxl.com\/institute\/online-course\/ab-testing-mastery\/",
     "conversionxl_live_course_duration": "8h",

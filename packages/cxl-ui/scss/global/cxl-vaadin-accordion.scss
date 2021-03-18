@@ -228,7 +228,7 @@ cxl-vaadin-accordion {
         display: block;
         // margin-top: var(--lumo-space-m);
         margin-top: 0;
-        margin-bottom: var(--lumo-space-m);
+        // margin-bottom: var(--lumo-space-m);
         font-size: var(--lumo-font-size-xl);
         line-height: var(--lumo-line-height-s);
         color: inherit;
@@ -312,7 +312,7 @@ cxl-vaadin-accordion {
   // make avatar visible on the right
   &[theme~="cxl-dashboard-cards"] {
     cxl-accordion-card {
-      margin-bottom: var(--lumo-space-m);
+      margin-bottom: var(--lumo-space-s);
       @media #{mq.$large} {
         margin-bottom: 0;
       }
