@@ -33,23 +33,22 @@ const displayTags = (tagsJson) => {
 };
 
 const showSpecificActionButtonsForSpecificCategories = (categoryTitle) => {
+  document.querySelector('.header-category-time').classList.remove('visible');
+  document.querySelector('.cxl-hub-header .edit').classList.remove('visible');
+  document.querySelector('.cxl-hub-header .add-new').classList.remove('visible');
+
   switch (categoryTitle) {
     case 'My Roadmap':
       document.querySelector('.header-category-time').classList.add('visible');
       document.querySelector('.cxl-hub-header .edit').classList.add('visible');
-      document.querySelector('.cxl-hub-header .add-new').classList.remove('visible');
       break;
 
     case 'Courses':
     case 'Minidegrees':
-      document.querySelector('.cxl-hub-header .edit').classList.remove('visible');
       document.querySelector('.cxl-hub-header .add-new').classList.add('visible');
       break;
 
     default:
-      document.querySelector('.header-category-time').classList.remove('visible');
-      document.querySelector('.cxl-hub-header .edit').classList.remove('visible');
-      document.querySelector('.cxl-hub-header .add-new').classList.remove('visible');
       break;
   }
 };
