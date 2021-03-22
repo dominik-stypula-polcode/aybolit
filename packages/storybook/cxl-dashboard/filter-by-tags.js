@@ -5,7 +5,7 @@ const filterByTags = (playbooksData) => {
   const elements = Array.from(document.querySelectorAll('#selected-tags vaadin-button[selected]'));
 
   if (elements && elements.length) {
-    const tags = elements.map((el) => el.innerText);
+    const tags = elements.map((el) => el.getAttribute('tag-name'));
 
     return playbooksData.filter((data) => {
       let hasTag = false;

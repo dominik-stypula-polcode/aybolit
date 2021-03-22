@@ -27,7 +27,7 @@ const displayTags = (tagsJson, tagsCountJson) => {
 
   const templateResultObjects = tagsArr.map(
     (tag, index) =>
-      html`<vaadin-button theme="secondary" @click="${tagClickedHandler}">
+      html`<vaadin-button theme="secondary" @click="${tagClickedHandler}" tag-name="${tag}">
         ${tag} ${tagsCountArr[index] !== undefined ? html`<span>${tagsCountArr[index]}</span>` : ''}
       </vaadin-button>`
   );
