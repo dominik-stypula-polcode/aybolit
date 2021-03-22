@@ -66,6 +66,11 @@ const displayTitle = (categoryNode) => {
 
 const sidebarCategoryClickHandler = (event) => {
   const elementWithHandler = event.currentTarget;
+  const layoutElement = document.querySelector('cxl-app-layout');
+
+  if (!layoutElement.wide) {
+    layoutElement.asideOpened = false;
+  }
 
   event.preventDefault();
 
