@@ -21,12 +21,15 @@ const tagClickedHandler = (event) => {
   event.currentTarget.dispatchEvent(customEvent);
 };
 
-const displayTags = (tagsJson) => {
+const displayTags = (tagsJson, tagsCountJson) => {
   const tagsArr = tagsJson === 'undefined' ? [] : JSON.parse(tagsJson);
+  const tagsCountArr = tagsCountJson === 'undefined' ? [] : JSON.parse(tagsCountJson);
 
   const templateResultObjects = tagsArr.map(
-    (tag) =>
-      html`<vaadin-button theme="secondary" @click="${tagClickedHandler}">${tag}</vaadin-button>`
+    (tag, index) =>
+      html`<vaadin-button theme="secondary" @click="${tagClickedHandler}">
+        ${tag} ${tagsCountArr[index] !== undefined ? html`<span>${tagsCountArr[index]}</span>` : ''}
+      </vaadin-button>`
   );
 
   render(templateResultObjects, document.querySelector('#selected-tags'));
@@ -79,7 +82,10 @@ const sidebarCategoryClickHandler = (event) => {
   elementWithHandler.setAttribute('checked', true);
 
   displayTitle(elementWithHandler);
-  displayTags(elementWithHandler.getAttribute('tags'));
+  displayTags(
+    elementWithHandler.getAttribute('tags'),
+    elementWithHandler.getAttribute('tags_elements_count')
+  );
 
   const customEvent = new CustomEvent('cxl-dashboard-category-changed', {
     detail: {
@@ -118,6 +124,7 @@ const RenderSidebarMenuItem = (menuItem) => html`
                 cxl-sidebar-link
                 href="${subMenu.url}"
                 tags="${JSON.stringify(subMenu.tags)}"
+                tags_elements_count="${JSON.stringify(subMenu.tags_elements_count)}"
                 title="${subMenu.title}"
                 @click="${sidebarCategoryClickHandler}"
               >
@@ -134,6 +141,7 @@ const RenderSidebarMenuItem = (menuItem) => html`
           is-category
           one-level
           tags="${JSON.stringify(menuItem.tags)}"
+          tags_elements_count="${JSON.stringify(menuItem.tags_elements_count)}"
           title="${menuItem.title}"
           href="${menuItem.url}"
           @click="${sidebarCategoryClickHandler}"

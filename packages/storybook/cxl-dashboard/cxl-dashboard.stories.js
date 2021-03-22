@@ -152,6 +152,7 @@ export const CXLDashboard = () => {
         color: var(--lumo-primary-color);
       }
 
+      #selected-tags vaadin-button span,
       span[cxl-sidebar-playbooks-count] {
         color: var(--lumo-contrast-50pct);
         margin-left: var(--lumo-space-s);
