@@ -45,7 +45,8 @@
         "tags_elements_count": [15, 5]
       }
     ],
-    "tags": ["Started", "Not Started"]
+    "tags": ["Started", "Not Started"],
+    "tags_elements_count": [25, 15]
   },
   {
     "title": "Playbooks",
