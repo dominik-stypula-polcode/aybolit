@@ -26,7 +26,6 @@ const renderItems = () => {
 };
 
 export const CXLDashboard = () => {
-  const hasPanelsScroll = boolean('Has panels scroll?', false);
   const hasWidgetBackground = boolean('Has widget background?', false);
   const defaultCategorySelected = text('Default category selected?', 'Most Recent');
 
@@ -167,11 +166,7 @@ export const CXLDashboard = () => {
       }
     </style>
 
-    <cxl-app-layout
-      id="container"
-      layout="2c-r"
-      scroll="${hasPanelsScroll ? 'panels' : 'document'}"
-    >
+    <cxl-app-layout id="container" layout="2c-r" scroll="document">
       ${CXLMarketingNav()}
 
       <section
