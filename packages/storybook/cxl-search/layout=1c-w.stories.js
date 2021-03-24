@@ -1,7 +1,6 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
-import '@vaadin/vaadin-combo-box';
 import { CXLMarketingNav } from '../cxl-ui/cxl-marketing-nav.stories';
 import { CXLFooterNav } from '../cxl-ui/footer-nav.stories';
 import { displaySearchFilters } from './displaySearchFilters';
@@ -35,6 +34,29 @@ export const CXLSearch = () => html`
       </header>
       <div class="entry-content">
         <div class="card">
+
+          <vaadin-button
+            type="submit"
+            class="search-submit"
+            aria-label="Search"
+            theme="icon"
+          >Test button</vaadin-button>
+
+          <vaadin-combo-box label="Label" clear-button-visible></vaadin-combo-box>
+          <script>
+            customElements.whenDefined('vaadin-button').then(function(){
+                console.log("Success: vaadin-button is defined!");
+            });
+            customElements.whenDefined('vaadin-combo-box').then(function(){
+              console.log("Success: vaadin-combo-box is defined!");
+            });
+            // customElements.whenDefined('vaadin-combo-box').then(function() {
+            //   const comboBox = document.querySelector('vaadin-combo-box');
+            //   comboBox.items = ['Option one', 'Option two'];
+            //   comboBox.value = 'Option one';
+            // });
+          </script>
+
             ${displaySearchFilters()}
         </div>
       </div>
