@@ -23,6 +23,16 @@ export const CXLSearch = () => html`
       break-inside: avoid;
       transform: translateZ(0);
     }
+    .filters {
+      display: flex;
+    }
+    #sort-combo {
+      display: flex;
+      margin-left: auto;
+    }
+    #topic-combo {
+      margin-left: var(--lumo-space-l);
+    }
   </style>
   <cxl-app-layout id="container" layout="1c-w">
     ${CXLMarketingNav()}
@@ -33,32 +43,7 @@ export const CXLSearch = () => html`
         <h1 class="entry-title">Join the top 1% of digital marketing.</h1>
       </header>
       <div class="entry-content">
-        <div class="card">
-
-          <vaadin-button
-            type="submit"
-            class="search-submit"
-            aria-label="Search"
-            theme="icon"
-          >Test button</vaadin-button>
-
-          <vaadin-combo-box label="Label" clear-button-visible></vaadin-combo-box>
-          <script>
-            customElements.whenDefined('vaadin-button').then(function(){
-                console.log("Success: vaadin-button is defined!");
-            });
-            customElements.whenDefined('vaadin-combo-box').then(function(){
-              console.log("Success: vaadin-combo-box is defined!");
-            });
-            // customElements.whenDefined('vaadin-combo-box').then(function() {
-            //   const comboBox = document.querySelector('vaadin-combo-box');
-            //   comboBox.items = ['Option one', 'Option two'];
-            //   comboBox.value = 'Option one';
-            // });
-          </script>
-
-            ${displaySearchFilters()}
-        </div>
+        <div class="card filters">${displaySearchFilters()}</div>
       </div>
     </article>
 
