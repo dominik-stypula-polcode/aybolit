@@ -1,4 +1,5 @@
 import { html } from 'lit-html';
+// @todo: to multiple-select
 import '@vaadin/vaadin-combo-box';
 import filtersData from './data/search-filters.data.json';
 
