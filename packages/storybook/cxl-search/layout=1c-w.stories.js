@@ -27,7 +27,6 @@ export const CXLSearch = () => html`
       display: flex;
     }
     #sort-combo {
-      display: flex;
       margin-left: auto;
     }
     #topic-combo {
