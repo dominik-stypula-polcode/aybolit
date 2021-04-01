@@ -97,7 +97,7 @@ export const CXLSearch = () => html`
     ${CXLMarketingNav()}
     <article class="entry">
       <header class="entry-header">
-        <label>Page</label>
+        <label>Search results</label>
         <h1 class="entry-title">Join the top 1% of digital marketing.</h1>
       </header>
       <div class="entry-content">
