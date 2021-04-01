@@ -2,10 +2,6 @@
 
   "categories": [
     {
-      "name": "any",
-      "id": "any"
-    },
-    {
       "name": "Category 1",
       "id": "category-1"
     },
@@ -28,10 +24,6 @@
   ],
 
   "topics": [
-    {
-      "name": "any",
-      "id": "any"
-    },
     {
       "name": "Topic one",
       "id": "topic-one"
