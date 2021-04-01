@@ -1,8 +1,8 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
-import { CXLMarketingNav } from '../cxl-ui/cxl-marketing-nav.stories';
-import { CXLFooterNav } from '../cxl-ui/footer-nav.stories';
+import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
+import { CXLFooterNav } from '../footer-nav.stories';
 import { displaySearchFilters } from './displaySearchFilters';
 import searchResults from './data/search-results.data.json';
 import searchPaginationData from './data/search-pagination.data.json';
