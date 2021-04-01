@@ -44,14 +44,22 @@ const renderComboSingle = (items, label, id) => html`
       </select>
     </div>`
 
+const handleCheckboxClick = (evt) => {
+  const currentDropdown = evt.target.parentNode.parentNode.parentNode;
+  const anchor = currentDropdown.querySelector(".multiselect-anchor-text");
+  const firstChecked = currentDropdown.querySelector("input[type='checkbox']:checked");
+
+  anchor.innerHTML =  firstChecked ? `${firstChecked.parentNode.innerText} (...)` : `Any`;
+};
+
 const renderCombo = (items, label, id) => html`
     <div id="${id}" class="dropdown-check-list" tabindex="100">
       <div class="combo-label">${label}</div>
       <span class="anchor">
-        Any <span class="fs-arrow"></span>
+        <span class="multiselect-anchor-text">Any</span> <span class="fs-arrow"></span>
       </span>
       <ul class="items">
-        ${items.map((item) => html`<li><input type="checkbox" id="${item.id}"/>${item.name} </li>`) }
+        ${items.map((item) => html`<li><input type="checkbox" id="${item.id}" @change=${handleCheckboxClick} />${item.name} </li>`) }
       </ul>
     </div>`
 
@@ -93,8 +101,9 @@ const hideSelectMenuWhenNotFocused = () => {
       const optionsClicked = (
          t === anchor ||
          t === el ||
-         t.parentNode === el ||
-         t.parentNode.parentNode === el);
+        (t.parentNode && t.parentNode === el) ||
+        (t.parentNode.parentNode && t.parentNode.parentNode === el)
+      );
 
       if(!optionsClicked)
       {
@@ -123,12 +132,12 @@ export const displaySearchFilters = () => html`
     .fs-arrow {
       width: 0;
       height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 5px solid #333;
+      border-left: var(--lumo-space-xs) solid transparent;
+      border-right: var(--lumo-space-xs) solid transparent;
+      border-top: var(--lumo-space-xs) solid var(--lumo-header-text-color);
       position: absolute;
       top: 0;
-      right: 5px;
+      right: var(--lumo-space-xs);
       bottom: 0;
       margin: auto;
       transition: ease-in 0.15s;
@@ -150,8 +159,12 @@ export const displaySearchFilters = () => html`
       position: relative;
       cursor: pointer;
       display: inline-block;
-      padding: 5px 50px 5px 10px;
-      border: 1px solid #ccc;
+      padding-top: var(--lumo-space-xs);
+      padding-right: calc(var(--lumo-space-xl) * 2.5);
+      padding-bottom: var(--lumo-space-xs);
+      padding-left: var(--lumo-space-s);
+      /*  padding: 5px 50px 5px 10px; */
+      border: 1px solid  var(--lumo-secondary-text-color);
     }
 
 
@@ -164,16 +177,12 @@ export const displaySearchFilters = () => html`
       padding: 2px;
       display: none;
       margin: 0;
-      border: 1px solid #ccc;
+      border: 1px solid  var(--lumo-secondary-text-color);
       border-top: none;
     }
 
     .dropdown-check-list ul.items li {
       list-style: none;
-    }
-
-    .dropdown-check-list.visible .anchor {
-      color: #0094ff;
     }
 
     .dropdown-check-list.visible .items {
