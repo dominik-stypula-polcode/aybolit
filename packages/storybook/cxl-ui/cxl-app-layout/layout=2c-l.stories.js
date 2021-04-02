@@ -78,11 +78,7 @@ export const CXLAppLayout2cl = () => {
         <p>Rate this playbook ${CXLStarRating()}</p>
         <p>
           <vaadin-button theme="tertiary contrast"
-          >Share <iron-icon icon="lumo:cog" slot="prefix"></iron-icon
-          ></vaadin-button>
-          <br />
-          <vaadin-button theme="tertiary contrast"
-          >Report <iron-icon icon="lumo:error" slot="prefix"></iron-icon
+          >Leave feedback <iron-icon icon="lumo:error" slot="prefix"></iron-icon
           ></vaadin-button>
         </p>
       </section>
