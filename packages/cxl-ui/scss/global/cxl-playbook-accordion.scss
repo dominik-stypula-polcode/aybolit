@@ -1,8 +1,7 @@
 cxl-playbook-accordion {
   ol,
   ul {
-    padding-left: 0;
-    list-style-type: none; // Fights with `[part="content"] border-left`.
+    padding-left: var(--lumo-space-xs);
   }
 
   .entry-header {
