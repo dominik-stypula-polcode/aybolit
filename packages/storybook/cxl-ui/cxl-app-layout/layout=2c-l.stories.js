@@ -39,37 +39,16 @@ export const CXLAppLayout2cl = () => {
       ${CXLMarketingNav()}
 
       <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
-        <label>Last updated</label>
-        <p>
-          <strong><date>Jan 26, 2021</date></strong>
-        </p>
-      </section>
-
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
-        <label>Actions</label>
-        <p>Rate this playbook ${CXLStarRating()}</p>
-        <p>
-          <vaadin-button theme="tertiary contrast"
-            >Share <iron-icon icon="lumo:cog" slot="prefix"></iron-icon
-          ></vaadin-button>
-          <br />
-          <vaadin-button theme="tertiary contrast"
-            >Report <iron-icon icon="lumo:error" slot="prefix"></iron-icon
-          ></vaadin-button>
-        </p>
-      </section>
-
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
         <label>About the author</label>
         <vaadin-accordion opened="-1">
           <vaadin-accordion-panel theme="reverse">
             <h5 class="widget-title" slot="summary">
               <a href="https://trafficiscurrency.com"
-                ><img
-                  style="--cxl-thumbnail-size: var(--lumo-font-size-xxxl); vertical-align: middle"
-                  class="thumbnail"
-                  src="https://secure.gravatar.com/avatar/7a56e8ca34286d16241bb78980ee63e5?s=96&amp;d=mm&amp;r=g"
-                />
+              ><img
+                style="--cxl-thumbnail-size: var(--lumo-font-size-xxxl); vertical-align: middle"
+                class="thumbnail"
+                src="https://secure.gravatar.com/avatar/7a56e8ca34286d16241bb78980ee63e5?s=96&amp;d=mm&amp;r=g"
+              />
                 Wes Bush</a
               >
             </h5>
@@ -95,12 +74,42 @@ export const CXLAppLayout2cl = () => {
       </section>
 
       <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
+        <label>Actions</label>
+        <p>Rate this playbook ${CXLStarRating()}</p>
+        <p>
+          <vaadin-button theme="tertiary contrast"
+          >Share <iron-icon icon="lumo:cog" slot="prefix"></iron-icon
+          ></vaadin-button>
+          <br />
+          <vaadin-button theme="tertiary contrast"
+          >Report <iron-icon icon="lumo:error" slot="prefix"></iron-icon
+          ></vaadin-button>
+        </p>
+      </section>
+
+      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
         <label>Related blog posts</label>
         <h5 class="widget-title">
           <a href="https://cxl.com/blog/saas-go-to-market-strategy/"
-            >Is your SaaS go-to-market strategy tsunami-proof?</a
+          >Is your SaaS go-to-market strategy tsunami-proof?</a
           >
         </h5>
+      </section>
+
+      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
+        <label>Related course</label>
+        <h5 class="widget-title">
+          <a href="https://cxl.com/blog/saas-go-to-market-strategy/"
+          >This is example course name here. Just an example provided</a
+          >
+        </h5>
+      </section>
+
+      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
+        <label>Last updated</label>
+        <p>
+          <strong><date>Jan 26, 2021</date></strong>
+        </p>
       </section>
 
       <article id="post-${playbookId}" class="entry post-${playbookId} playbook type-playbook">
