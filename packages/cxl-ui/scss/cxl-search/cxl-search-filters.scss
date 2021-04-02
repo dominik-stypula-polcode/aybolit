@@ -1,4 +1,3 @@
-// @todo: CSS -> SCSS syntax
 :focus {
   outline: 0;
 }
@@ -20,44 +19,38 @@
   display:block;
 }
 .dropdown-check-list {
-  display: inline-block;
-}
+    display: inline-block;
 
-.dropdown-check-list select.items {
-  padding: var(--lumo-space-s);
-  font-size: var(--lumo-font-size-m);
-}
+    select {
+      &.items {
+        padding: var(--lumo-space-s);
+        font-size: var(--lumo-font-size-m);
+      }
+    }
 
-.dropdown-check-list .anchor {
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
-  padding-top: var(--lumo-space-xs);
-  padding-right: calc(var(--lumo-space-xl) * 2.5);
-  padding-bottom: var(--lumo-space-xs);
-  padding-left: var(--lumo-space-s);
-  /*  padding: 5px 50px 5px 10px; */
-  border: 1px solid  var(--lumo-secondary-text-color);
-}
+    .anchor {
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      padding: var(--lumo-space-xs) calc(var(--lumo-space-xl) * 2.5) var(--lumo-space-xs) var(--lumo-space-s);
+      border: 1px solid  var(--lumo-secondary-text-color);
+    }
 
+    ul {
+      &.items {
+        padding: 2px;
+        display: none;
+        margin: 0;
+        border: 1px solid var(--lumo-secondary-text-color);
+        border-top: none;
 
-.dropdown-check-list .anchor:active:after {
-  right: 8px;
-  top: 21%;
-}
+        li {
+          list-style: none;
+        }
+      }
+    }
 
-.dropdown-check-list ul.items {
-  padding: 2px;
-  display: none;
-  margin: 0;
-  border: 1px solid  var(--lumo-secondary-text-color);
-  border-top: none;
-}
-
-.dropdown-check-list ul.items li {
-  list-style: none;
-}
-
-.dropdown-check-list.visible .items {
-  display: block;
+    &.visible .items {
+      display: block;
+    }
 }
