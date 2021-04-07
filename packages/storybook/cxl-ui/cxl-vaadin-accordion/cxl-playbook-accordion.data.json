@@ -5,7 +5,7 @@
       "rendered": "Testing all types of&nbsp;<strong><em>text<\/em><\/strong>&nbsp;<strong>formating<\/strong>"
     },
     "content": {
-      "rendered": "\n\nText with <sup>superscript<\/sup>. \n\n\n\nText with <sub>subscript<\/sub>. \n\n\n\nText with <em>italic<\/em>. \n\n\n\nText with <strong>bold<\/strong>. \n\n\n\nText with <strong><em>bold italic<\/em><\/strong>. \n\n\n\nText with <span class=\"has-inline-color has-accent-color\">colour<\/span>.\n\n\n\nInline <code>code<\/code>\n\n\n\n<pre class=\"wp-block-code\"><code>Code block\n\/.\/\/fsaffasfas\nfiewhtwe\n&lt;!@$#@%&amp;(>123f<\/code><\/pre>\n\n\n\n<ul><li>List<\/li><li>list<\/li><li>List<\/li><\/ul>\n\n\n\n<ol><li>Numbered list<\/li><li>Numbered list<\/li><li>Numbered list<\/li><li>Numbered list<\/li><\/ol>\n\n\n\n\n\n"
+      "rendered": "\n\nText with <sup>superscript<\/sup>. \n\n\n\nText with <sub>subscript<\/sub>. \n\n\n\nText with <em>italic<\/em>. \n\n\n\nText with <strong>bold<\/strong>. \n\n\n\nText with <strong><em>bold italic<\/em><\/strong>. \n\n\n\nText with <span class=\"has-inline-color has-accent-color\">colour<\/span>.\n\n\n\nInline <code>code<\/code>\n\n\n\n<pre class=\"wp-block-code\"><code>Code block\n\/.\/\/fsaffasfas\nfiewhtwe\n&lt;!@$#@%&amp;(>123f<\/code><\/pre>\n\n\n\n<ul><li>List<\/li><li>list<\/li><li>List<\/li><\/ul>\n\n\n\n<ol><li>Numbered list<\/li><li>Numbered list<\/li><li>Numbered list<\/li><li>Numbered list<\/li><\/ol>\n\n\n\n\n\n<p>Paragraph test<\/p><p>Paragraph test<\/p><p>Paragraph test<br \/>line break<br \/>line break<br \/>line break<\/p><p>Paragraph test<\/p><p>Paragraph test<\/p><p>Paragraph test<\/p>"
     }
   },
   {
