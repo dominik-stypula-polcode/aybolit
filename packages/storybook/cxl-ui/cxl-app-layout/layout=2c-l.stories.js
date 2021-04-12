@@ -17,33 +17,10 @@ export const CXLAppLayout2cl = () => {
   const playbookId = 1234;
   const hasWidgetBackground = boolean('Has widget background?', false);
 
+  // styles in: cxl-ui/scss/global/cxl-app-layout.scss
+  // under: &[layout^="2c-l"]
+
   return html`
-    <style>
-      .widget.has-background {
-        background-color: var(--lumo-shade-5pct);
-      }
-      .widget > label {
-        display: block;
-      }
-      .widget h5.widget-title {
-        font-weight: 700;
-        margin-top: 0.5em; /* match <p> */
-      }
-
-      .widget h5.widget-title > a {
-        color: inherit;
-      }
-      .peer-profile-url {
-        color: inherit;
-      }
-      .entry .entry-header label.peer-reviewed-by {
-        text-transform: none;
-      }
-      .entry-content p {
-        font-family: var(--lumo-font-family);
-      }
-    </style>
-
     <cxl-app-layout id="container" layout="2c-l" scroll="panels">
       ${CXLMarketingNav()}
 
