@@ -148,10 +148,13 @@
  * Theme "cxl-playbook-accordion".
  */
 :host([theme~="cxl-playbook-accordion"]) {
+  border-bottom-color: var(--lumo-primary-color-10pct);
+
   [part="content"] {
     * {
       font-size: var(--lumo-font-size-m);
     }
+
     padding-top: 0;
     padding-bottom: 0;
     padding-left: var(--lumo-space-l);
