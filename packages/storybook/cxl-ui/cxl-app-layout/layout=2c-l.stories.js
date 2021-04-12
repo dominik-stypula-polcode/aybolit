@@ -36,6 +36,12 @@ export const CXLAppLayout2cl = () => {
       .peer-profile-url {
         color: inherit;
       }
+      .entry .entry-header label.peer-reviewed-by {
+        text-transform: none;
+      }
+      .entry-content p {
+        font-family: var(--lumo-font-family);
+      }
     </style>
 
     <cxl-app-layout id="container" layout="2c-l" scroll="panels">
@@ -100,7 +106,7 @@ export const CXLAppLayout2cl = () => {
             </section>
 
             <section class="widget">
-              <label>Peer reviewed by</label>
+              <label class="peer-reviewed-by">Peer reviewed by</label>
               <h5 class="widget-title">
                 <a href="https://twitter.com/andreea_maco" class="peer-profile-url">Andreea Macoveiciuc</a>
               </h5>
