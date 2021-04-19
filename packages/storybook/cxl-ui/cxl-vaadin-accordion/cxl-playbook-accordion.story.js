@@ -10,14 +10,14 @@ const render = (htmlStr) => {
   return unsafeHTML(htmlWithoutAnchors);
 };
 
-let cnt = 0;
-
 export const CXLPlaybookAccordion = ({ FeedbackButtonLabel, PlaybookId }) => {
-  cnt += 1;
+  let stepCnt = 0;
   return html`
     <cxl-playbook-accordion id="playbook-${PlaybookId}" class="plural" opened="0">
-      ${playbookStepData.map(
-        (el) => html`
+      ${playbookStepData.map((el) => {
+        stepCnt += 1;
+
+        return html`
           <vaadin-accordion-panel
             class="playbook-step"
             theme="cxl-playbook-accordion reverse"
@@ -26,7 +26,7 @@ export const CXLPlaybookAccordion = ({ FeedbackButtonLabel, PlaybookId }) => {
             <header class="entry-header" slot="summary">
               <h3 class="entry-title no-anchor" itemprop="headline">
                 <vaadin-checkbox value="${el.id}"></vaadin-checkbox>
-                ${cnt}. ${render(el.title.rendered)}
+                ${stepCnt}. ${render(el.title.rendered)}
               </h3>
             </header>
 
@@ -40,8 +40,8 @@ export const CXLPlaybookAccordion = ({ FeedbackButtonLabel, PlaybookId }) => {
               </vaadin-button>
             </div>
           </vaadin-accordion-panel>
-        `
-      )}
+        `;
+      })}
     </cxl-playbook-accordion>
   `;
 };
