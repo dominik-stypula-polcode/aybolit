@@ -63,6 +63,11 @@ const onload = () => {
         icon.addEventListener('mouseleave', () => {
           setDelay();
         });
+
+        icon.addEventListener('click', (evt) => {
+          // here should go the comment popup handler click
+          evt.stopImmediatePropagation();
+        });
       });
     });
   });
