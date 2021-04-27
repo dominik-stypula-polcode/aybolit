@@ -9,32 +9,60 @@ const hideAll = () => {
     el.classList.add('hidden');
   });
 };
+
+const clearTimeout = () => {
+  window.clearTimeout(tmpTimeoutId);
+};
+
+const setDelay = () => {
+  clearTimeout();
+  tmpTimeoutId = window.setTimeout(() => hideAll(), 2000);
+};
+
+const isLayoutWide = () => document.querySelector('cxl-app-layout').wide;
+
 const onload = () => {
   window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('cxl-playbook-accordion').forEach((el) => {
       el.addEventListener('mouseleave', () => {
-        window.clearTimeout(tmpTimeoutId);
-        tmpTimeoutId = window.setTimeout(() => hideAll(), 2000);
+        setDelay();
       });
     });
 
     document.querySelectorAll('vaadin-accordion-panel').forEach((el) => {
       el.addEventListener('mouseenter', (evt) => {
-        window.clearTimeout(tmpTimeoutId);
-        tmpTimeoutId = window.setTimeout(() => hideAll(), 2000);
+        if (!isLayoutWide()) {
+          return;
+        }
+        setDelay();
 
-        const t = evt.target;
-        const stepId = t.getAttribute('data-step-id');
+        const stepId = evt.target.getAttribute('data-step-id');
         const commentIcon = document.querySelector(
           `[icon="vaadin:comment"][data-step-id="${stepId}"]`
         );
+
         hideAll();
-        commentIcon.classList.remove('hidden');
+
+        if (commentIcon) {
+          commentIcon.classList.remove('hidden');
+        }
       });
 
       el.addEventListener('mouseleave', () => {
-        window.clearTimeout(tmpTimeoutId);
-        tmpTimeoutId = window.setTimeout(() => hideAll(), 2000);
+        if (!isLayoutWide()) {
+          return;
+        }
+        setDelay();
+      });
+
+      el.querySelectorAll('iron-icon').forEach((icon) => {
+        icon.addEventListener('mouseenter', () => {
+          clearTimeout();
+        });
+
+        icon.addEventListener('mouseleave', () => {
+          setDelay();
+        });
       });
     });
   });
@@ -48,10 +76,13 @@ export const CXLPlaybookAccordion = () => html`
     vaadin-accordion-panel {
       position: relative;
     }
-    iron-icon {
+    vaadin-accordion-panel iron-icon {
       position: absolute;
-      top: 10%;
-      right: -2em;
+      top: calc(50% - 10px);
+      right: calc(var(--lumo-space-l) * -2);
+    }
+    vaadin-accordion-panel iron-icon:hover {
+      cursor: pointer;
     }
   </style>
   ${onload()}
