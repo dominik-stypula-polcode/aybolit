@@ -52,9 +52,7 @@ export const CXLPlaybookCard = () => html`
               >Playbook, ${el.categories_names[1]}</label
             >
 
-            <div class="entry-summary" itemprop="description">
-              cat-level-1 | cat-level-2 | tag1 | tag2 | tag3
-            </div>
+            <div class="entry-summary" itemprop="description">${el.breadcrumbs.join('/')}</div>
 
             <h2 class="entry-title no-anchor" itemprop="headline">
               <a href="${el.conversionxl_certificate_sales_page}" rel="bookmark" itemprop="url"
