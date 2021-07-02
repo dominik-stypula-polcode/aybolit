@@ -25,8 +25,9 @@ export const CXLPlaybookCard = () => html`
     }
     .entry-summary {
       width: 100%;
-      padding: var(--lumo-space-xs) 0;
+      padding: var(--lumo-space-s) 0;
       word-wrap: normal;
+      color: var(--lumo-contrast-50pct);
     }
   </style>
   <cxl-vaadin-accordion
@@ -48,9 +49,9 @@ export const CXLPlaybookCard = () => html`
           <header class="entry-header" slot="summary">
             <label
               style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
-              title="Playbook, ${el.categories_names[1]}"
+              title="Playbook"
               class="entry-type"
-              >Playbook, ${el.categories_names[1]}</label
+              >Playbook</label
             >
 
             <div class="entry-summary" itemprop="description">${el.breadcrumbs.join('/')}</div>
