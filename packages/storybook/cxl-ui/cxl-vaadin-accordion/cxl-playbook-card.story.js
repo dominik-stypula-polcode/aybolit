@@ -1,6 +1,7 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-accordion-card.js';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import jsonData from './playbook-card.data.json';
 
 export const CXLPlaybookCard = () => html`
@@ -66,10 +67,7 @@ export const CXLPlaybookCard = () => html`
           <div class="entry-content" itemprop="text">
             <p><strong>Use case</strong></p>
             <div class="ttr_start"></div>
-            <p>
-              Decide on which formula to use and calculate the amount of customers canceling their
-              subscription/product over a period of time
-            </p>
+            <p>${unsafeHTML(el.content.cxl_get_extended_main)}</p>
             <div class="ttr_end"></div>
             <ol>
               ${el.playbook_steps.map((step) => html` <li>${step.title}</li> `)}
