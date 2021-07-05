@@ -21,6 +21,7 @@ export const CXLPlaybookAccordion = ({ PlaybookId }) => html`
             <script>
               window.FastCommentsUI(document.getElementById('fastcomments-widget-${el.id}'), {
                 tenantId: 'demo',
+                urlId: 'https://${window.location.host}/playbooks/${PlaybookId}/${el.id}',
               });
             </script>
           </div>
