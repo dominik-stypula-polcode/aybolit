@@ -20,7 +20,7 @@ export const CXLPlaybookAccordion = ({ PlaybookId }) => html`
             <div id="fastcomments-widget-${el.id}"></div>
             <script>
               window.FastCommentsUI(document.getElementById('fastcomments-widget-${el.id}'), {
-                tenantId: 'demo',
+                tenantId: 'gGi6z7Ges',
                 urlId: 'https://${window.location.host}/playbooks/${PlaybookId}/${el.id}',
               });
             </script>
