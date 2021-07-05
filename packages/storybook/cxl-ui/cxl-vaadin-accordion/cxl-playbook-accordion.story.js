@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import playbookStepData from './cxl-playbook-accordion.data.json';
 
-export const CXLPlaybookAccordion = ({ FeedbackButtonLabel, PlaybookId }) => html`
+export const CXLPlaybookAccordion = ({ PlaybookId }) => html`
   <cxl-playbook-accordion id="cxl-playbook-accordion-${PlaybookId}" class="plural" opened="0">
     ${playbookStepData.map(
       (el) => html`
@@ -15,12 +15,12 @@ export const CXLPlaybookAccordion = ({ FeedbackButtonLabel, PlaybookId }) => htm
           </header>
           <div class="entry-summary" itemprop="description">${unsafeHTML(el.content.rendered)}</div>
           <div class="entry-footer">
-            <vaadin-button
-              onclick="alert('Step ID: ' + this.closest('vaadin-accordion-panel').dataset.stepId)"
-            >
-              <iron-icon icon="vaadin:comment" slot="prefix"></iron-icon>
-              ${FeedbackButtonLabel}
-            </vaadin-button>
+            <script
+              defer
+              src="https://cdn.commento.io/js/commento.js"
+              data-id-root="commento-${el.id}"
+            ></script>
+            <div id="commento-${el.id}"></div>
           </div>
         </vaadin-accordion-panel>
       `
