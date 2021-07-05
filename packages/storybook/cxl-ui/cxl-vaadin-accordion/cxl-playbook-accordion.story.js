@@ -5,7 +5,7 @@ import playbookStepData from './cxl-playbook-accordion.data.json';
 export const CXLPlaybookAccordion = ({ PlaybookId }) => html`
   <cxl-playbook-accordion id="cxl-playbook-accordion-${PlaybookId}" class="plural" opened="0">
     ${playbookStepData.map(
-      (el) => html`
+      (el, index) => html`
         <vaadin-accordion-panel theme="cxl-playbook-accordion reverse" data-step-id="${el.id}">
           <header class="entry-header" slot="summary">
             <vaadin-checkbox value="${el.id}"></vaadin-checkbox>
@@ -15,12 +15,17 @@ export const CXLPlaybookAccordion = ({ PlaybookId }) => html`
           </header>
           <div class="entry-summary" itemprop="description">${unsafeHTML(el.content.rendered)}</div>
           <div class="entry-footer">
-            <script
-              defer
-              src="https://cdn.commento.io/js/commento.js"
-              data-id-root="commento-${el.id}"
-            ></script>
-            <div id="commento-${el.id}"></div>
+            ${index === 0
+              ? html`
+                  <script
+                    defer
+                    src="https://cdn.commento.io/js/commento.js"
+                    data-id-root="commento-${el.id}"
+                    data-auto-init="true"
+                  ></script>
+                  <div id="commento-${el.id}"></div>
+                `
+              : ``}
           </div>
         </vaadin-accordion-panel>
       `
