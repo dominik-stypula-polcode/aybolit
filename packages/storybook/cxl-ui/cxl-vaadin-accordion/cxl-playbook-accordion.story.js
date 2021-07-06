@@ -50,9 +50,6 @@ export const CXLPlaybookAccordion = ({ PlaybookId, UserId, UserEmail, UserName }
                 ${el.id}. ${unsafeHTML(el.title.rendered)}
               </h3>
             </header>
-            <div class="entry-summary" itemprop="description">
-              ${unsafeHTML(el.content.rendered)}
-            </div>
             <div class="entry-footer">
               <div id="fastcomments-widget-${PlaybookId}-${el.id}"></div>
               ${loadCommentsScript(el)}
