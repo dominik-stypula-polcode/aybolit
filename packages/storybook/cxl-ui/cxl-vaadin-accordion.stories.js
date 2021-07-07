@@ -10,8 +10,10 @@ export default {
 // @todo localStorage data panel?
 Object.assign(CXLPlaybookAccordion, {
   args: {
-    FeedbackButtonLabel: 'Leave feedback',
     PlaybookId: '1234',
+    UserId: '333',
+    UserName: 'test_user',
+    UserEmail: 'test_user@example.com',
   },
   storyName: 'cxl-playbook-accordion',
 });
