@@ -5,7 +5,6 @@ import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import '@conversionxl/cxl-ui/src/components/cxl-playbook-accordion.js';
 import '@vaadin/vaadin-button';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
-import { CXLStarRating } from '../cxl-star-rating.stories';
 import { CXLPlaybookAccordion } from '../cxl-vaadin-accordion.stories';
 
 export default {
@@ -47,7 +46,11 @@ export const CXLAppLayout2cl = () => {
 
       <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
         <label>Actions</label>
-        <p>Rate this playbook ${CXLStarRating()}</p>
+
+        <p>
+          <cxl-like-or-dislike upVotes="300" id="123-456"></cxl-like-or-dislike>
+        </p>
+
         <p>
           <vaadin-button theme="tertiary contrast"
             >Share <iron-icon icon="lumo:cog" slot="prefix"></iron-icon

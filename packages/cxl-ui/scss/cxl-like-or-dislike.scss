@@ -1,0 +1,25 @@
+div {
+  display: flex;
+  font-size: var(--lumo-font-size-s);
+
+  > div {
+    padding: var(--lumo-space-s);
+  }
+
+  [counter] {
+    font-weight: 700;
+    color: var(--lumo-primary-color);
+  }
+
+  .checked {
+    color: var(--lumo-primary-color);
+  }
+
+  iron-icon:hover {
+    &:not(.checked) {
+      color: var(--lumo-contrast-80pct);
+    }
+
+    cursor: pointer;
+  }
+}
