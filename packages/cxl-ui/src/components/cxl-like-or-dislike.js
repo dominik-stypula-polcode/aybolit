@@ -4,7 +4,7 @@ import cxlLikeOrDislikeStyles from '../styles/cxl-like-or-dislike-css.js';
 
 @customElement('cxl-like-or-dislike')
 export class CXLLikeOrDislikeElement extends LitElement {
-  @property({ type: Number, reflect: true })
+  @property({ type: Number })
   upVotes = 0;
 
   @property({ type: Number })
@@ -31,8 +31,13 @@ export class CXLLikeOrDislikeElement extends LitElement {
     return [cxlLikeOrDislikeStyles];
   }
 
-  _clearChecked() {
+  async _clearChecked() {
     this.shadowRoot.querySelectorAll('iron-icon').forEach((el) => el.classList.remove('checked'));
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  async _checkItem(target) {
+    target.classList.add('checked');
   }
 
   async _upVote(event) {
@@ -40,10 +45,9 @@ export class CXLLikeOrDislikeElement extends LitElement {
     this.value = 1;
 
     await this._sendToApi();
-    this._saveState();
-    this._clearChecked();
-
-    target.classList.add('checked');
+    await this._saveState();
+    await this._clearChecked();
+    await this._checkItem(target);
   }
 
   async _downVote(event) {
@@ -51,18 +55,17 @@ export class CXLLikeOrDislikeElement extends LitElement {
     this.value = -1;
 
     await this._sendToApi();
-    this._saveState();
-    this._clearChecked();
-
-    target.classList.add('checked');
+    await this._saveState();
+    await this._clearChecked();
+    await this._checkItem(target);
   }
 
   _getUniqueId() {
     return `cxl-like-or-dislike-${this.userId}-${this.postType}-${this.postId}`;
   }
 
-  _saveState() {
-    localStorage.setItem(this._getUniqueId(), Number(this.value));
+  async _saveState() {
+    localStorage.setItem(this._getUniqueId(), String(this.value));
   }
 
   async _sendToApi() {
@@ -113,7 +116,9 @@ export class CXLLikeOrDislikeElement extends LitElement {
   render() {
     return html`<div>
       <div counter>${this.upVotes + this.value}</div>
-      <div><iron-icon @click="${this._upVote}" icon="vaadin:thumbs-up-o"></iron-icon></div>
+      <div>
+        <iron-icon @click="${this._upVote}" icon="vaadin:thumbs-up-o"></iron-icon>
+      </div>
       <div>
         <iron-icon @click="${this._downVote}" icon="vaadin:thumbs-down-o"></iron-icon>
       </div>
