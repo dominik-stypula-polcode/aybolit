@@ -44,17 +44,13 @@ export class CXLLikeOrDislikeElement extends LitElement {
   }
 
   async _upVote(event) {
-    const target = event.currentTarget;
     this.value = 1;
-
-    await this._vote(target);
+    await this._vote(event.currentTarget);
   }
 
   async _downVote(event) {
-    const target = event.currentTarget;
     this.value = -1;
-
-    await this._vote(target);
+    await this._vote(event.currentTarget);
   }
 
   async _vote(target) {
