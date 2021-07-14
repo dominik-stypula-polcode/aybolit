@@ -1,4 +1,4 @@
-import { customElement, LitElement, html, property } from 'lit-element';
+import { customElement, LitElement, html, property, query, queryAll } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import cxlLikeOrDislikeStyles from '../styles/cxl-like-or-dislike-css.js';
 
@@ -18,6 +18,18 @@ export class CXLLikeOrDislikeElement extends LitElement {
 
   @property({ type: String })
   postType;
+
+  @query('[counter]')
+  counter;
+
+  @query('.vote[up]')
+  voteUp;
+
+  @query('.vote[down]')
+  voteDown;
+
+  @queryAll('.vote')
+  voteAll;
 
   /**
    * API Url to which we make a POST request
@@ -87,14 +99,14 @@ export class CXLLikeOrDislikeElement extends LitElement {
   }
 
   async _clearChecked() {
-    this.shadowRoot.querySelectorAll('.vote').forEach((el) => el.classList.remove('checked'));
-    this.shadowRoot.querySelector('[counter]').classList.remove('checked');
+    this.voteAll.forEach((el) => el.classList.remove('checked'));
+    this.counter.classList.remove('checked');
   }
 
   // eslint-disable-next-line class-methods-use-this
   async _checkItem(target) {
     target.classList.add('checked');
-    this.shadowRoot.querySelector('[counter]').classList.add('checked');
+    this.counter.classList.add('checked');
   }
 
   firstUpdated(_changedProperties) {
@@ -106,11 +118,11 @@ export class CXLLikeOrDislikeElement extends LitElement {
       this.value = previousVal;
 
       if (this.value === 1) {
-        this.shadowRoot.querySelector('.vote[up]').classList.add('checked');
-        this.shadowRoot.querySelector('[counter]').classList.add('checked');
+        this.voteUp.classList.add('checked');
+        this.counter.classList.add('checked');
       } else if (this.value === -1) {
-        this.shadowRoot.querySelector('.vote[down]').classList.add('checked');
-        this.shadowRoot.querySelector('[counter]').classList.add('checked');
+        this.voteDown.classList.add('checked');
+        this.counter.classList.add('checked');
       }
     }
   }
