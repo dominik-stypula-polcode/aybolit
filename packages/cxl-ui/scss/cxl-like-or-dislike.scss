@@ -1,9 +1,14 @@
 :host > div {
   display: flex;
-  font-size: var(--lumo-font-size-s);
+  flex-direction: column;
+  font-family: var(--lumo-font-family);
+  font-size: var(--lumo-font-size-m);
+  font-weight: 500;
+  color: var(--lumo-contrast);
 
   > div {
-    padding: var(--lumo-space-s);
+    padding-top: var(--lumo-space-m);
+    padding-left: calc(var(--lumo-space-xs) * 1.5);
   }
 
   [counter] {
@@ -14,7 +19,20 @@
     color: var(--lumo-primary-color);
   }
 
-  iron-icon:hover {
+  .vote {
+    iron-icon {
+      width: var(--lumo-icon-size-m);
+      height: var(--lumo-icon-size-m);
+      font-size: var(--lumo-font-size-s);
+    }
+
+    span {
+      margin-left: var(--lumo-space-s);
+      line-height: var(--lumo-line-height-xs);
+    }
+  }
+
+  .vote:hover {
     &:not(.checked) {
       color: var(--lumo-contrast-80pct);
     }

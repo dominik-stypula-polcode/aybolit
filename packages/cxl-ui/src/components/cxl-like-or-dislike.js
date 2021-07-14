@@ -31,15 +31,6 @@ export class CXLLikeOrDislikeElement extends LitElement {
     return [cxlLikeOrDislikeStyles];
   }
 
-  async _clearChecked() {
-    this.shadowRoot.querySelectorAll('iron-icon').forEach((el) => el.classList.remove('checked'));
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  async _checkItem(target) {
-    target.classList.add('checked');
-  }
-
   async _upVote(event) {
     const target = event.currentTarget;
     this.value = 1;
@@ -95,6 +86,17 @@ export class CXLLikeOrDislikeElement extends LitElement {
     return response.status;
   }
 
+  async _clearChecked() {
+    this.shadowRoot.querySelectorAll('.vote').forEach((el) => el.classList.remove('checked'));
+    this.shadowRoot.querySelector('[counter]').classList.remove('checked');
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  async _checkItem(target) {
+    target.classList.add('checked');
+    this.shadowRoot.querySelector('[counter]').classList.add('checked');
+  }
+
   firstUpdated(_changedProperties) {
     super.firstUpdated(_changedProperties);
 
@@ -104,23 +106,23 @@ export class CXLLikeOrDislikeElement extends LitElement {
       this.value = previousVal;
 
       if (this.value === 1) {
-        this.shadowRoot.querySelector('[icon*="thumbs-up"]').classList.add('checked');
-      }
-
-      if (this.value === -1) {
-        this.shadowRoot.querySelector('[icon*="thumbs-down"]').classList.add('checked');
+        this.shadowRoot.querySelector('.vote[up]').classList.add('checked');
+        this.shadowRoot.querySelector('[counter]').classList.add('checked');
+      } else if (this.value === -1) {
+        this.shadowRoot.querySelector('.vote[down]').classList.add('checked');
+        this.shadowRoot.querySelector('[counter]').classList.add('checked');
       }
     }
   }
 
   render() {
     return html`<div>
-      <div counter>${this.upVotes + this.value}</div>
-      <div>
-        <iron-icon @click="${this._upVote}" icon="vaadin:thumbs-up-o"></iron-icon>
+      <div counter>${this.upVotes + this.value} Votes</div>
+      <div class="vote" @click="${this._upVote}" up>
+        <iron-icon icon="vaadin:thumbs-up-o"></iron-icon><span>Upvote</span>
       </div>
-      <div>
-        <iron-icon @click="${this._downVote}" icon="vaadin:thumbs-down-o"></iron-icon>
+      <div class="vote" @click="${this._downVote}" down>
+        <iron-icon icon="vaadin:thumbs-down-o"></iron-icon><span>Downvote</span>
       </div>
     </div>`;
   }
