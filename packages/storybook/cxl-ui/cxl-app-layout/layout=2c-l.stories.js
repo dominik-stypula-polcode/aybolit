@@ -48,7 +48,12 @@ export const CXLAppLayout2cl = () => {
         <label>Actions</label>
 
         <p>
-          <cxl-like-or-dislike upVotes="300" id="123-456"></cxl-like-or-dislike>
+          <cxl-like-or-dislike
+            postType="playbook"
+            postId="1234"
+            userId="3"
+            upVotes="400"
+          ></cxl-like-or-dislike>
         </p>
 
         <p>
