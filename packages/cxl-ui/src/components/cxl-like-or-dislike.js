@@ -47,16 +47,17 @@ export class CXLLikeOrDislikeElement extends LitElement {
     const target = event.currentTarget;
     this.value = 1;
 
-    await this._sendToApi();
-    await this._saveState();
-    await this._clearChecked();
-    await this._checkItem(target);
+    await this._vote(target);
   }
 
   async _downVote(event) {
     const target = event.currentTarget;
     this.value = -1;
 
+    await this._vote(target);
+  }
+
+  async _vote(target) {
     await this._sendToApi();
     await this._saveState();
     await this._clearChecked();
