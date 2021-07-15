@@ -29,6 +29,10 @@ export const CXLPlaybookCard = () => html`
       word-wrap: normal;
       color: var(--lumo-contrast-50pct);
     }
+    .entry-byline {
+      display: flex;
+      flex-direction: column;
+    }
   </style>
   <cxl-vaadin-accordion
     id="cxl-vaadin-accordion-26107"
@@ -62,7 +66,10 @@ export const CXLPlaybookCard = () => html`
               >
             </h2>
 
-            <div class="entry-byline">Author: ${el.conversionxl_certificate_instructor}</div>
+            <div class="entry-byline">
+              <div>Votes: 400</div>
+              <div>Author: ${el.conversionxl_certificate_instructor}</div>
+            </div>
           </header>
 
           <div class="entry-content" itemprop="text">
